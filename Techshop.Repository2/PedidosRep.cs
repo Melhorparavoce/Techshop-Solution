@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SkyHubAdapter.Application;
 using SkyHubAdapter.Domain.SkyHub;
 using Model.CodeFirst.Models;
 using System.Data.SqlClient;

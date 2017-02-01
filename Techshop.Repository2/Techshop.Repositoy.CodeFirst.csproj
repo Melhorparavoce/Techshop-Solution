@@ -63,13 +63,12 @@
       <DependentUpon>201701301102533_Techshop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ItemPedido.cs" />
+    <Compile Include="Models\Mapping\TEC_CLIENTEMap.cs" />
     <Compile Include="Models\Mapping\TEC_ITEM_PEDIDOMap.cs" />
     <Compile Include="Models\Mapping\TEC_PEDIDOSMap.cs" />
-    <Compile Include="Models\Mapping\TEC_CLIENTEMap.cs" />
-    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\TechshopContext.cs" />
-    <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="PedidosRep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,10 +87,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SkyHubAdapter.Application\SkyHubAdapter.Application.csproj">
-      <Project>{788ba59a-b599-453c-839f-454342173007}</Project>
-      <Name>SkyHubAdapter.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SkyHubAdapter.Domain\SkyHubAdapter.Domain.csproj">
       <Project>{0e210e3b-c709-4e29-b96f-82ca431d7250}</Project>
       <Name>SkyHubAdapter.Domain</Name>

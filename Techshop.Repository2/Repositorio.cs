@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using Techshop.Repositoy.CodeFirst.Interface;
 using Model.CodeFirst.Models;
-using System.Data.Entity;
+
 
 namespace Techshop.Repositoy.CodeFirst
 {

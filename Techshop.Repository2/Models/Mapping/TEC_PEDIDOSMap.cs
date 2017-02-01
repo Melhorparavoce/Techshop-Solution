@@ -30,23 +30,23 @@ namespace Model.CodeFirst.Models.Mapping
             // Table & Column Mappings
             this.ToTable("TEC_PEDIDOS");
            
-            this.Property(t => t.CodigoPedido).HasColumnName("CodigoPedido");
-            this.Property(t => t.DescricaoCanal).HasColumnName("DescricaoCanal");          
-            this.Property(t => t.CodigoCanal).HasColumnName("CodigoCanal");
-            this.Property(t => t.DataEstimadaEntrega).HasColumnName("DataEstimadaEntrega");
-            this.Property(t => t.DescricaoInterface).HasColumnName("DescricaoInterface");
-            this.Property(t => t.DataLocalizadoDesde).HasColumnName("DataLocalizadoDesde");
-            this.Property(t => t.DescricaoStatusSincronizacao).HasColumnName("DescricaoStatusSincronizacao");
-            this.Property(t => t.DescricaoValorCompra).HasColumnName("DescricaoMetodoCompra");
-            this.Property(t => t.DescricaoMetodoCompra).HasColumnName("DescricaoMetodoCompra");
-            this.Property(t => t.DataAtualizacao).HasColumnName("DataAtualizacao");
-            this.Property(t => t.DescricaoTotalPedido).HasColumnName("DescricaoTotalPedido");
-            this.Property(t => t.DescricaoCustoEntrega).HasColumnName("DescricaoCustoEntrega");
-            this.Property(t => t.DescricaoMetodoEntrega).HasColumnName("DescricaoMetodoEntrega");
-            this.Property(t => t.IndImportado).HasColumnName("IndImportado");
-            this.Property(t => t.CodigoVendedor).HasColumnName("CodigoVendedor");
-            this.Property(t => t.IndicadorAtivo).HasColumnName("IndicadorAtivo");
-            this.Property(t => t.DataSincronizacao).HasColumnName("DataSincronizacao");
+            this.Property(t => t.CodigoPedido).HasColumnName("COD_PEDIDO");
+            this.Property(t => t.DescricaoCanal).HasColumnName("DSC_CANAL");
+            this.Property(t => t.CodigoCanal).HasColumnName("COD_CANAL");
+            this.Property(t => t.DataEstimadaEntrega).HasColumnName("DTA_ESTIMADA_ENTREGA");
+            this.Property(t => t.DescricaoInterface).HasColumnName("DSC_INTERECE");
+            this.Property(t => t.DataLocalizadoDesde).HasColumnName("DTA_LOCALIZADO_DESDE");
+            this.Property(t => t.DescricaoStatusSincronizacao).HasColumnName("DSC_STATUS_SINCRONIZACAO");
+            this.Property(t => t.DescricaoValorCompra).HasColumnName("DSC_VALOR_COMPRA");
+            this.Property(t => t.DescricaoMetodoCompra).HasColumnName("DSC_METODO_COMPR");
+            this.Property(t => t.DataAtualizacao).HasColumnName("DTA_ATUALIZACAO");
+            this.Property(t => t.DescricaoTotalPedido).HasColumnName("DSC_TOTAL_PEDIDO");
+            this.Property(t => t.DescricaoCustoEntrega).HasColumnName("DSC_CUSTO_ENTREGA");
+            this.Property(t => t.DescricaoMetodoEntrega).HasColumnName("DSC_METODO_ENTREGA");
+            this.Property(t => t.IndImportado).HasColumnName("IND_IMPORTADO");
+            this.Property(t => t.CodigoVendedor).HasColumnName("COD_VENDEDOR");
+            this.Property(t => t.IndicadorAtivo).HasColumnName("IND_ATIVO");
+            this.Property(t => t.DataSincronizacao).HasColumnName("DTA_SINCRONIZACAO");
         }
     }
 }

@@ -8,12 +8,8 @@ namespace Techshop.Repositoy.CodeFirst.Migrations
     internal sealed class Configuration : DbMigrationsConfiguration<Model.CodeFirst.Models.TechshopContext>
     {
         public Configuration()
-        { 
-       
+        {
             AutomaticMigrationsEnabled = true;
-           // CodeGenerator = new CodeMigrator();
-           // AutomaticMigrationsEnabled = true;
-           // AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Model.CodeFirst.Models.TechshopContext context)
