@@ -1,0 +1,1198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TechshopModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TechshopModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="TechshopModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_CLIENTES" EntityType="TechshopModel.Store.TEC_CLIENTES" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_ENDERECO" EntityType="TechshopModel.Store.TEC_ENDERECO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_FATURA" EntityType="TechshopModel.Store.TEC_FATURA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_ITEM_PEDIDO" EntityType="TechshopModel.Store.TEC_ITEM_PEDIDO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_PAGAMENTO" EntityType="TechshopModel.Store.TEC_PAGAMENTO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_PEDIDOS" EntityType="TechshopModel.Store.TEC_PEDIDOS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_PERFIL" EntityType="TechshopModel.Store.TEC_PERFIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TEC_USUARIO" EntityType="TechshopModel.Store.TEC_USUARIO" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__47DBAE45" Association="TechshopModel.Store.FK__TEC_CLIEN__COD_P__47DBAE45">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__4CA06362" Association="TechshopModel.Store.FK__TEC_CLIEN__COD_P__4CA06362">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__5165187F" Association="TechshopModel.Store.FK__TEC_CLIEN__COD_P__5165187F">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__5629CD9C" Association="TechshopModel.Store.FK__TEC_CLIEN__COD_P__5629CD9C">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__5AEE82B9" Association="TechshopModel.Store.FK__TEC_CLIEN__COD_P__5AEE82B9">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__34C8D9D1" Association="TechshopModel.Store.FK__TEC_ENDER__COD_P__34C8D9D1">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__48CFD27E" Association="TechshopModel.Store.FK__TEC_ENDER__COD_P__48CFD27E">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__4D94879B" Association="TechshopModel.Store.FK__TEC_ENDER__COD_P__4D94879B">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__52593CB8" Association="TechshopModel.Store.FK__TEC_ENDER__COD_P__52593CB8">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__571DF1D5" Association="TechshopModel.Store.FK__TEC_ENDER__COD_P__571DF1D5">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__5BE2A6F2" Association="TechshopModel.Store.FK__TEC_ENDER__COD_P__5BE2A6F2">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__49C3F6B7" Association="TechshopModel.Store.FK__TEC_FATUR__COD_P__49C3F6B7">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__4E88ABD4" Association="TechshopModel.Store.FK__TEC_FATUR__COD_P__4E88ABD4">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__534D60F1" Association="TechshopModel.Store.FK__TEC_FATUR__COD_P__534D60F1">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__5812160E" Association="TechshopModel.Store.FK__TEC_FATUR__COD_P__5812160E">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__5CD6CB2B" Association="TechshopModel.Store.FK__TEC_FATUR__COD_P__5CD6CB2B">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ITEM___COD_P__4AB81AF0" Association="TechshopModel.Store.FK__TEC_ITEM___COD_P__4AB81AF0">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ITEM_PEDIDO" EntitySet="TEC_ITEM_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__4BAC3F29" Association="TechshopModel.Store.FK__TEC_PAGAM__COD_P__4BAC3F29">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__5070F446" Association="TechshopModel.Store.FK__TEC_PAGAM__COD_P__5070F446">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__5535A963" Association="TechshopModel.Store.FK__TEC_PAGAM__COD_P__5535A963">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__59FA5E80" Association="TechshopModel.Store.FK__TEC_PAGAM__COD_P__59FA5E80">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__5EBF139D" Association="TechshopModel.Store.FK__TEC_PAGAM__COD_P__5EBF139D">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TEC_CLIENTES">
+          <Key>
+            <PropertyRef Name="COD_CLIENTE" />
+          </Key>
+          <Property Name="COD_CLIENTE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="int" />
+          <Property Name="DSC_CLIENTE" Type="nvarchar" MaxLength="150" />
+          <Property Name="DSC_EMAIL" Type="nvarchar" MaxLength="250" />
+          <Property Name="DTA_NASCIMENTO" Type="datetime" />
+          <Property Name="DSC_GENERO" Type="nchar" MaxLength="10" />
+          <Property Name="DSC_NUMERO_VAT" Type="nvarchar" MaxLength="150" />
+          <Property Name="DSC_TELEFONE1" Type="nvarchar" MaxLength="100" />
+          <Property Name="DSC_TELEFONE2" Type="nvarchar" MaxLength="100" />
+          <Property Name="DSC_TELEFONE3" Type="nvarchar" MaxLength="100" />
+          <Property Name="DSC_TELEFONE4" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TEC_ENDERECO">
+          <Key>
+            <PropertyRef Name="COD_ENDERECO" />
+          </Key>
+          <Property Name="COD_ENDERECO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="int" />
+          <Property Name="DSC_NOME" Type="nvarchar" MaxLength="300" />
+          <Property Name="DSC_RUA" Type="nvarchar" MaxLength="500" />
+          <Property Name="DSC_DETALHES" Type="nvarchar" MaxLength="500" />
+          <Property Name="DSC_BAIRRO" Type="nvarchar" MaxLength="500" />
+          <Property Name="DSC_CIDADE" Type="nvarchar" MaxLength="500" />
+          <Property Name="DSC_REGIAO" Type="nvarchar" MaxLength="500" />
+          <Property Name="DSC_PAIS" Type="nvarchar" MaxLength="500" />
+          <Property Name="DSC_CEP" Type="nchar" MaxLength="10" />
+          <Property Name="IND_ATIVO" Type="int" />
+          <Property Name="IND_TIPO_ENDERECO" Type="int" />
+          <Property Name="DSC_TIPO_ENDERECO" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TEC_FATURA">
+          <Key>
+            <PropertyRef Name="COD_FATURA" />
+          </Key>
+          <Property Name="COD_FATURA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="int" />
+          <Property Name="DSC_CHAVE" Type="int" />
+          <Property Name="DSC_NUMERO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DSC_LINHA" Type="nchar" MaxLength="10" />
+          <Property Name="DTA_FATURA" Type="datetime" />
+          <Property Name="IND_ATIVO" Type="int" />
+        </EntityType>
+        <EntityType Name="TEC_ITEM_PEDIDO">
+          <Key>
+            <PropertyRef Name="COD_ITEM_PEDIDO" />
+          </Key>
+          <Property Name="COD_ITEM_PEDIDO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="int" />
+          <Property Name="COD_ID" Type="nchar" MaxLength="100" />
+          <Property Name="COD_ID_PRODUTO" Type="nvarchar" MaxLength="200" />
+          <Property Name="DSC_PRODUTO" Type="nvarchar" Nullable="false" MaxLength="800" />
+          <Property Name="DSC_QUANTIDADE" Type="decimal" />
+          <Property Name="DSC_PRECO_ORIGINAL" Type="decimal" />
+          <Property Name="DSC_PRECO_ESPECIAL" Type="decimal" />
+          <Property Name="IND_ATIVO" Type="int" />
+        </EntityType>
+        <EntityType Name="TEC_PAGAMENTO">
+          <Key>
+            <PropertyRef Name="COD_PAGAMENTO" />
+          </Key>
+          <Property Name="COD_PAGAMENTO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="int" />
+          <Property Name="DSC_METODO" Type="nvarchar" MaxLength="250" />
+          <Property Name="DSC_DETALHES" Type="nvarchar" MaxLength="500" />
+          <Property Name="DSC_QUANT_PARCELAS" Type="int" />
+          <Property Name="DSC_VALOR" Type="decimal" />
+          <Property Name="IND_ATIVO" Type="int" />
+        </EntityType>
+        <EntityType Name="TEC_PEDIDOS">
+          <Key>
+            <PropertyRef Name="COD_PEDIDO" />
+          </Key>
+          <Property Name="COD_PEDIDO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DSC_CANAL" Type="nvarchar" MaxLength="150" />
+          <Property Name="COD_CANAL" Type="nvarchar" MaxLength="150" />
+          <Property Name="DTA_ESTIMADA_ENTREGA" Type="datetime" />
+          <Property Name="DSC_INTERECE" Type="decimal" />
+          <Property Name="DTA_LOCALIZADO_DESDE" Type="datetime" />
+          <Property Name="DSC_STATUS_SINCRONIZACAO" Type="nchar" MaxLength="10" />
+          <Property Name="DSC_VALOR_COMPRA" Type="decimal" />
+          <Property Name="DSC_METODO_COMPR" Type="nvarchar" MaxLength="150" />
+          <Property Name="DTA_ATUALIZACAO" Type="datetime" />
+          <Property Name="DSC_TOTAL_PEDIDO" Type="decimal" />
+          <Property Name="DSC_CUSTO_ENTREGA" Type="decimal" />
+          <Property Name="DSC_METODO_ENTREGA" Type="nvarchar" MaxLength="250" />
+          <Property Name="IND_IMPORTADO" Type="int" />
+          <Property Name="COD_VENDEDOR" Type="int" />
+          <Property Name="IND_ATIVO" Type="int" />
+          <Property Name="DTA_SINCRONIZACAO" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TEC_PERFIL">
+          <Key>
+            <PropertyRef Name="COD_PERFIL" />
+          </Key>
+          <Property Name="COD_PERFIL" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DSC_PERFIL" Type="nvarchar" Nullable="false" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TEC_USUARIO">
+          <Key>
+            <PropertyRef Name="COD_USUARIO" />
+          </Key>
+          <Property Name="COD_USUARIO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DSC_USUARIO" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="DSC_EMAIL" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="DSC_LOGIN" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="DSC_SENHA" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="COD_EMPRESA" Type="int" Nullable="false" />
+          <Property Name="DTA_CADASTRO" Type="datetime" Nullable="false" />
+          <Property Name="COD_PERFIL" Type="int" Nullable="false" />
+          <Property Name="DTA_EXPIRACAO" Type="datetime" Nullable="false" />
+          <Property Name="IND_ATIVO" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__TEC_CLIEN__COD_P__47DBAE45">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.Store.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__4CA06362">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.Store.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__5165187F">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.Store.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__5629CD9C">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.Store.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__5AEE82B9">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.Store.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__34C8D9D1">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.Store.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__48CFD27E">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.Store.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__4D94879B">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.Store.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__52593CB8">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.Store.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__571DF1D5">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.Store.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__5BE2A6F2">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.Store.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__49C3F6B7">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.Store.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__4E88ABD4">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.Store.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__534D60F1">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.Store.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__5812160E">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.Store.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__5CD6CB2B">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.Store.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ITEM___COD_P__4AB81AF0">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ITEM_PEDIDO" Type="TechshopModel.Store.TEC_ITEM_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ITEM_PEDIDO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__4BAC3F29">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.Store.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__5070F446">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.Store.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__5535A963">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.Store.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__59FA5E80">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.Store.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__5EBF139D">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.Store.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.Store.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TechshopModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Techshop_Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="TechshopModel.sysdiagrams" />
+          <EntitySet Name="TEC_CLIENTES" EntityType="TechshopModel.TEC_CLIENTES" />
+          <EntitySet Name="TEC_ENDERECO" EntityType="TechshopModel.TEC_ENDERECO" />
+          <EntitySet Name="TEC_FATURA" EntityType="TechshopModel.TEC_FATURA" />
+          <EntitySet Name="TEC_ITEM_PEDIDO" EntityType="TechshopModel.TEC_ITEM_PEDIDO" />
+          <EntitySet Name="TEC_PAGAMENTO" EntityType="TechshopModel.TEC_PAGAMENTO" />
+          <EntitySet Name="TEC_PEDIDOS" EntityType="TechshopModel.TEC_PEDIDOS" />
+          <EntitySet Name="TEC_PERFIL" EntityType="TechshopModel.TEC_PERFIL" />
+          <EntitySet Name="TEC_USUARIO" EntityType="TechshopModel.TEC_USUARIO" />
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__47DBAE45" Association="TechshopModel.FK__TEC_CLIEN__COD_P__47DBAE45">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__4CA06362" Association="TechshopModel.FK__TEC_CLIEN__COD_P__4CA06362">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__5165187F" Association="TechshopModel.FK__TEC_CLIEN__COD_P__5165187F">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__5629CD9C" Association="TechshopModel.FK__TEC_CLIEN__COD_P__5629CD9C">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_CLIEN__COD_P__5AEE82B9" Association="TechshopModel.FK__TEC_CLIEN__COD_P__5AEE82B9">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_CLIENTES" EntitySet="TEC_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__34C8D9D1" Association="TechshopModel.FK__TEC_ENDER__COD_P__34C8D9D1">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__48CFD27E" Association="TechshopModel.FK__TEC_ENDER__COD_P__48CFD27E">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__4D94879B" Association="TechshopModel.FK__TEC_ENDER__COD_P__4D94879B">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__52593CB8" Association="TechshopModel.FK__TEC_ENDER__COD_P__52593CB8">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__571DF1D5" Association="TechshopModel.FK__TEC_ENDER__COD_P__571DF1D5">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ENDER__COD_P__5BE2A6F2" Association="TechshopModel.FK__TEC_ENDER__COD_P__5BE2A6F2">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ENDERECO" EntitySet="TEC_ENDERECO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__49C3F6B7" Association="TechshopModel.FK__TEC_FATUR__COD_P__49C3F6B7">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__4E88ABD4" Association="TechshopModel.FK__TEC_FATUR__COD_P__4E88ABD4">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__534D60F1" Association="TechshopModel.FK__TEC_FATUR__COD_P__534D60F1">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__5812160E" Association="TechshopModel.FK__TEC_FATUR__COD_P__5812160E">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_FATUR__COD_P__5CD6CB2B" Association="TechshopModel.FK__TEC_FATUR__COD_P__5CD6CB2B">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_FATURA" EntitySet="TEC_FATURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_ITEM___COD_P__4AB81AF0" Association="TechshopModel.FK__TEC_ITEM___COD_P__4AB81AF0">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_ITEM_PEDIDO" EntitySet="TEC_ITEM_PEDIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__4BAC3F29" Association="TechshopModel.FK__TEC_PAGAM__COD_P__4BAC3F29">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__5070F446" Association="TechshopModel.FK__TEC_PAGAM__COD_P__5070F446">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__5535A963" Association="TechshopModel.FK__TEC_PAGAM__COD_P__5535A963">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__59FA5E80" Association="TechshopModel.FK__TEC_PAGAM__COD_P__59FA5E80">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TEC_PAGAM__COD_P__5EBF139D" Association="TechshopModel.FK__TEC_PAGAM__COD_P__5EBF139D">
+            <End Role="TEC_PEDIDOS" EntitySet="TEC_PEDIDOS" />
+            <End Role="TEC_PAGAMENTO" EntitySet="TEC_PAGAMENTO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TEC_CLIENTES">
+          <Key>
+            <PropertyRef Name="COD_CLIENTE" />
+          </Key>
+          <Property Name="COD_CLIENTE" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="Int32" />
+          <Property Name="DSC_CLIENTE" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_EMAIL" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="DTA_NASCIMENTO" Type="DateTime" Precision="3" />
+          <Property Name="DSC_GENERO" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DSC_NUMERO_VAT" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_TELEFONE1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_TELEFONE2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_TELEFONE3" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_TELEFONE4" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TEC_PEDIDOS" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__47DBAE45" FromRole="TEC_CLIENTES" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS1" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__4CA06362" FromRole="TEC_CLIENTES" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS2" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__5165187F" FromRole="TEC_CLIENTES" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS3" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__5629CD9C" FromRole="TEC_CLIENTES" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS4" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__5AEE82B9" FromRole="TEC_CLIENTES" ToRole="TEC_PEDIDOS" />
+        </EntityType>
+        <EntityType Name="TEC_ENDERECO">
+          <Key>
+            <PropertyRef Name="COD_ENDERECO" />
+          </Key>
+          <Property Name="COD_ENDERECO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="Int32" />
+          <Property Name="DSC_NOME" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_RUA" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_DETALHES" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_BAIRRO" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_CIDADE" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_REGIAO" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_PAIS" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_CEP" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="IND_ATIVO" Type="Int32" />
+          <Property Name="IND_TIPO_ENDERECO" Type="Int32" />
+          <Property Name="DSC_TIPO_ENDERECO" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="TEC_PEDIDOS" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__34C8D9D1" FromRole="TEC_ENDERECO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS1" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__48CFD27E" FromRole="TEC_ENDERECO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS2" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__4D94879B" FromRole="TEC_ENDERECO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS3" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__52593CB8" FromRole="TEC_ENDERECO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS4" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__571DF1D5" FromRole="TEC_ENDERECO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS5" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__5BE2A6F2" FromRole="TEC_ENDERECO" ToRole="TEC_PEDIDOS" />
+        </EntityType>
+        <EntityType Name="TEC_FATURA">
+          <Key>
+            <PropertyRef Name="COD_FATURA" />
+          </Key>
+          <Property Name="COD_FATURA" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="Int32" />
+          <Property Name="DSC_CHAVE" Type="Int32" />
+          <Property Name="DSC_NUMERO" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_LINHA" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DTA_FATURA" Type="DateTime" Precision="3" />
+          <Property Name="IND_ATIVO" Type="Int32" />
+          <NavigationProperty Name="TEC_PEDIDOS" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__49C3F6B7" FromRole="TEC_FATURA" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS1" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__4E88ABD4" FromRole="TEC_FATURA" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS2" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__534D60F1" FromRole="TEC_FATURA" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS3" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__5812160E" FromRole="TEC_FATURA" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS4" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__5CD6CB2B" FromRole="TEC_FATURA" ToRole="TEC_PEDIDOS" />
+        </EntityType>
+        <EntityType Name="TEC_ITEM_PEDIDO">
+          <Key>
+            <PropertyRef Name="COD_ITEM_PEDIDO" />
+          </Key>
+          <Property Name="COD_ITEM_PEDIDO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="Int32" />
+          <Property Name="COD_ID" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="COD_ID_PRODUTO" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_PRODUTO" Type="String" Nullable="false" MaxLength="800" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_QUANTIDADE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DSC_PRECO_ORIGINAL" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DSC_PRECO_ESPECIAL" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IND_ATIVO" Type="Int32" />
+          <NavigationProperty Name="TEC_PEDIDOS" Relationship="TechshopModel.FK__TEC_ITEM___COD_P__4AB81AF0" FromRole="TEC_ITEM_PEDIDO" ToRole="TEC_PEDIDOS" />
+        </EntityType>
+        <EntityType Name="TEC_PAGAMENTO">
+          <Key>
+            <PropertyRef Name="COD_PAGAMENTO" />
+          </Key>
+          <Property Name="COD_PAGAMENTO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_PEDIDO" Type="Int32" />
+          <Property Name="DSC_METODO" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_DETALHES" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_QUANT_PARCELAS" Type="Int32" />
+          <Property Name="DSC_VALOR" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IND_ATIVO" Type="Int32" />
+          <NavigationProperty Name="TEC_PEDIDOS" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__4BAC3F29" FromRole="TEC_PAGAMENTO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS1" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__5070F446" FromRole="TEC_PAGAMENTO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS2" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__5535A963" FromRole="TEC_PAGAMENTO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS3" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__59FA5E80" FromRole="TEC_PAGAMENTO" ToRole="TEC_PEDIDOS" />
+          <NavigationProperty Name="TEC_PEDIDOS4" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__5EBF139D" FromRole="TEC_PAGAMENTO" ToRole="TEC_PEDIDOS" />
+        </EntityType>
+        <EntityType Name="TEC_PEDIDOS">
+          <Key>
+            <PropertyRef Name="COD_PEDIDO" />
+          </Key>
+          <Property Name="COD_PEDIDO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DSC_CANAL" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="COD_CANAL" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="DTA_ESTIMADA_ENTREGA" Type="DateTime" Precision="3" />
+          <Property Name="DSC_INTERECE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DTA_LOCALIZADO_DESDE" Type="DateTime" Precision="3" />
+          <Property Name="DSC_STATUS_SINCRONIZACAO" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DSC_VALOR_COMPRA" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DSC_METODO_COMPR" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="DTA_ATUALIZACAO" Type="DateTime" Precision="3" />
+          <Property Name="DSC_TOTAL_PEDIDO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DSC_CUSTO_ENTREGA" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DSC_METODO_ENTREGA" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="IND_IMPORTADO" Type="Int32" />
+          <Property Name="COD_VENDEDOR" Type="Int32" />
+          <Property Name="IND_ATIVO" Type="Int32" />
+          <Property Name="DTA_SINCRONIZACAO" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TEC_CLIENTES" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__47DBAE45" FromRole="TEC_PEDIDOS" ToRole="TEC_CLIENTES" />
+          <NavigationProperty Name="TEC_CLIENTES1" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__4CA06362" FromRole="TEC_PEDIDOS" ToRole="TEC_CLIENTES" />
+          <NavigationProperty Name="TEC_CLIENTES2" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__5165187F" FromRole="TEC_PEDIDOS" ToRole="TEC_CLIENTES" />
+          <NavigationProperty Name="TEC_CLIENTES3" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__5629CD9C" FromRole="TEC_PEDIDOS" ToRole="TEC_CLIENTES" />
+          <NavigationProperty Name="TEC_CLIENTES4" Relationship="TechshopModel.FK__TEC_CLIEN__COD_P__5AEE82B9" FromRole="TEC_PEDIDOS" ToRole="TEC_CLIENTES" />
+          <NavigationProperty Name="TEC_ENDERECO" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__34C8D9D1" FromRole="TEC_PEDIDOS" ToRole="TEC_ENDERECO" />
+          <NavigationProperty Name="TEC_ENDERECO1" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__48CFD27E" FromRole="TEC_PEDIDOS" ToRole="TEC_ENDERECO" />
+          <NavigationProperty Name="TEC_ENDERECO2" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__4D94879B" FromRole="TEC_PEDIDOS" ToRole="TEC_ENDERECO" />
+          <NavigationProperty Name="TEC_ENDERECO3" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__52593CB8" FromRole="TEC_PEDIDOS" ToRole="TEC_ENDERECO" />
+          <NavigationProperty Name="TEC_ENDERECO4" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__571DF1D5" FromRole="TEC_PEDIDOS" ToRole="TEC_ENDERECO" />
+          <NavigationProperty Name="TEC_ENDERECO5" Relationship="TechshopModel.FK__TEC_ENDER__COD_P__5BE2A6F2" FromRole="TEC_PEDIDOS" ToRole="TEC_ENDERECO" />
+          <NavigationProperty Name="TEC_FATURA" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__49C3F6B7" FromRole="TEC_PEDIDOS" ToRole="TEC_FATURA" />
+          <NavigationProperty Name="TEC_FATURA1" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__4E88ABD4" FromRole="TEC_PEDIDOS" ToRole="TEC_FATURA" />
+          <NavigationProperty Name="TEC_FATURA2" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__534D60F1" FromRole="TEC_PEDIDOS" ToRole="TEC_FATURA" />
+          <NavigationProperty Name="TEC_FATURA3" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__5812160E" FromRole="TEC_PEDIDOS" ToRole="TEC_FATURA" />
+          <NavigationProperty Name="TEC_FATURA4" Relationship="TechshopModel.FK__TEC_FATUR__COD_P__5CD6CB2B" FromRole="TEC_PEDIDOS" ToRole="TEC_FATURA" />
+          <NavigationProperty Name="TEC_ITEM_PEDIDO" Relationship="TechshopModel.FK__TEC_ITEM___COD_P__4AB81AF0" FromRole="TEC_PEDIDOS" ToRole="TEC_ITEM_PEDIDO" />
+          <NavigationProperty Name="TEC_PAGAMENTO" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__4BAC3F29" FromRole="TEC_PEDIDOS" ToRole="TEC_PAGAMENTO" />
+          <NavigationProperty Name="TEC_PAGAMENTO1" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__5070F446" FromRole="TEC_PEDIDOS" ToRole="TEC_PAGAMENTO" />
+          <NavigationProperty Name="TEC_PAGAMENTO2" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__5535A963" FromRole="TEC_PEDIDOS" ToRole="TEC_PAGAMENTO" />
+          <NavigationProperty Name="TEC_PAGAMENTO3" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__59FA5E80" FromRole="TEC_PEDIDOS" ToRole="TEC_PAGAMENTO" />
+          <NavigationProperty Name="TEC_PAGAMENTO4" Relationship="TechshopModel.FK__TEC_PAGAM__COD_P__5EBF139D" FromRole="TEC_PEDIDOS" ToRole="TEC_PAGAMENTO" />
+        </EntityType>
+        <EntityType Name="TEC_PERFIL">
+          <Key>
+            <PropertyRef Name="COD_PERFIL" />
+          </Key>
+          <Property Name="COD_PERFIL" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DSC_PERFIL" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TEC_USUARIO">
+          <Key>
+            <PropertyRef Name="COD_USUARIO" />
+          </Key>
+          <Property Name="COD_USUARIO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DSC_USUARIO" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_EMAIL" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_LOGIN" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="DSC_SENHA" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="COD_EMPRESA" Type="Int32" Nullable="false" />
+          <Property Name="DTA_CADASTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_PERFIL" Type="Int32" Nullable="false" />
+          <Property Name="DTA_EXPIRACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IND_ATIVO" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__TEC_CLIEN__COD_P__47DBAE45">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__4CA06362">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__5165187F">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__5629CD9C">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_CLIEN__COD_P__5AEE82B9">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_CLIENTES" Type="TechshopModel.TEC_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_CLIENTES">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__34C8D9D1">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__48CFD27E">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__4D94879B">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__52593CB8">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__571DF1D5">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ENDER__COD_P__5BE2A6F2">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ENDERECO" Type="TechshopModel.TEC_ENDERECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ENDERECO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__49C3F6B7">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__4E88ABD4">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__534D60F1">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__5812160E">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_FATUR__COD_P__5CD6CB2B">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_FATURA" Type="TechshopModel.TEC_FATURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_FATURA">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_ITEM___COD_P__4AB81AF0">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_ITEM_PEDIDO" Type="TechshopModel.TEC_ITEM_PEDIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_ITEM_PEDIDO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__4BAC3F29">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__5070F446">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__5535A963">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__59FA5E80">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TEC_PAGAM__COD_P__5EBF139D">
+          <End Role="TEC_PEDIDOS" Type="TechshopModel.TEC_PEDIDOS" Multiplicity="0..1" />
+          <End Role="TEC_PAGAMENTO" Type="TechshopModel.TEC_PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEC_PEDIDOS">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Principal>
+            <Dependent Role="TEC_PAGAMENTO">
+              <PropertyRef Name="COD_PEDIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TechshopModelStoreContainer" CdmEntityContainer="Techshop_Entities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TechshopModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_CLIENTES">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_CLIENTES">
+              <MappingFragment StoreEntitySet="TEC_CLIENTES">
+                <ScalarProperty Name="COD_CLIENTE" ColumnName="COD_CLIENTE" />
+                <ScalarProperty Name="COD_PEDIDO" ColumnName="COD_PEDIDO" />
+                <ScalarProperty Name="DSC_CLIENTE" ColumnName="DSC_CLIENTE" />
+                <ScalarProperty Name="DSC_EMAIL" ColumnName="DSC_EMAIL" />
+                <ScalarProperty Name="DTA_NASCIMENTO" ColumnName="DTA_NASCIMENTO" />
+                <ScalarProperty Name="DSC_GENERO" ColumnName="DSC_GENERO" />
+                <ScalarProperty Name="DSC_NUMERO_VAT" ColumnName="DSC_NUMERO_VAT" />
+                <ScalarProperty Name="DSC_TELEFONE1" ColumnName="DSC_TELEFONE1" />
+                <ScalarProperty Name="DSC_TELEFONE2" ColumnName="DSC_TELEFONE2" />
+                <ScalarProperty Name="DSC_TELEFONE3" ColumnName="DSC_TELEFONE3" />
+                <ScalarProperty Name="DSC_TELEFONE4" ColumnName="DSC_TELEFONE4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_ENDERECO">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_ENDERECO">
+              <MappingFragment StoreEntitySet="TEC_ENDERECO">
+                <ScalarProperty Name="COD_ENDERECO" ColumnName="COD_ENDERECO" />
+                <ScalarProperty Name="COD_PEDIDO" ColumnName="COD_PEDIDO" />
+                <ScalarProperty Name="DSC_NOME" ColumnName="DSC_NOME" />
+                <ScalarProperty Name="DSC_RUA" ColumnName="DSC_RUA" />
+                <ScalarProperty Name="DSC_DETALHES" ColumnName="DSC_DETALHES" />
+                <ScalarProperty Name="DSC_BAIRRO" ColumnName="DSC_BAIRRO" />
+                <ScalarProperty Name="DSC_CIDADE" ColumnName="DSC_CIDADE" />
+                <ScalarProperty Name="DSC_REGIAO" ColumnName="DSC_REGIAO" />
+                <ScalarProperty Name="DSC_PAIS" ColumnName="DSC_PAIS" />
+                <ScalarProperty Name="DSC_CEP" ColumnName="DSC_CEP" />
+                <ScalarProperty Name="IND_ATIVO" ColumnName="IND_ATIVO" />
+                <ScalarProperty Name="IND_TIPO_ENDERECO" ColumnName="IND_TIPO_ENDERECO" />
+                <ScalarProperty Name="DSC_TIPO_ENDERECO" ColumnName="DSC_TIPO_ENDERECO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_FATURA">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_FATURA">
+              <MappingFragment StoreEntitySet="TEC_FATURA">
+                <ScalarProperty Name="COD_FATURA" ColumnName="COD_FATURA" />
+                <ScalarProperty Name="COD_PEDIDO" ColumnName="COD_PEDIDO" />
+                <ScalarProperty Name="DSC_CHAVE" ColumnName="DSC_CHAVE" />
+                <ScalarProperty Name="DSC_NUMERO" ColumnName="DSC_NUMERO" />
+                <ScalarProperty Name="DSC_LINHA" ColumnName="DSC_LINHA" />
+                <ScalarProperty Name="DTA_FATURA" ColumnName="DTA_FATURA" />
+                <ScalarProperty Name="IND_ATIVO" ColumnName="IND_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_ITEM_PEDIDO">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_ITEM_PEDIDO">
+              <MappingFragment StoreEntitySet="TEC_ITEM_PEDIDO">
+                <ScalarProperty Name="COD_ITEM_PEDIDO" ColumnName="COD_ITEM_PEDIDO" />
+                <ScalarProperty Name="COD_PEDIDO" ColumnName="COD_PEDIDO" />
+                <ScalarProperty Name="COD_ID" ColumnName="COD_ID" />
+                <ScalarProperty Name="COD_ID_PRODUTO" ColumnName="COD_ID_PRODUTO" />
+                <ScalarProperty Name="DSC_PRODUTO" ColumnName="DSC_PRODUTO" />
+                <ScalarProperty Name="DSC_QUANTIDADE" ColumnName="DSC_QUANTIDADE" />
+                <ScalarProperty Name="DSC_PRECO_ORIGINAL" ColumnName="DSC_PRECO_ORIGINAL" />
+                <ScalarProperty Name="DSC_PRECO_ESPECIAL" ColumnName="DSC_PRECO_ESPECIAL" />
+                <ScalarProperty Name="IND_ATIVO" ColumnName="IND_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_PAGAMENTO">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_PAGAMENTO">
+              <MappingFragment StoreEntitySet="TEC_PAGAMENTO">
+                <ScalarProperty Name="COD_PAGAMENTO" ColumnName="COD_PAGAMENTO" />
+                <ScalarProperty Name="COD_PEDIDO" ColumnName="COD_PEDIDO" />
+                <ScalarProperty Name="DSC_METODO" ColumnName="DSC_METODO" />
+                <ScalarProperty Name="DSC_DETALHES" ColumnName="DSC_DETALHES" />
+                <ScalarProperty Name="DSC_QUANT_PARCELAS" ColumnName="DSC_QUANT_PARCELAS" />
+                <ScalarProperty Name="DSC_VALOR" ColumnName="DSC_VALOR" />
+                <ScalarProperty Name="IND_ATIVO" ColumnName="IND_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_PEDIDOS">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_PEDIDOS">
+              <MappingFragment StoreEntitySet="TEC_PEDIDOS">
+                <ScalarProperty Name="COD_PEDIDO" ColumnName="COD_PEDIDO" />
+                <ScalarProperty Name="DSC_CANAL" ColumnName="DSC_CANAL" />
+                <ScalarProperty Name="COD_CANAL" ColumnName="COD_CANAL" />
+                <ScalarProperty Name="DTA_ESTIMADA_ENTREGA" ColumnName="DTA_ESTIMADA_ENTREGA" />
+                <ScalarProperty Name="DSC_INTERECE" ColumnName="DSC_INTERECE" />
+                <ScalarProperty Name="DTA_LOCALIZADO_DESDE" ColumnName="DTA_LOCALIZADO_DESDE" />
+                <ScalarProperty Name="DSC_STATUS_SINCRONIZACAO" ColumnName="DSC_STATUS_SINCRONIZACAO" />
+                <ScalarProperty Name="DSC_VALOR_COMPRA" ColumnName="DSC_VALOR_COMPRA" />
+                <ScalarProperty Name="DSC_METODO_COMPR" ColumnName="DSC_METODO_COMPR" />
+                <ScalarProperty Name="DTA_ATUALIZACAO" ColumnName="DTA_ATUALIZACAO" />
+                <ScalarProperty Name="DSC_TOTAL_PEDIDO" ColumnName="DSC_TOTAL_PEDIDO" />
+                <ScalarProperty Name="DSC_CUSTO_ENTREGA" ColumnName="DSC_CUSTO_ENTREGA" />
+                <ScalarProperty Name="DSC_METODO_ENTREGA" ColumnName="DSC_METODO_ENTREGA" />
+                <ScalarProperty Name="IND_IMPORTADO" ColumnName="IND_IMPORTADO" />
+                <ScalarProperty Name="COD_VENDEDOR" ColumnName="COD_VENDEDOR" />
+                <ScalarProperty Name="IND_ATIVO" ColumnName="IND_ATIVO" />
+                <ScalarProperty Name="DTA_SINCRONIZACAO" ColumnName="DTA_SINCRONIZACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_PERFIL">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_PERFIL">
+              <MappingFragment StoreEntitySet="TEC_PERFIL">
+                <ScalarProperty Name="COD_PERFIL" ColumnName="COD_PERFIL" />
+                <ScalarProperty Name="DSC_PERFIL" ColumnName="DSC_PERFIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEC_USUARIO">
+            <EntityTypeMapping TypeName="TechshopModel.TEC_USUARIO">
+              <MappingFragment StoreEntitySet="TEC_USUARIO">
+                <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+                <ScalarProperty Name="DSC_USUARIO" ColumnName="DSC_USUARIO" />
+                <ScalarProperty Name="DSC_EMAIL" ColumnName="DSC_EMAIL" />
+                <ScalarProperty Name="DSC_LOGIN" ColumnName="DSC_LOGIN" />
+                <ScalarProperty Name="DSC_SENHA" ColumnName="DSC_SENHA" />
+                <ScalarProperty Name="COD_EMPRESA" ColumnName="COD_EMPRESA" />
+                <ScalarProperty Name="DTA_CADASTRO" ColumnName="DTA_CADASTRO" />
+                <ScalarProperty Name="COD_PERFIL" ColumnName="COD_PERFIL" />
+                <ScalarProperty Name="DTA_EXPIRACAO" ColumnName="DTA_EXPIRACAO" />
+                <ScalarProperty Name="IND_ATIVO" ColumnName="IND_ATIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Nenhum" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

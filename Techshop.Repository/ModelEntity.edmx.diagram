@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="df3a3fa85de94b25a43fa8be26a47d33" Name="Diagrama1">
+        <EntityTypeShape EntityType="TechshopModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_CLIENTES" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_ENDERECO" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_FATURA" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_ITEM_PEDIDO" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_PAGAMENTO" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_PEDIDOS" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_PERFIL" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechshopModel.TEC_USUARIO" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_CLIEN__COD_P__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_CLIEN__COD_P__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_CLIEN__COD_P__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_CLIEN__COD_P__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_CLIEN__COD_P__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_ENDER__COD_P__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_ENDER__COD_P__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_ENDER__COD_P__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_ENDER__COD_P__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_ENDER__COD_P__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_ENDER__COD_P__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_FATUR__COD_P__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_FATUR__COD_P__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_FATUR__COD_P__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_FATUR__COD_P__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_FATUR__COD_P__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_ITEM___COD_P__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_PAGAM__COD_P__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_PAGAM__COD_P__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_PAGAM__COD_P__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_PAGAM__COD_P__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="TechshopModel.FK__TEC_PAGAM__COD_P__5EBF139D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
