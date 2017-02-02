@@ -3,30 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SkyHubAdapter.Domain.SkyHub;
+using Model.CodeFirst.Models;
 
-namespace TTechshop.Repositoy.CodeFirst
+namespace Techshop.Repositoy.CodeFirst
 {
     public class ItemPedidoRep
     {
-       /* TechshopEntities1 context = new TechshopEntities1();
+        private TechshopContext context;   
+
+        public ItemPedidoRep()
+        {
+
+            context = new TechshopContext();
+
+        }
 
         public void incluir(OrderItem domain)
         {
-            TEC_ITEM_PEDIDO obj = new TEC_ITEM_PEDIDO();
+            ItemPedido obj = new ItemPedido();
 
-            obj.COD_ID = domain.id;
-            obj.COD_ID_PRODUTO = domain.product_id;
-            obj.COD_PEDIDO = domain.CodigoPedido;
-            obj.DSC_PRECO_ESPECIAL = Convert.ToDecimal(domain.special_price);
-            obj.DSC_PRECO_ORIGINAL = Convert.ToDecimal(domain.original_price); 
-            obj.DSC_PRODUTO = domain.name;
-            obj.DSC_QUANTIDADE = Convert.ToDecimal(domain.qty);
-            obj.IND_ATIVO = 1;
-                                        
+            obj.CodigoId = domain.id;
+            //obj.COD_ID_PRODUTO = domain.product_id;
+            obj.CodigoPedido = domain.CodigoPedido;
+            obj.DescricaoPrecoEspecial = Convert.ToDecimal(domain.special_price);
+            obj.DescricaoPrecoOriginal = Convert.ToDecimal(domain.original_price); 
+            obj.DescricaoProduto = domain.name;
+            obj.DescricaoQuantidade = Convert.ToDecimal(domain.qty);
+                                                 
             context.TEC_ITEM_PEDIDO.Add(obj);
             context.SaveChanges(); 
            
-        }           */   
+        }          
 
     }
 }

@@ -22,14 +22,14 @@ namespace Model.CodeFirst.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("TEC_ITEM_PEDIDO");
-            this.Property(t => t.CodigoItemPedido).HasColumnName("COD_ITEM_PEDIDO");
-            this.Property(t => t.CodigoPedido).HasColumnName("COD_PEDIDO");
-            this.Property(t => t.CodigoId).HasColumnName("COD_ID");
-            this.Property(t => t.DescricaoProduto).HasColumnName("DSC_PRODUTO");
-            this.Property(t => t.DescricaoQuantidade).HasColumnName("DSC_QUANTIDADE");
-            this.Property(t => t.DescricaoPrecoOriginal).HasColumnName("DSC_PRECO_ORIGINAL");
-            this.Property(t => t.DescricaoPrecoEspecial).HasColumnName("DSC_PRECO_ESPECIAL");
-            this.Property(t => t.IncadorAtivo).HasColumnName("IND_ATIVO");
+            this.Property(t => t.CodigoItemPedido).HasColumnName("CodigoItemPedido");
+            this.Property(t => t.CodigoPedido).HasColumnName("CodigoPedido");
+            this.Property(t => t.CodigoId).HasColumnName("CodigoId");
+            this.Property(t => t.DescricaoProduto).HasColumnName("DescricaoProduto");
+            this.Property(t => t.DescricaoQuantidade).HasColumnName("DescricaoQuantidade");
+            this.Property(t => t.DescricaoPrecoOriginal).HasColumnName("DescricaoPrecoOriginal");
+            this.Property(t => t.DescricaoPrecoEspecial).HasColumnName("DescricaoPrecoEspecial");
+            this.Property(t => t.IncadorAtivo).HasColumnName("IncadorAtivo");
 
             
 

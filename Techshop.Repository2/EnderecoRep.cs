@@ -3,36 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SkyHubAdapter.Domain.SkyHub;
+using Model.CodeFirst.Models;
 
-namespace TTechshop.Repositoy.CodeFirst
+namespace Techshop.Repositoy.CodeFirst
 {
     public class EnderecoRep
     {
 
-      /*  TechshopEntities1 context = new TechshopEntities1();
+        private TechshopContext context;
 
-      public void incluir(Address domain)
+        public EnderecoRep()
         {
 
-            TEC_ENDERECO obj = new TEC_ENDERECO();
-            
-            obj.COD_PEDIDO = domain.CodigoPedido;
-            obj.DSC_BAIRRO = domain.neighborhood;
-            obj.DSC_CEP = domain.postcode;
-            obj.DSC_CIDADE = domain.city;
-            obj.DSC_DETALHES = domain.detail;
-            obj.DSC_NOME = domain.full_name;
-            obj.DSC_PAIS = domain.country;
-            obj.DSC_REGIAO = domain.region;
-            obj.DSC_RUA = domain.street;
-            obj.IND_ATIVO = 1;
-            obj.IND_TIPO_ENDERECO = domain.TipoEndereco;
-            obj.DSC_TIPO_ENDERECO = domain.DescricaoEndereco;
-            context.TEC_ENDERECO.Add(obj);
-            context.SaveChanges(); 
+            context = new TechshopContext();
 
-           
-        }          */
+        }
+
+        public void incluir(Address domain)
+          {
+
+              Endereco obj = new Endereco();
+
+              obj.CodigoPedido = domain.CodigoPedido;
+              obj.DescricaoBairro = domain.neighborhood;
+              obj.DescricaoCep = domain.postcode;
+              obj.DescricaoCidade = domain.city;
+              obj.DescricaoDetalhes = domain.detail;
+              obj.DescricaoNome = domain.full_name;
+              obj.DescricaoPais = domain.country;
+              obj.DescricaoRegiao = domain.region;
+              obj.DescricaoRua = domain.street;
+              obj.IndicadorTipoEndereco = domain.TipoEndereco;
+              context.TEC_ENDERECO.Add(obj);
+              context.SaveChanges(); 
+
+
+          }          
 
     }
 }

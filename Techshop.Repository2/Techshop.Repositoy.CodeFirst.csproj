@@ -63,8 +63,10 @@
       <DependentUpon>201701301102533_Techshop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ItemPedido.cs" />
+    <Compile Include="Models\Mapping\TEC_ENDERECOMap.cs" />
     <Compile Include="Models\Mapping\TEC_CLIENTEMap.cs" />
     <Compile Include="Models\Mapping\TEC_ITEM_PEDIDOMap.cs" />
     <Compile Include="Models\Mapping\TEC_PEDIDOSMap.cs" />

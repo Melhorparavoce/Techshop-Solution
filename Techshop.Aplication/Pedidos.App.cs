@@ -13,18 +13,15 @@ namespace Techshop.Aplication
     {
         private IRepository<Pedido> repositorio = new Repository<Pedido>();
 
-        
-
         /// <summary>
         /// Inclui Pedidos Espelho Skyhub
         /// </summary>
         public void IncluirPedidosBaseTemporaria()
         {
-            Pedido Entidade = new Pedido();
-
+                               
             PedidosRep objOrderRep = new PedidosRep();
-            //ItemPedidoRep objOrderItemRep = new ItemPedidoRep();
-            //EnderecoRep objAddressRep = new EnderecoRep();
+            ItemPedidoRep objOrderItemRep = new ItemPedidoRep();
+            EnderecoRep objAddressRep = new EnderecoRep();
             ClienteRep objCustomerRep = new ClienteRep();
             OrderApp objOrderApp = new OrderApp();
 
@@ -39,10 +36,9 @@ namespace Techshop.Aplication
                 //Insere Pedidos
                 CodigoPedido = objOrderRep.IncluirPedidosSkyhub((Order)list.Orders[i]);
 
-                string teste = "";
-
+               
                 // Insere Itens Pedidos
-              /*  for (int j = 0; j < list.Orders[i].items.Count; j++)
+               for (int j = 0; j < list.Orders[i].items.Count; j++)
                 {
                     OrderItem domainOrderItem = (OrderItem)list.Orders[i].items[j];
                     domainOrderItem.CodigoPedido = CodigoPedido;
@@ -54,8 +50,7 @@ namespace Techshop.Aplication
                 domainAdressBilling.TipoEndereco = 1;
                 domainAdressBilling.DescricaoEndereco = "Endereço de Faturamento";
                 domainAdressBilling.CodigoPedido = CodigoPedido;
-                objAddressRep.incluir(domainAdressBilling);
-
+                objAddressRep.incluir(domainAdressBilling);  
 
                 // Insere Endereço Remessa
                 Address domainAdressShipping = (Address)list.Orders[i].shipping_address;
@@ -79,13 +74,9 @@ namespace Techshop.Aplication
                         ListTelefones.Add("");
                 }
                 domainCustomer.phones = ListTelefones;
-                objCustomerRep.incluir(domainCustomer);
+                objCustomerRep.IncluirClientesSkyhub(domainCustomer);
 
-
-                // 
-
-
-                string teste = "1"; */
+              
             }
 
 
