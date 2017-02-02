@@ -1,6 +1,6 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using Model.CodeFirst.Models.Mapping;
+
 
 namespace Model.CodeFirst.Models
 {
@@ -16,13 +16,13 @@ namespace Model.CodeFirst.Models
             : base("Name=TechshopContext")
         {
         }
-
-      
-        public DbSet<ItemPedido> TEC_ITEM_PEDIDO { get; set; }
-        public DbSet<Pedido> TEC_PEDIDOS { get; set; }
-        public DbSet<Cliente> TEC_CLIENTE { get; set; }
-
-        public DbSet<Endereco> TEC_ENDERECO { get; set; }
+                         
+        public DbSet<ItemPedido> ItemPedido { get; set; }
+        public DbSet<Pedido> Pedido { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Endereco> Endereco { get; set; }
+        public DbSet<PedidoProtheus> PedidoProtheus{ get; set; } 
+        public DbSet<ApoioProtheus> ApoioProtheus { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,10 +35,6 @@ namespace Model.CodeFirst.Models
             modelBuilder.Properties<string>()
                .Configure(p => p.HasMaxLength(200));                        
                              
-            modelBuilder.Configurations.Add(new TEC_ITEM_PEDIDOMap());
-            modelBuilder.Configurations.Add(new TEC_PEDIDOSMap());
-            modelBuilder.Configurations.Add(new TEC_CLIENTEMap());
-            modelBuilder.Configurations.Add(new TEC_ENDERECOMap());
 
         }
     }

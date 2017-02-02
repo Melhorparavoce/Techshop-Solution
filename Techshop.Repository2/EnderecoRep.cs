@@ -34,7 +34,7 @@ namespace Techshop.Repositoy.CodeFirst
               obj.DescricaoRegiao = domain.region;
               obj.DescricaoRua = domain.street;
               obj.IndicadorTipoEndereco = domain.TipoEndereco;
-              context.TEC_ENDERECO.Add(obj);
+              context.Endereco.Add(obj);
               context.SaveChanges(); 
 
 

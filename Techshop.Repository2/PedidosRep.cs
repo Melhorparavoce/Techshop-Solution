@@ -41,7 +41,7 @@ namespace Techshop.Repositoy.CodeFirst
                  obj.DescricaoValorCompra = Convert.ToDecimal(domain.total_ordered);
                  obj.IndImportadoProtheus = 0; 
 
-                context.TEC_PEDIDOS.Add(obj);
+                context.Pedido.Add(obj);
                 context.SaveChanges();
 
                 return obj.CodigoPedido;    

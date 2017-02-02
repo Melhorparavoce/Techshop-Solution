@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model.CodeFirst.Models
 {
@@ -7,10 +9,10 @@ namespace Model.CodeFirst.Models
     {
         public Pedido()
         {
-           this.TEC_ITEM_PEDIDO = new List<ItemPedido>();
-         
+                    
         }
-                   
+        [Key]
+        [Column(Order = 1)]
         public int CodigoPedido { get; set; }
         public string DescricaoCanal { get; set; }
         public string CodigoSkyhub { get; set; }   

@@ -30,7 +30,7 @@ namespace Techshop.Repositoy.CodeFirst
             obj.DescricaoProduto = domain.name;
             obj.DescricaoQuantidade = Convert.ToDecimal(domain.qty);
                                                  
-            context.TEC_ITEM_PEDIDO.Add(obj);
+            context.ItemPedido.Add(obj);
             context.SaveChanges(); 
            
         }          

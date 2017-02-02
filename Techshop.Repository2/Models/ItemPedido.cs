@@ -1,10 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model.CodeFirst.Models
 {
     public  class ItemPedido
     {
+
+        [Key]
+        [Column(Order = 1)]
         public int CodigoItemPedido { get; set; }
         public int CodigoPedido { get; set; }
         public string CodigoId { get; set; }

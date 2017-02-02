@@ -34,7 +34,7 @@ namespace Techshop.Repositoy.CodeFirst
             obj.DescricaoTelefone4 = domain.phones[3];
             obj.DataNascimento = Convert.ToDateTime(domain.date_of_birth);  
 
-            context.TEC_CLIENTE.Add(obj);
+            context.Cliente.Add(obj);
             context.SaveChanges();    
 
            

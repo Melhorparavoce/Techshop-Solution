@@ -6,51 +6,33 @@ using System.Data.EntityClient;
 
 namespace Model.CodeFirst.Models
 {             
-    /*
-            obj.DSC_NOME = domain.full_name;
-            obj.DSC_PAIS = domain.country;
-            obj.DSC_REGIAO = domain.region;
-            obj.DSC_RUA = domain.street;
-            obj.IND_ATIVO = 1;
-            obj.IND_TIPO_ENDERECO = domain.TipoEndereco;
-            obj.DSC_TIPO_ENDERECO = domain.DescricaoEndereco;  */
-
-    public class Endereco
+    public class Cliente
     { 
         [Key]
         [Column(Order = 1)]
-        public int CodigoEndereco { get; set; }
+        public int CodigoCliente { get; set; }
         public int CodigoPedido { get; set; }
-
+        [StringLength(250)]                                
+        public string DescricaoCliente { get; set; }
         [StringLength(250)]
-        public string DescricaoBairro { get; set; }
-
-        [StringLength(200)]
-        public string DescricaoCep { get; set; }
-
-        [StringLength(300)]
-        public string DescricaoCidade { get; set; }
-
-        [StringLength(200)]
-        public string DescricaoDetalhes { get; set; }
-
-        [StringLength(250)]
-        public string DescricaoNome { get; set; }
+        public string DescricaoEmail { get; set; }
+        [StringLength(30)]
+        public string DescricaoGenero { get; set; }
+        [StringLength(50)]
+        public string DescricaoCPF { get; set; }
+        [StringLength(50)]
+        public string DescricaoTelefone1 { get; set; }
 
         [StringLength(50)]
-         public string DescricaoPais { get; set; }
+         public string DescricaoTelefone2 { get; set; }
+        [StringLength(50)]
+        public string DescricaoTelefone3 { get; set; }
+        [StringLength(50)]
+        public string DescricaoTelefone4 { get; set; }
 
-        [StringLength(250)]
-        public string DescricaoRegiao { get; set; }
+        public DateTime DataNascimento { get; set; }
 
-        [StringLength(450)]
-        public string DescricaoRua { get; set; }
-
-       
-        public int IndicadorTipoEndereco { get; set; }
-
-
-
+      
 
 
     }

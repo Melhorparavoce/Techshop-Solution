@@ -63,13 +63,11 @@
       <DependentUpon>201701301102533_Techshop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ApoioProtheus.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\ItemPedido.cs" />
-    <Compile Include="Models\Mapping\TEC_ENDERECOMap.cs" />
-    <Compile Include="Models\Mapping\TEC_CLIENTEMap.cs" />
-    <Compile Include="Models\Mapping\TEC_ITEM_PEDIDOMap.cs" />
-    <Compile Include="Models\Mapping\TEC_PEDIDOSMap.cs" />
+    <Compile Include="Models\PedidoProtheus.cs" />
     <Compile Include="Models\TechshopContext.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="PedidosRep.cs" />
@@ -98,6 +96,9 @@
     <EmbeddedResource Include="Migrations\201701301102533_Techshop.resx">
       <DependentUpon>201701301102533_Techshop.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Mapping\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
