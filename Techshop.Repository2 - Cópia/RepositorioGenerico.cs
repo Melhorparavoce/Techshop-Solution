@@ -10,42 +10,48 @@ using Model.CodeFirst.Models;
 
 namespace Techshop.Repositoy.CodeFirst
 {
-    public class Repository<T> : IRepository<T>
+    public class RepositorioGenerico<T> : IRepository<T>
         where T : class
     {
         private DbContext context;
+        public IDbSet<T> _dbset;
 
-        public Repository()
+        public RepositorioGenerico()
         {
             context = new TechshopContext();
+            _dbset = context.Set<T>();
         }
 
-        public void Update(T entity)
+        public void Atualizar(T entity)
         {
             context.Entry<T>(entity).State = EntityState.Modified;
             context.SaveChanges();
         }
 
-        public void Delete(T entity)
+        public void Excluir(T entity)
         {
             context.Set<T>().Remove(entity);
             context.SaveChanges();
         }
 
-        public void Create(T entity)
+        public void Criar(T entity)
         {
             context.Set<T>().Add(entity);
             context.SaveChanges();
         }
 
-        public IQueryable<T> GetAll()
+        public IQueryable<T> RecuperarTodos()
         {
             return context.Set<T>();
         }
-
-        public IEnumerable<T> Find(Expression<Func<T, bool>> where)
+        public IList<T> Listar(Func<T, bool> where)
         {
-            return context.Set<T>().Where(where);
+            return _dbset.Where(where).ToList();
         }
+
+        /*  public IList<T> Listar(Func<T, bool> where)
+          {
+              return _dbset.Where(where).ToList();
+          }   */
     }
 }

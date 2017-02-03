@@ -16,12 +16,14 @@ namespace Model.CodeFirst.Models
             : base("Name=TechshopContext")
         {
         }
-                 
+                         
+        public DbSet<ItemPedido> ItemPedido { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<PedidoProtheus> PedidoProtheus{ get; set; } 
         public DbSet<ApoioProtheus> ApoioProtheus { get; set; }  
-        public DbSet<ItemPedidoProtheus> ItemPedidoProtheus { get; set; }  
-        public DbSet<ItemPedidos> ItemsPedido { get; set; } 
+        public DbSet<ItemPedidoProtheus> ItemPedidoProtheus { get; set; }
+        
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

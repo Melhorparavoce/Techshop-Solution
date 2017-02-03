@@ -8,18 +8,18 @@ using System.Data.SqlClient;
 
 namespace Techshop.Repositoy.CodeFirst
 {
-    public class PedidosRep 
+    public class PedidosRep : RepositorioGenerico<Pedido>
     {
-        private TechshopContext context = new TechshopContext();
+        private TechshopContext context;
 
 
-     /*   public PedidosRep()
+        public PedidosRep()
         {     
             context = new TechshopContext();
-        }     */
+        }
 
 
-        public int CriarPedido(Pedido EntidadePedido)         {
+        public int Criar(Pedido EntidadePedido)         {
 
             context.Pedidos.Add(EntidadePedido);
             context.SaveChanges();
@@ -60,8 +60,7 @@ namespace Techshop.Repositoy.CodeFirst
         public List<Pedido> ListarPedidosImportadosSkyhub()
         {
 
-            //return Listar(where => where.IndImportadoProtheus == 0).ToList();
-            return null;
+             return Listar(where => where.IndImportadoProtheus == 0).ToList();
             
         }
         

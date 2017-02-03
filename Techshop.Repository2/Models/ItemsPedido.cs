@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model.CodeFirst.Models
 {
-    public  class ItemPedido
+    public  class ItemPedidos
     {
 
         [Key]
@@ -18,6 +18,6 @@ namespace Model.CodeFirst.Models
         public Nullable<decimal> DescricaoPrecoOriginal { get; set; }
         public Nullable<decimal> DescricaoPrecoEspecial { get; set; }
         public Nullable<int> IncadorAtivo { get; set; }
-        public virtual Pedido TEC_PEDIDOS { get; set; }
+ 
     }
 }

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7931640D-11D5-499C-A8A9-764E8B1F09F0}</ProjectGuid>
+    <ProjectGuid>{D67BD982-633C-4895-B966-81389CA229F0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Techshop.Aplication</RootNamespace>
-    <AssemblyName>Techshop.Aplication</AssemblyName>
+    <RootNamespace>Techshop.Repositoy.CodeFirst</RootNamespace>
+    <AssemblyName>Techshop.Repositoy.CodeFirst</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +29,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -44,33 +42,61 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pedidos.App.cs" />
+    <Compile Include="Interface\IRepositorio.cs" />
+    <Compile Include="ItemPedidoRep.cs" />
+    <Compile Include="Migrations\201701301102533_Techshop.cs" />
+    <Compile Include="Migrations\201701301102533_Techshop.Designer.cs">
+      <DependentUpon>201701301102533_Techshop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApoioProtheus.cs" />
+    <Compile Include="Models\ItemPedido.cs" />
+    <Compile Include="Models\ItemPedidoProtheus.cs" />
+    <Compile Include="Models\PedidoProtheus.cs" />
+    <Compile Include="Models\TechshopContext.cs" />
+    <Compile Include="Models\Pedido.cs" />
+    <Compile Include="PedidosProtheusRep.cs" />
+    <Compile Include="PedidosRep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioGenerico.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SkyHubAdapter.Application\SkyHubAdapter.Application.csproj">
-      <Project>{788ba59a-b599-453c-839f-454342173007}</Project>
-      <Name>SkyHubAdapter.Application</Name>
-    </ProjectReference>
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <Content Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SkyHubAdapter.Domain\SkyHubAdapter.Domain.csproj">
       <Project>{0e210e3b-c709-4e29-b96f-82ca431d7250}</Project>
       <Name>SkyHubAdapter.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Techshop.Repository2\Techshop.Repositoy.CodeFirst.csproj">
-      <Project>{d67bd982-633c-4895-b966-81389ca229f0}</Project>
-      <Name>Techshop.Repositoy.CodeFirst</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <EmbeddedResource Include="Migrations\201701301102533_Techshop.resx">
+      <DependentUpon>201701301102533_Techshop.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Mapping\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

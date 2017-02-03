@@ -23,7 +23,7 @@ namespace SkyHubAdapter.Console
 
             // Sincronização de pedidos base techshop
             Pedidos objOrderApp = new Pedidos();  
-            objOrderApp.IncluirPedidosBaseTemporaria();
+            objOrderApp.IncluirPedidosBaseEspelhoSkyhub();
 
            //Criação de Pedidos
             //PostOrders();
