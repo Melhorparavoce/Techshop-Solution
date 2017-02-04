@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using SkyHubAdapter.Application;
 using SkyHubAdapter.Domain.AbsModels;
 using SkyHubAdapter.Domain.SkyHub;
 using Techshop.Aplication;
-
 namespace SkyHubAdapter.Console
 {
     internal class Program
@@ -14,24 +12,54 @@ namespace SkyHubAdapter.Console
         private static void Main(string[] args)
         {
 
+            Pedidos obj = new Pedidos();
+            obj.ConsultarVendedor();
+
+        //    Pedi  obj = new VendedorRep();
+
+            //obj.Consulta();
+
+            //string teste = "";
+            //var teste = obj.RecuperarTodos();
+
+
+
             //  Contexto db = new Contexto(); 
 
 
             //PostOrders();
 
-            string teste = "";
+
 
             // Sincronização de pedidos base techshop
-            Pedidos objOrderApp = new Pedidos();  
-            objOrderApp.IncluirPedidosBaseEspelhoSkyhub();
+          /*  Pedidos objOrderApp = new Pedidos();
+            string erro = "";
+
+            try
+            {
+                objOrderApp.IncluirPedidosBaseEspelhoSkyhub();
+                objOrderApp.IncluirPedidosBaseEspelhoProtheus();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        erro = "Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage;
+                    }
+                }
+            }                        */
+          
+
 
            //Criação de Pedidos
-            //PostOrders();
+           //PostOrders();
 
             //Pedidos Exportados
             //PutOrderExported("Americanas-1485342404271");
 
-             
+
         }
 
         #region Orders

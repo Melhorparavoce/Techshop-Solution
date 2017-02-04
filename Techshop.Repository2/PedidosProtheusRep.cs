@@ -20,11 +20,7 @@ namespace Techshop.Repositoy.CodeFirst
         #endregion
 
 
-        #region Métodos
-
-              
-        
-        #endregion
+       
 
     }   
 

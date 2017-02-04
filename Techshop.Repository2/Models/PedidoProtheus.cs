@@ -47,7 +47,7 @@ namespace Model.CodeFirst.Models
         [Column(TypeName = "char")]
         public string CodigoVendendor { get; set; }
 
-        [StringLength(20)]
+        [StringLength(100)]
         [Column(TypeName = "char")]
         public string NumeroEntregaSkyhub { get; set; } 
           

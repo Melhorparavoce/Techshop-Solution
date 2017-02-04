@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Protheus.Repository\Protheus.Repository.csproj">
+      <Project>{ddf9ffa7-0b8d-4936-b022-94df2dbbbce0}</Project>
+      <Name>Protheus.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SkyHubAdapter.Application\SkyHubAdapter.Application.csproj">
       <Project>{788ba59a-b599-453c-839f-454342173007}</Project>
       <Name>SkyHubAdapter.Application</Name>

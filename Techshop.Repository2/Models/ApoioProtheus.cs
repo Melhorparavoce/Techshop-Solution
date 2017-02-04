@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.EntityClient;
+
 
 namespace Model.CodeFirst.Models
 {
-
-
-    public class ApoioProtheus
+   public class ApoioProtheus
     {
         [Key]
         [Column(Order = 1)]

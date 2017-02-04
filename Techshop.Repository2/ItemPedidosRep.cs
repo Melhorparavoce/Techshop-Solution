@@ -7,22 +7,27 @@ using Model.CodeFirst.Models;
 
 namespace Techshop.Repositoy.CodeFirst
 {
-    public class ItemPedidoRep
+    public class ItemPedidoRep : RepositorioGenerico<ItemPedidos>
     {
 
-        private TechshopContext context = new TechshopContext();
-       /* private TechshopContext context;   
+         private TechshopContext context;   
 
         public ItemPedidoRep()          {
 
             context = new TechshopContext();  
-        }      */
+        }
 
-        public void CriarItemPedido(ItemPedidos EntidadeItemPedido)          {
+        public List<ItemPedidos> Listar(int CodigoPedido)
+        {
+            return Listar(where => where.CodigoPedido == CodigoPedido).ToList();
 
+        }                                                   
+                                                                              
+        public void CriarItemPedido(ItemPedidos EntidadeItemPedido)
+        {  
             context.ItemsPedido.Add(EntidadeItemPedido);
-            context.SaveChanges();              
-            //  return context.  
+            context.SaveChanges();          
+              
         }
 
     }

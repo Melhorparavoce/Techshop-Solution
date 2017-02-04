@@ -5,21 +5,22 @@ using Techshop.Repositoy.CodeFirst;
 using Model.CodeFirst.Models;
 using Techshop.Repositoy.CodeFirst.Interface;
 using System.Collections.Generic;
+using Protheus.Repository;
 namespace Techshop.Aplication
 {
     public class Pedidos
     {
+        #region Propriedades
         private PedidosRep objPedidosRep;
-
         public Pedidos()
         {
             objPedidosRep = new PedidosRep();
 
         }
 
-        /// <summary>
-        /// Inclui Pedidos Espelho Skyhub
-        /// </summary>
+        #endregion
+
+        #region Métodos
         public void IncluirPedidosBaseEspelhoSkyhub()
         {
                                
@@ -30,15 +31,13 @@ namespace Techshop.Aplication
 
             Order.OrderListResponse list = (Order.OrderListResponse)objOrderApp.Get().AdditionalData;
 
-            int CodigoPedido = 0;
-
-
-
+         
             for (int i = 0; i < list.Total; i++)
             {
 
                 Pedido EntidadePedido = new Pedido();
 
+                EntidadePedido.IndImportadoProtheus = 0;
                 EntidadePedido.DescricaoCanal = list.Orders[i].channel;
                 EntidadePedido.CodigoSkyhub = list.Orders[i].code;
                 EntidadePedido.DescricaoCustoEntrega = Convert.ToDecimal(list.Orders[i].shipping_cost);
@@ -71,7 +70,7 @@ namespace Techshop.Aplication
                 EntidadePedido.DescricaoRegiao = list.Orders[i].shipping_address.region;
                 EntidadePedido.DescricaoRua = list.Orders[i].shipping_address.street;
 
-                objPedidosRep.CriarPedido(EntidadePedido);
+                int CodigoPedido = objPedidosRep.CriarPedido(EntidadePedido);
 
                 List<ItemPedidos> listItensProdutos = new List<ItemPedidos>();
 
@@ -85,32 +84,87 @@ namespace Techshop.Aplication
                     EntidadeItemProduto.DescricaoPrecoOriginal = Convert.ToDecimal(list.Orders[i].items[j].original_price);
                     EntidadeItemProduto.DescricaoProduto = list.Orders[i].items[j].name;
                     EntidadeItemProduto.DescricaoQuantidade = Convert.ToDecimal(list.Orders[i].items[j].qty);
-                    //EntidadeItemProduto.Pedido = EntidadePedido;
-
+                    
                   objOrderItemRep.CriarItemPedido(EntidadeItemProduto); 
                                 
                 }
-                CodigoPedido = CodigoPedido + 1;
-
-                string teste = "";         
+                
             }                     
 
-        }
-       
-        /// <summary>
-        /// Inclui pedidos base 
-        /// </summary>
-        public void InserirPedidosBaseEspelhoProtheus()
+        }                                              
+
+        public void IncluirPedidosBaseEspelhoProtheus()
         {
-            PedidoProtheus entidade = new PedidoProtheus();
+            PedidosRep obj = new PedidosRep();
+            PedidosProtheusRep objPedidosProtheusRep = new PedidosProtheusRep();
+            ItemPedidoRep objItemPedidoRep = new ItemPedidoRep();
+            ItemPedidosProtheusRep objItemPedidoProtheusRep = new ItemPedidosProtheusRep();
 
-
-           foreach(Pedido item in objPedidosRep.ListarPedidosImportadosSkyhub())
+            foreach (Pedido item in obj.ListarPedidosImportadosSkyhub())
             {
-                entidade.CodicaoPagamento = "";
-              //  entidade.
+                var entidadeProtheus = new PedidoProtheus
+                {
 
-            }  
+                    TipoPedido = "",
+                    TipoFrete = "C",
+                    CodigoTransportadora = "",
+                    CodigoTabelaPrecos = "",
+                    CodicaoPagamento = "",
+                    FormaPagamento = "",
+                    CodigoVendendor = "",
+                    NumeroEntregaSkyhub = item.CodigoSkyhub,
+                    DescricaoCliente = item.DescricaoCliente,
+                    DescricaoEmail = item.DescricaoEmail,
+                    DescricaoGenero = item.DescricaoGenero,
+                    DescricaoCPF = item.DescricaoCPF,
+                    DescricaoTelefone1 = item.DescricaoTelefone1,
+                    DescricaoTelefone2 = item.DescricaoTelefone2,
+                    DescricaoTelefone3 = item.DescricaoTelefone3,
+                    DescricaoTelefone4 = item.DescricaoTelefone4,
+                    DataNascimento = item.DataNascimento,
+                    DescricaoBairro = item.DescricaoBairro,
+                    DescricaoCep = item.DescricaoCep,
+                    DescricaoCidade = item.DescricaoCidade,
+                    DescricaoDetalhes = item.DescricaoDetalhes,
+                    DescricaoNome = item.DescricaoNome,
+                    DescricaoPais = item.DescricaoPais,
+                    DescricaoRegiao = item.DescricaoRegiao,
+                    DescricaoRua = item.DescricaoRua,
+                    MensagemErro = "",
+                    MensagemErroDetalhada = "",
+                    StatusImportacao = "1"
+
+                };
+
+                foreach (ItemPedidos itemPedido in objItemPedidoRep.Listar(item.CodigoPedido))
+                {
+
+                    var EntidadePedidosProtheus = new ItemPedidoProtheus
+                    {
+                        SkuProduto = itemPedido.CodigoId,
+                        Quantidade = itemPedido.DescricaoQuantidade.ToString(),
+                        Preco = itemPedido.DescricaoPrecoOriginal.ToString(),
+                    };
+
+                    objItemPedidoProtheusRep.Criar(EntidadePedidosProtheus);
+
+                }
+
+                objPedidosProtheusRep.Criar(entidadeProtheus);
+
+           }               
+          
+
+        }
+
+        #endregion
+
+        public void ConsultarVendedor()
+        {
+            VendedorRep obj = new VendedorRep();
+            obj.Consulta();
+
+
         }
 
 
