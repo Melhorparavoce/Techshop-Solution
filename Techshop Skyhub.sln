@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.Aplication", "Tech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "SkyHubAdapter.Console\Console.csproj", "{7D3DDEF4-9076-4F72-930D-78B86CCA6123}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.Repositoy.CodeFirst", "Techshop.Repository2\Techshop.Repositoy.CodeFirst.csproj", "{D67BD982-633C-4895-B966-81389CA229F0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protheus.Repository", "Protheus.Repository\Protheus.Repository.csproj", "{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.Model", "Techshop.Model\Techshop.Model.csproj", "{2E7FB81C-B791-496E-89C8-97EF88A11509}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.Repositoy.CodeFirst", "Techshop.Repository.Codefirst\Techshop.Repositoy.CodeFirst.csproj", "{D67BD982-633C-4895-B966-81389CA229F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		{7D3DDEF4-9076-4F72-930D-78B86CCA6123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D3DDEF4-9076-4F72-930D-78B86CCA6123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D3DDEF4-9076-4F72-930D-78B86CCA6123}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D67BD982-633C-4895-B966-81389CA229F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D67BD982-633C-4895-B966-81389CA229F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D67BD982-633C-4895-B966-81389CA229F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D67BD982-633C-4895-B966-81389CA229F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{2E7FB81C-B791-496E-89C8-97EF88A11509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E7FB81C-B791-496E-89C8-97EF88A11509}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E7FB81C-B791-496E-89C8-97EF88A11509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67BD982-633C-4895-B966-81389CA229F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67BD982-633C-4895-B966-81389CA229F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67BD982-633C-4895-B966-81389CA229F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67BD982-633C-4895-B966-81389CA229F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

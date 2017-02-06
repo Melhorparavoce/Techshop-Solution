@@ -27,13 +27,17 @@ namespace Protheus.Repository
 
         public DbSet<Vendedor> VendedorNovo { get; set; }
 
+        
         #region Métodos
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
-            modelBuilder.Configurations.Add(new VendedorMap()); 
+            modelBuilder.Configurations.Add(new VendedorMap());
 
+           // modelBuilder.Entity<Transportadora>().MapToStoredProcedures();
+
+            base.OnModelCreating(modelBuilder);
         }    
         #endregion
     }

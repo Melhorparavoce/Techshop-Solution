@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Techshop.Model;
 namespace Protheus.Repository
 {
-    public class VendedorRep
+    public class VendedorRep:RepositorioGenerico<Vendedor>
     {
           
         #region Propriedades
@@ -23,7 +23,7 @@ namespace Protheus.Repository
 
         public void Consulta()
         {
-            var query = context.VendedorNovo;
+            List<Vendedor> lista = Listar(where => where.CodigoVedendor == 1).ToList();
 
             string teste = "";
 

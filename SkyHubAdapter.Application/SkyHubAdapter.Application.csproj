@@ -85,10 +85,6 @@
       <Project>{0e210e3b-c709-4e29-b96f-82ca431d7250}</Project>
       <Name>SkyHubAdapter.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Techshop.Repository2\Techshop.Repositoy.CodeFirst.csproj">
-      <Project>{d67bd982-633c-4895-b966-81389ca229f0}</Project>
-      <Name>Techshop.Repositoy.CodeFirst</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Techshop\" />

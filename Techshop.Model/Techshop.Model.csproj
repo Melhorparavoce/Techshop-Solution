@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApoioProtheus.cs" />
+    <Compile Include="ItemPedidoProtheus.cs" />
+    <Compile Include="ItemsPedido.cs" />
+    <Compile Include="Pedido.cs" />
+    <Compile Include="PedidoProtheus.cs" />
+    <Compile Include="Transportadora.cs" />
     <Compile Include="Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

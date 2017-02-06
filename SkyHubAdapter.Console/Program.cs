@@ -4,6 +4,10 @@ using SkyHubAdapter.Application;
 using SkyHubAdapter.Domain.AbsModels;
 using SkyHubAdapter.Domain.SkyHub;
 using Techshop.Aplication;
+using System.Data.Entity.Validation;
+using System.Data.Entity.Infrastructure;
+using Protheus.Repository;
+
 namespace SkyHubAdapter.Console
 {
     internal class Program
@@ -12,44 +16,32 @@ namespace SkyHubAdapter.Console
         private static void Main(string[] args)
         {
 
-            Pedidos obj = new Pedidos();
-            obj.ConsultarVendedor();
 
-        //    Pedi  obj = new VendedorRep();
+            Protheus.Repository.TransportadoraRep obj = new TransportadoraRep();
 
-            //obj.Consulta();
-
-            //string teste = "";
-            //var teste = obj.RecuperarTodos();
-
-
-
-            //  Contexto db = new Contexto(); 
-
-
-            //PostOrders();
-
-
-
+            obj.RetornaTransportadora("32265220", "MG");
+       
             // Sincronização de pedidos base techshop
-          /*  Pedidos objOrderApp = new Pedidos();
+       /*     PedidosApp objOrderApp = new PedidosApp();
             string erro = "";
 
             try
             {
                 objOrderApp.IncluirPedidosBaseEspelhoSkyhub();
-                objOrderApp.IncluirPedidosBaseEspelhoProtheus();
+                //objOrderApp.IncluirPedidosBaseEspelhoProtheus();
             }
-            catch (DbEntityValidationException ex)
+            catch (DbUpdateException ex)
             {
-                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+
+                string teste = ex.Message;
+                /*foreach (var entityValidationErrors in ex.EntityValidationErrors)
                 {
                     foreach (var validationError in entityValidationErrors.ValidationErrors)
                     {
                         erro = "Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage;
                     }
-                }
-            }                        */
+                } */
+                               
           
 
 
