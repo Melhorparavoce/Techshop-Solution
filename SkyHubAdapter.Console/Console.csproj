@@ -83,6 +83,10 @@
       <Project>{2e7fb81c-b791-496e-89c8-97ef88a11509}</Project>
       <Name>Techshop.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Techshop.Repository.Codefirst\Techshop.Repositoy.CodeFirst.csproj">
+      <Project>{d67bd982-633c-4895-b966-81389ca229f0}</Project>
+      <Name>Techshop.Repositoy.CodeFirst</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

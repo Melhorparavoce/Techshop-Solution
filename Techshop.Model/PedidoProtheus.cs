@@ -36,12 +36,8 @@ namespace Techshop.Model
 
         [StringLength(20)]
         [Column(TypeName = "char")]
-        public string CodicaoPagamento { get; set; }
-
-        [StringLength(20)]
-        [Column(TypeName = "char")]
-        public string FormaPagamento { get; set; }
-
+        public string Parceiro { get; set; }
+                       
         [StringLength(20)]
         [Column(TypeName = "char")]
         public string CodigoVendendor { get; set; }
@@ -108,5 +104,7 @@ namespace Techshop.Model
         [StringLength(10)]
         public string StatusImportacao { get; set; }
 
+         [StringLength(150)]
+        public string DescricaoCanal { get; set; }
     }
 }

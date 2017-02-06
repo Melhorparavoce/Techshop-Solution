@@ -8,11 +8,9 @@ namespace Techshop.Model
     {
 
         [Key]
-        [Column(Order = 1)]
-        public int CodigoVedendor { get; set; }        
-
-        public string DescricaoVendedor { get; set; }
-           
-
+        public string CodigoProduto { get; set; }
+        public string VendedorB2W { get; set; }
+        public string VendedorCNOVA { get; set; }
+        public string VendedorTechshop { get; set; }
     }
 }

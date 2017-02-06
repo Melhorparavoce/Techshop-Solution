@@ -35,8 +35,6 @@ namespace Protheus.Repository
 
             modelBuilder.Configurations.Add(new VendedorMap());
 
-           // modelBuilder.Entity<Transportadora>().MapToStoredProcedures();
-
             base.OnModelCreating(modelBuilder);
         }    
         #endregion

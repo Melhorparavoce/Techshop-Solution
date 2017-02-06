@@ -28,24 +28,24 @@ namespace Protheus.Repository
         #region Métodos
         public string RetornaTransportadora(string cep,string uf)
         {
-            
+            string Transportadora="";
             context.Database.Connection.Open();
             DbCommand cmd = context.Database.Connection.CreateCommand();
             cmd.CommandText = "PROC_TRANSPORTADORA";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("COD_CEP", cep.Trim()));
-            cmd.Parameters.Add(new SqlParameter("COD_ESTADO", uf.Trim()));
+            cmd.Parameters.Add(new SqlParameter("CEP", cep.Trim()));
+            cmd.Parameters.Add(new SqlParameter("UF", uf.Trim()));
 
             List<Transportadora> list= new List<Transportadora>();
             var reader = cmd.ExecuteReader();
 
             while(reader.Read())
             {
-                string teste = reader["DSC_TRANSPORTADORA"].ToString();
-
+                Transportadora = reader["TRANSPORTADORA"].ToString(); 
             }
-               
-            return null;
+            context.Database.Connection.Close();
+
+            return Transportadora;
         }
 
         #endregion

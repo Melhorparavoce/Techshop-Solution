@@ -3,9 +3,8 @@ using SkyHubAdapter.Application;
 using SkyHubAdapter.Domain.SkyHub;
 using Techshop.Repositoy.CodeFirst;
 using Techshop.Model;
-
 using System.Collections.Generic;
-
+using Protheus.Repository;
 namespace Techshop.Aplication
 {
     public class PedidosApp
@@ -99,19 +98,25 @@ namespace Techshop.Aplication
             PedidosProtheusRep objPedidosProtheusRep = new PedidosProtheusRep();
             ItemPedidoRep objItemPedidoRep = new ItemPedidoRep();
             ItemPedidosProtheusRep objItemPedidoProtheusRep = new ItemPedidosProtheusRep();
+            VendedorRep objVendedorRep = new VendedorRep();
+            TransportadoraRep objTransportadoraRep = new TransportadoraRep();
+            VendedorApp objVendedorApp = new VendedorApp();
+            MarketplaceApp objMarketplaceApp = new MarketplaceApp();
+            string CodigoParceiro = "";
 
             foreach (Pedido item in obj.ListarPedidosImportadosSkyhub())
             {
+                CodigoParceiro = objMarketplaceApp.RetornaParceiro(item.DescricaoCanal);
+
                 var entidadeProtheus = new PedidoProtheus
                 {
 
-                    TipoPedido = "",
-                    TipoFrete = "C",
-                    CodigoTransportadora = "",
-                    CodigoTabelaPrecos = "",
-                    CodicaoPagamento = "",
-                    FormaPagamento = "",
-                    CodigoVendendor = "",
+                    TipoPedido = "N",
+                    TipoFrete = "C", 
+                    CodigoTransportadora = objTransportadoraRep.RetornaTransportadora(item.DescricaoCep, item.DescricaoRegiao),
+                    CodigoTabelaPrecos = "07",
+                    Parceiro = CodigoParceiro,
+                    DescricaoCanal = item.DescricaoCanal,
                     NumeroEntregaSkyhub = item.CodigoSkyhub,
                     DescricaoCliente = item.DescricaoCliente,
                     DescricaoEmail = item.DescricaoEmail,
@@ -138,6 +143,9 @@ namespace Techshop.Aplication
 
                 foreach (ItemPedidos itemPedido in objItemPedidoRep.Listar(item.CodigoPedido))
                 {
+
+                    
+                   entidadeProtheus.CodigoVendendor = objVendedorApp.RetornaVendedor(CodigoParceiro, itemPedido.CodigoId);
 
                     var EntidadePedidosProtheus = new ItemPedidoProtheus
                     {

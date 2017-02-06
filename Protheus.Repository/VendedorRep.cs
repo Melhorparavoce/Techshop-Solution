@@ -21,13 +21,11 @@ namespace Protheus.Repository
 
         #region Métodos
 
-        public void Consulta()
+        public List<Vendedor> Consulta(string CodigoProduto)
         {
-            List<Vendedor> lista = Listar(where => where.CodigoVedendor == 1).ToList();
+            List<Vendedor> lista = Listar(where => where.CodigoProduto.Contains(CodigoProduto)).ToList();
 
-            string teste = "";
-
-
+            return lista;
         }      
 
         #endregion

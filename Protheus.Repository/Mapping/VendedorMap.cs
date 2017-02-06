@@ -11,9 +11,11 @@ namespace Protheus.Repository.Mapping
     {
         public VendedorMap() {
 
-            this.ToTable("VendedorNovo");
-            this.Property(t => t.CodigoVedendor).HasColumnName("CodigoVendedor");
-            this.Property(t => t.DescricaoVendedor).HasColumnName("DescricaoVendedor");
+            this.ToTable("VW_PRODUTO_VENDEDOR_ECOMMERCE");
+            this.Property(t => t.CodigoProduto).HasColumnName("Produto");
+            this.Property(t => t.VendedorB2W).HasColumnName("Vendedor_b2w");
+            this.Property(t => t.VendedorCNOVA).HasColumnName("vendedor_cnova");
+            this.Property(t => t.VendedorTechshop).HasColumnName("vendedor_techshop");
 
         }
 
