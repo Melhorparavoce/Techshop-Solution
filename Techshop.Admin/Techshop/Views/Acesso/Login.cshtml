@@ -1,0 +1,150 @@
+﻿@model Techshop.Model.Usuario
+
+
+@{
+    Layout = null;
+
+}
+
+<html class="fixed header-dark"">
+	<head>
+        
+        <title>Techshop</title> 
+         <link rel="shortcut icon" href="~/Images/Icone%20Techshop.ico" >
+         <link rel="icon" href="~/Images/Icone%20Techshop.ico" >
+   
+        <meta name="keywords" content="S" />
+		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="~/Content/assets/vendor/bootstrap/css/bootstrap.css" />
+
+		<link rel="stylesheet" href="~/Content/assets/vendor/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="~/Content/assets/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="~/Content/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="~/Content/assets/stylesheets/theme.css" />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="~/Content/assets/stylesheets/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="~/Content/assets/stylesheets/theme-custom.css">
+
+		<!-- Head Libs -->
+		<script src="~/Content/assets/vendor/modernizr/modernizr.js"></script>
+        @Scripts.Render("~/bundles/jquery")
+	</head>
+
+	<body style="background-color:#1d2127">
+<form method="post" action="@Url.Action("Login", "Acesso")" >
+
+		<!-- start: page -->
+		<section class="body-sign">
+			<div class="center-sign">
+                  @if(ViewBag.Erro != null) {
+                  <div class="alert alert-danger"  id="DivMensagemErro">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                      @ViewBag.Erro
+                  </div>
+                  }
+				
+				<div class="panel panel-sign">
+					<div class="panel-title-sign mt-xl text-leftt">
+						
+                        <h2 class="title text-uppercase text-weight-bold m-none">
+                            <img src="~/Content/assets/images/logo.png" height="54" /></h2>
+					</div>
+					<div class="panel-body">
+						<div class="form-group mb-lg">
+								<label>Usuário</label>
+								<div class="input-group input-group-icon">
+									<input name="username" type="text" id="Login" class="form-control input-lg" />
+									<span class="input-group-addon">
+										<span class="icon icon-lg">
+											<i class="fa fa-user"></i>
+										</span>
+									</span>
+								</div>
+							</div>
+
+							<div class="form-group mb-lg">
+								<div class="input-group input-group-icon">
+									<input name="pwd" type="password" id="Senha" class="form-control input-lg" />
+									<span class="input-group-addon">
+										<span class="icon icon-lg">
+											<i class="fa fa-lock"></i>
+										</span>
+									</span>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-4 text-left">
+									<input type="submit" name="SaveData" id="btnEntrar" value="Entrar" class="btn btn-primary" />
+								</div>
+							</div>						
+					</div>
+				</div>
+
+				    <p class="text-center text-muted mt-md mb-md">&copy;2017 Techshop, todos os direitos reservados.</p>
+			    </div>
+		    </section>
+		    <!-- end: page -->
+
+		<!-- Vendor -->
+		<script src="~/Content/assets/vendor/jquery/jquery.js"></script>
+		<script src="~/Content/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="~/Content/assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="~/Content/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="~/Content/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="~/Content/assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="~/Content/assets/vendor/jquery-placeholder/jquery-placeholder.js"></script>
+		
+		<!-- Specific Page Vendor -->
+		<script src="~/Content/assets/vendor/jquery-ui/jquery-ui.js"></script>
+		<script src="~/Content/assets/vendor/jqueryui-touch-punch/jqueryui-touch-punch.js"></script>
+		<script src="~/Content/assets/vendor/jquery-appear/jquery-appear.js"></script>
+		<script src="~/Content/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+		<script src="~/Content/assets/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.js"></script>
+		<script src="~/Content/assets/vendor/flot.tooltip/flot.tooltip.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.pie.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.categories.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.resize.js"></script>
+		<script src="~/Content/assets/vendor/jquery-sparkline/jquery-sparkline.js"></script>
+		<script src="~/Content/assets/vendor/raphael/raphael.js"></script>
+		<script src="~/Content/assets/vendor/morris.js/morris.js"></script>
+		<script src="~/Content/assets/vendor/gauge/gauge.js"></script>
+		<script src="~/Content/assets/vendor/snap.svg/snap.svg.js"></script>
+		<script src="~/Content/assets/vendor/liquid-meter/liquid.meter.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/jquery.vmap.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/data/jquery.vmap.sampledata.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.africa.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.asia.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.australia.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="~/Content/assets/javascripts/theme.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="~/Content/assets/javascripts/theme.custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="~/Content/assets/javascripts/theme.init.js"></script>
+       
+</form>   
+	</body>
+</html>
+
+<!--<script src="~/Scripts/Forms/Acesso.js"></script>-->

@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MarketplaceApp .cs" />
+    <Compile Include="LogerroApp.cs" />
+    <Compile Include="UsuarioApp.cs" />
     <Compile Include="VendedorApp.cs" />
     <Compile Include="PedidosApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

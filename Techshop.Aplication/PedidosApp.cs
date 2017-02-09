@@ -55,9 +55,9 @@ namespace Techshop.Aplication
                 EntidadePedido.DescricaoGenero = list.Orders[i].customer.gender;
                 EntidadePedido.DescricaoCPF = list.Orders[i].customer.vat_number;
                 EntidadePedido.DescricaoTelefone1 = list.Orders[i].customer.phones[0];
-              //  EntidadePedido.DescricaoTelefone2 = list.Orders[i].customer.phones[1];
+               // EntidadePedido.DescricaoTelefone2 = list.Orders[i].customer.phones[1];
               //  EntidadePedido.DescricaoTelefone3 = list.Orders[i].customer.phones[2];
-              //  EntidadePedido.DescricaoTelefone4 = list.Orders[i].customer.phones[3];
+               // EntidadePedido.DescricaoTelefone4 = list.Orders[i].customer.phones[3];
                 EntidadePedido.DataNascimento = Convert.ToDateTime(list.Orders[i].customer.date_of_birth);
 
                 EntidadePedido.DescricaoBairro = list.Orders[i].shipping_address.neighborhood;
@@ -69,7 +69,7 @@ namespace Techshop.Aplication
                 EntidadePedido.DescricaoRegiao = list.Orders[i].shipping_address.region;
                 EntidadePedido.DescricaoRua = list.Orders[i].shipping_address.street;
 
-                int CodigoPedido = objPedidosRep.CriarPedido(EntidadePedido);
+               int CodigoPedido = objPedidosRep.CriarPedido(EntidadePedido);
 
                 List<ItemPedidos> listItensProdutos = new List<ItemPedidos>();
 
@@ -102,66 +102,103 @@ namespace Techshop.Aplication
             TransportadoraRep objTransportadoraRep = new TransportadoraRep();
             VendedorApp objVendedorApp = new VendedorApp();
             MarketplaceApp objMarketplaceApp = new MarketplaceApp();
+            LogerroApp objLogerroApp = new LogerroApp();
+
             string CodigoParceiro = "";
+            int CodigoPedido = 0;
 
             foreach (Pedido item in obj.ListarPedidosImportadosSkyhub())
-            {
-                CodigoParceiro = objMarketplaceApp.RetornaParceiro(item.DescricaoCanal);
-
-                var entidadeProtheus = new PedidoProtheus
-                {
-
-                    TipoPedido = "N",
-                    TipoFrete = "C", 
-                    CodigoTransportadora = objTransportadoraRep.RetornaTransportadora(item.DescricaoCep, item.DescricaoRegiao),
-                    CodigoTabelaPrecos = "07",
-                    Parceiro = CodigoParceiro,
-                    DescricaoCanal = item.DescricaoCanal,
-                    NumeroEntregaSkyhub = item.CodigoSkyhub,
-                    DescricaoCliente = item.DescricaoCliente,
-                    DescricaoEmail = item.DescricaoEmail,
-                    DescricaoGenero = item.DescricaoGenero,
-                    DescricaoCPF = item.DescricaoCPF,
-                    DescricaoTelefone1 = item.DescricaoTelefone1,
-                    DescricaoTelefone2 = item.DescricaoTelefone2,
-                    DescricaoTelefone3 = item.DescricaoTelefone3,
-                    DescricaoTelefone4 = item.DescricaoTelefone4,
-                    DataNascimento = item.DataNascimento,
-                    DescricaoBairro = item.DescricaoBairro,
-                    DescricaoCep = item.DescricaoCep,
-                    DescricaoCidade = item.DescricaoCidade,
-                    DescricaoDetalhes = item.DescricaoDetalhes,
-                    DescricaoNome = item.DescricaoNome,
-                    DescricaoPais = item.DescricaoPais,
-                    DescricaoRegiao = item.DescricaoRegiao,
-                    DescricaoRua = item.DescricaoRua,
-                    MensagemErro = "",
-                    MensagemErroDetalhada = "",
-                    StatusImportacao = "1"
-
-                };
-
-                foreach (ItemPedidos itemPedido in objItemPedidoRep.Listar(item.CodigoPedido))
-                {
-
-                    
-                   entidadeProtheus.CodigoVendendor = objVendedorApp.RetornaVendedor(CodigoParceiro, itemPedido.CodigoId);
-
-                    var EntidadePedidosProtheus = new ItemPedidoProtheus
                     {
-                        SkuProduto = itemPedido.CodigoId,
-                        Quantidade = itemPedido.DescricaoQuantidade.ToString(),
-                        Preco = itemPedido.DescricaoPrecoOriginal.ToString(),
-                    };
+                        CodigoParceiro = objMarketplaceApp.RetornaParceiro(item.DescricaoCanal);
 
-                    objItemPedidoProtheusRep.Criar(EntidadePedidosProtheus);
+                        var entidadeProtheus = new PedidoProtheus
+                        {
 
-                }
+                            TipoPedido = "N",
+                            TipoFrete = "C",
+                            CodigoTransportadora = objTransportadoraRep.RetornaTransportadora(item.DescricaoCep, item.DescricaoRegiao),
+                            CodigoTabelaPrecos = "07",
+                            Parceiro = CodigoParceiro,
+                            DescricaoCanal = item.DescricaoCanal,
+                            NumeroEntregaSkyhub = item.CodigoSkyhub,
+                            DescricaoCliente = item.DescricaoCliente,
+                            DescricaoEmail = item.DescricaoEmail,
+                            DescricaoGenero = item.DescricaoGenero,
+                            DescricaoCPF = item.DescricaoCPF,
+                            DescricaoTelefone1 = item.DescricaoTelefone1,
+                            DescricaoTelefone2 = item.DescricaoTelefone2,
+                            DescricaoTelefone3 = item.DescricaoTelefone3,
+                            DescricaoTelefone4 = item.DescricaoTelefone4,
+                            DataNascimento = item.DataNascimento,
+                            DescricaoBairro = item.DescricaoBairro,
+                            DescricaoCep = item.DescricaoCep,
+                            DescricaoCidade = item.DescricaoCidade,
+                            DescricaoDetalhes = item.DescricaoDetalhes,
+                            DescricaoNome = item.DescricaoNome,
+                            DescricaoPais = item.DescricaoPais,
+                            DescricaoRegiao = item.DescricaoRegiao,
+                            DescricaoRua = item.DescricaoRua,
+                            CodigoPedidoSkyhub = item.CodigoPedido,
+                            Remetente = "Tech SHOP.COM.BR COMERCIO e SERVICO DE INFORMATICA LTDA",
+                            RemetenteCnpj = "08.351.293/0001-63",
+                            RemetenteIe = "0010961460393",
+                            RemetenteEndereco = "Rua Itamarandiba,401",
+                            RemetenteBairro = "Carlos Prates",
+                            RemetenteCep = "30710-360",
+                            RemetenteTelefone = "3125337777",
+                            //Informação deverá vir do Protheus
+                            PesoReal = "1",
+                            NumeroPedidoProtheus = "",
+                            Danfe = "31170108351293000830550010000385021002111085",
+                            NumeroNotaFiscal = "000038502",
+                            SerieNotaFiscal = "1",
+                            ValorDeclaradoNota = "793,50",
+                            Volumes = "1",
+                                          
+                            //Validar com Ricardo
+                            Especie = "N Inform.",
+                            Conteudo = "N Inform.",
+                            ModalidadeTransporte = "5",
 
-                objPedidosProtheusRep.Criar(entidadeProtheus);
+                            //Informações Preenchidas no retorno da emissão de pedidos
+                            CodigoColeta = "",
+                            CodigoRastreio = "",
 
-           }               
-          
+                            
+
+                            MensagemErro = "",
+                            MensagemErroDetalhada = "",
+                            StatusImportacao = "1",
+
+                        };
+                    try
+                    {
+
+                    CodigoPedido = objPedidosProtheusRep.CriarPedido(entidadeProtheus); 
+
+                    foreach (ItemPedidos itemPedido in objItemPedidoRep.Listar(item.CodigoPedido))
+                        {                                           
+                            entidadeProtheus.CodigoVendendor = objVendedorApp.RetornaVendedor(itemPedido.CodigoId, CodigoParceiro);
+
+                            var EntidadePedidosProtheus = new ItemPedidoProtheus
+                            {
+                                SkuProduto = itemPedido.CodigoId,
+                                Quantidade = itemPedido.DescricaoQuantidade.ToString(),
+                                Preco = itemPedido.DescricaoPrecoOriginal.ToString(),
+                                CodigoPedido = CodigoPedido
+                            };
+
+                            objItemPedidoProtheusRep.Criar(EntidadePedidosProtheus); 
+                        }             
+
+                    }catch(Exception ex)
+                     {
+                    
+                        objLogerroApp.GravarLogErro("Exportação Dados Espelho Protheus","Erro inserção pedido"+item.CodigoPedido, ex.Message);
+                       continue;
+                    }
+        
+                }                                     
 
         }
 

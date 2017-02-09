@@ -1,0 +1,118 @@
+@model REF_RezendeERPFinanceiro.Models.Pergunta
+    <header class="page-header">
+		<h2>Cadastrar Questões</h2>
+    </header>      
+<script type="text/javascript" src="@Url.Content("~/Scripts/Forms/Exames.js")"></script>
+
+<div class="panel-body">
+         <div class="alert alert-danger" style="display:none" id="DivMensagemValidacao">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+             <span id="ConteudoErro" class="ConteudoErro"></span>
+                
+		</div>
+
+        <div style="display:none" id="DivInner" >
+           
+       </div>
+        <div class="form-group" > 
+                    <a href="javascript:history.go(-1)"><strong>Voltar a Interface de Consulta</strong></a> 
+        </div>
+     
+        <span class="ConteudoMensagemSucesso" style="font-"></span>
+        <div class="row">
+   		<div class="col-md-15">
+			<section class="panel">
+					<div class="panel-body" style="line-height:0px;">
+                        		<div class="form-group">
+									<label class="col-md-3 control-label" for="inputSuccess"><span class="required">*</span>Exame</label>
+									<div class="col-md-4">
+										<select class="form-control mb-md" id="SelectExame">
+											
+										</select>
+									</div>
+								</div>
+
+              <!--          <div class="form-group" style="display:none" id="DivParametro1" >
+									<label class="col-md-3 control-label" for="inputSuccess" id="lblConteudoParametro1"></label>
+									<div class="col-md-3">
+										<select class="form-control mb-md" id="SelectParametro1">
+											
+										</select>
+									</div>
+                            </div>
+                        <div class="form-group" style="display:none" id="DivParametro2" >
+                                    <label class="col-md-3 control-label" for="inputSuccess" id="lblConteudoParametro2"></label>
+									<div class="col-md-3">
+										<select class="form-control mb-md" id="SelectParametro2">
+											
+										</select>
+									</div>
+								</div>
+                          <div class="form-group">
+									<label class="col-md-3 control-label" for="inputSuccess"><span class="required">*</span>Pergunta</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="3" id="txtPergunta"></textarea>
+										
+
+									</div>
+						 </div>
+                        <div class="form-group">
+									<label class="col-md-3 control-label" for="inputSuccess"><span class="required">*</span>Resposta A</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="2" id="txtRespostaA"></textarea>
+										<input type="radio" name="optionsRadios" id="RespostaA" value="" >
+                                        Correta?
+									</div>
+						 </div>
+                         <div class="form-group">
+									<label class="col-md-3 control-label" for="inputSuccess"><span class="required">*</span>Resposta B</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="2" id="txtRespostaB"></textarea>
+                                        <input type="radio" name="optionsRadios" id="RespostaB" value="" >
+                                        Correta?										
+									</div>
+						 </div>
+                        <div class="form-group">
+									<label class="col-md-3 control-label" for="inputSuccess"><span class="required">*</span>Resposta C</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="2" id="txtRespostaC"></textarea>										
+									<input type="radio" name="optionsRadios" id="RespostaC"  value="" >
+                                        Correta?	
+                                    </div>
+						 </div>
+                         <div class="form-group">
+									<label class="col-md-3 control-label" for="inputSuccess"><span class="required">*</span>Resposta D</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="2" id="txtRespostaD" ></textarea>
+                                        <input type="radio" name="optionsRadios" id="RespostaD"  value="" >
+                                        Correta?											
+									</div>
+						 </div>
+                        <div class="form-group">
+									<label class="col-md-3 control-label" for="inputSuccess"><span class="required">*</span>Justificatica/Dica</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="2" id="txtJustificativa"></textarea>										
+									</div>
+						 </div>
+
+                      </div>-->
+                        <input type="hidden" id="txtCodigoEmpresa" value="@ViewBag.CodigoEmpresa" />
+
+					<footer class="panel-footer">
+                        <input type="submit" name="SaveData" id="btnsave" value="Save" class="btn btn-primary" />
+										
+					</footer>
+                 
+		  </section>							
+		</div>
+</div>
+</div>
+
+
+
+
+<script src="~/Content/assets/vendor/jquery-validation/jquery.validate.js"></script>
+<script src="~/Content/assets/vendor/select2/js/select2.js"></script>
+<script src="~/Scripts/Forms/Perguntas.js"></script>
+<script src="~/Content/assets/vendor/jquery-validation/jquery.validate.js"></script>	
+

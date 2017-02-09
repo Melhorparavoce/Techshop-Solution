@@ -15,8 +15,7 @@ namespace Techshop.Model
 
         [Key]
         [Column(Order = 1)]
-        public int CodigoPedido { get; set; }
-
+        public int CodigoPedido { get; set; }    
 
         [StringLength(20)]
         [Column(TypeName = "char")]
@@ -30,19 +29,15 @@ namespace Techshop.Model
         [Column(TypeName = "char")]
         public string CodigoTransportadora { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         [Column(TypeName = "char")]
-        public string CodigoTabelaPrecos { get; set; }
-
-        [StringLength(20)]
-        [Column(TypeName = "char")]
-        public string Parceiro { get; set; }
-                       
-        [StringLength(20)]
+        public string CodigoTabelaPrecos { get; set; }  
+                            
+        [StringLength(100)]
         [Column(TypeName = "char")]
         public string CodigoVendendor { get; set; }
 
-        [StringLength(100)]
+        [StringLength(150)]
         [Column(TypeName = "char")]
         public string NumeroEntregaSkyhub { get; set; } 
           
@@ -77,16 +72,16 @@ namespace Techshop.Model
         [StringLength(200)]
         public string DescricaoCep { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string DescricaoCidade { get; set; }
 
-        [StringLength(200)]
+        [StringLength(400)]
         public string DescricaoDetalhes { get; set; }
 
         [StringLength(250)]
         public string DescricaoNome { get; set; }
 
-        [StringLength(50)]
+        [StringLength(150)]
         public string DescricaoPais { get; set; }
 
         [StringLength(250)]
@@ -95,16 +90,87 @@ namespace Techshop.Model
         [StringLength(450)]
         public string DescricaoRua { get; set; }
 
-        public string MensagemErro { get; set; }
+      
+        [StringLength(200)]
+        public string DescricaoCanal { get; set; }
+
+        public string Parceiro { get; set; }
+
+        public int CodigoPedidoSkyhub { get; set; }
+
+        [StringLength(400)]
+        public string Remetente { get; set; }
+
+        [StringLength(400)]
+        public string RemetenteCnpj { get; set; }
+
+        [StringLength(100)]
+        public string RemetenteIe { get; set; }
+
+        [StringLength(400)]
+        public string RemetenteEndereco { get; set; }
+
+        [StringLength(200)]
+        public string RemetenteBairro { get; set; }
 
         [StringLength(20)]
-        [Column(TypeName = "text")]
+        public string RemetenteCep { get; set; }
+     
+        [StringLength(20)]
+        public string RemetenteTelefone { get; set; }
+
+        [StringLength(20)]
+        public string Volumes { get; set; }
+
+        [StringLength(20)]
+        public string PesoReal { get; set; }
+
+        [StringLength(20)]
+        public string Especie { get; set; }
+
+        [StringLength(20)]
+        public string Conteudo { get; set; }
+
+        [StringLength(20)]
+        public string NumeroPedidoProtheus { get; set; }
+
+        [StringLength(44)]
+        public string Danfe { get; set; }
+
+        [StringLength(40)]
+        public string NumeroNotaFiscal { get; set; }
+
+        [StringLength(20)]
+        public string SerieNotaFiscal { get; set; }
+
+        [StringLength(20)]
+        public string ValorDeclaradoNota { get; set; }
+
+        [StringLength(20)]
+        public string ModalidadeTransporte { get; set; }
+
+        [StringLength(40)]
+        public string CodigoColeta { get; set; }
+
+        [StringLength(40)]
+        public string CodigoRastreio { get; set; }
+
+        public string MensagemErro { get; set; }
+
         public string MensagemErroDetalhada { get; set; }
 
         [StringLength(10)]
         public string StatusImportacao { get; set; }
 
-         [StringLength(150)]
-        public string DescricaoCanal { get; set; }
+        /// <summary>
+        /// 0- Pedido Novo - Skyhub
+        /// 1- Importado Protheus
+        /// 2- Erro Importação Protheus
+        /// 3- Pedido Faturado
+        /// 4- Pedido Enviado Transportadora
+        /// 5- Pedido Entregue
+        /// 6- Pedido Cancelado        
+        /// </summary>
+        public int StatusPedido { get; set; }
     }
 }

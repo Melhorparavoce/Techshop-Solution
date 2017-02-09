@@ -1,0 +1,59 @@
+﻿@{ var menusList = ViewBag.Menu as IEnumerable<Model.Techshop.Menu>; }
+
+@if(ViewData["Menu"]!=null) {
+    string titulo = "class='nav-parent'";
+    string flag="";
+    foreach (var item in menusList.Where(p => p.CodigoNivel == 1))
+        {
+            
+            <li class='nav-parent'>
+            @if (item.IndicadorTipo == 1)
+                {
+               
+                    flag = item.DescricaoMenu;                    
+                    
+			<a>@item.DescricaoMenu</a>
+                }                
+                
+                else{
+                    flag = item.DescricaoMenu;  
+                <a href="/Prova/Index/?CodigoMenu=@item.CodigoMenu">@item.DescricaoMenu</a>
+
+                }
+            @foreach (var item2 in menusList.Where(p => p.CodigoNivel == 2 && p.CodigoIdentificacao == item.CodigoIdentificacao))
+            {
+                                                      
+				<ul class="nav nav-children">
+
+					
+                    @if (item2.IndicadorTipo == 1)
+                    {    
+                       <li class="nav-parent">                                             
+						<a>@item2.DescricaoMenu</a>
+                        
+                     @foreach (var item3 in menusList.Where(p => p.CodigoNivel == 3 && p.CodigoNivelSuperior == item2.CodigoMenu && p.CodigoIdentificacao == item.CodigoIdentificacao))
+                        {
+                           
+							<ul class="nav nav-children">
+								<li>
+									<a href="/Prova/Index/?CodigoMenu=@item3.CodigoMenu">@item3.DescricaoMenu</a>
+								</li>															
+							</ul>
+                        }
+                        </li>
+                    }
+                    else
+                    {   <li >                                                             
+                        <a href="/Prova/Index/?CodigoMenu=@item2.CodigoMenu">@item2.DescricaoMenu</a>
+                        </li>                                       
+                    }                                                                     												
+				</ul>
+                
+
+            }<!--Foreach 2-->
+			</li>
+        
+    }<!--Foreach 1-->
+}
+
+		

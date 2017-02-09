@@ -1,0 +1,266 @@
+﻿
+<!doctype html>
+<html class="fixed header-dark">
+	<head>
+		<title>Techshop</title> 
+         <link rel="shortcut icon" href="~/Images/Icone%20Techshop.ico" >
+         <link rel="icon" href="~/Images/Icone%20Techshop.ico" >
+         <meta name="keywords" content="HTML5 Admin Template" />
+		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link href="~/Content/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+       <!-- Vendor CSS -->
+		<link rel="stylesheet" href="~/Content/assets/vendor/bootstrap/css/bootstrap.css" />
+
+		<link rel="stylesheet" href="~/Content/assets/vendor/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="~/Content/assets/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="~/Content/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+
+		<!-- Specific Page Vendor CSS -->
+		<link rel="stylesheet" href="~/Content/assets/vendor/jquery-ui/jquery-ui.css" />
+		<link rel="stylesheet" href="~/Content/assets/vendor/jquery-ui/jquery-ui.theme.css" />
+		<link rel="stylesheet" href="~/Content/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+		<link rel="stylesheet" href="~/Content/assets/vendor/morris.js/morris.css" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="~/Content/assets/stylesheets/theme.css" />
+    
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="~/Content/assets/stylesheets/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="~/Content/assets/stylesheets/theme-custom.css">
+
+		<!-- Head Libs -->
+		<script src="~/Content/assets/vendor/modernizr/modernizr.js"></script>
+        @Scripts.Render("~/bundles/jquery")
+        <script src="~/Scripts/jquery.mask.js"></script>
+        <script src="~/Scripts/jquery.maskedinput.js"></script>
+        
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+			<header class="header">
+				<div class="logo-container">
+					<a href="~/Resultado/index" class="logo">
+						<img src="~/Content/assets/images/logo.png" height="35" alt="Porto Admin" />
+					</a>
+					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+					</div>
+				</div>			
+				<!-- start: search & user box -->
+				  @Html.Partial("DadosUsuario")
+				<!-- end: search & user box -->
+			</header>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+				<aside id="sidebar-left" class="sidebar-left">
+				
+					<div class="sidebar-header">
+						<div class="sidebar-title">
+							Navegação
+						</div>
+						<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+							<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+						</div>
+					</div>
+				
+					<div class="nano">
+						<div class="nano-content">
+							<nav id="menu" class="nav-main" role="navigation">
+								<ul class="nav nav-main">
+									<li class="nav-active">
+										<a href="index.html">
+											<i class="fa fa-home" aria-hidden="true"></i>
+											<span>Principal</span>
+										</a>
+									</li>
+                                    
+                                     <li class="nav-parent">
+										<a>
+											<i class="fa fa-mixcloud" aria-hidden="true"></i>
+											<span>Gestão Informações Skyhub</span>
+										</a>
+										<ul class="nav nav-children" id="MenuDinamico2" >																					
+
+                                            <li class="nav-parent">
+                                                <a>
+                                                    <i class="fa fa-table" aria-hidden="true"></i>
+                                                    <span>Produtos</span>
+                                                </a>
+                                                <ul class="nav nav-children">
+                                                    <li>
+                                                        <a href="/Usuarios/Index/">
+                                                            Consulta
+                                                        </a>
+
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Usuarios/Index/">
+                                                            Cadastro
+                                                        </a>
+
+                                                    </li>
+
+                                                </ul>
+                                            </li>         
+                                                                                  
+         								</ul>
+									</li>
+									
+                                    <li class="nav-parent">
+                                        <a>
+                                            <i class="fa fa-send-o" aria-hidden="true"></i>
+                                            <span>Expedição Pedidos</span>
+                                        </a>
+                                        <ul class="nav nav-children" id="MenuDinamico2">
+
+                                            <li class="nav-parent">
+                                                <a href="/expedicao/index">
+                                                    <i class="fa fa-send-o" aria-hidden="true"></i>
+                                                    <span>Serilialização de Pedidos</span>
+                                                </a>
+                                                
+                                            </li>
+                                            <li class="nav-parent">
+                                                <a href="/expedicao/index">
+                                                    <i class="fa fa-send-o" aria-hidden="true"></i>
+                                                    <span>Envio de Pedidos Jadlog</span>
+                                                </a>
+
+                                            </li>
+                                            <li class="nav-parent">
+                                                <a href="/expedicao/index">
+                                                    <i class="fa fa-send-o" aria-hidden="true"></i>
+                                                    <span>Envio de Pedidos Fedex</span>
+                                                </a>
+
+                                            </li>
+                                            <li class="nav-parent">
+                                                <a href="/expedicao/index">
+                                                    <i class="fa fa-send-o" aria-hidden="true"></i>
+                                                    <span>Relatório de Romaneio</span>
+                                                </a>
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-parent">
+                                        <a>
+                                            <i class="fa fa-group" aria-hidden="true"></i>
+                                            <span>Segurança</span>
+                                        </a>
+                                        <ul class="nav nav-children" id="MenuDinamico2">
+
+                                            <li class="nav-parent">
+                                                <a>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <span>Administrar Usuários</span>
+                                                </a>
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+								</ul>
+							</nav>
+										
+				
+						</div>
+				
+						<script>
+						    // Maintain Scroll Position
+						    if (typeof localStorage !== 'undefined') {
+						        if (localStorage.getItem('sidebar-left-position') !== null) {
+						            var initialPosition = localStorage.getItem('sidebar-left-position'),
+										sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+
+						            sidebarLeft.scrollTop = initialPosition;
+						        }
+						    }
+						</script>
+				
+					</div>
+				
+				</aside>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body" >
+					
+					@RenderSection("featured", required: false)
+                   <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+				</section>
+
+                  
+		
+			</div>
+
+	
+		</section>
+        <section>
+            <div>
+        	    <p class="text-center text-muted mt-md mb-md">&copy;2016 Simple Test, todos os direitos reservados. Desenvolvido por Rezende Soluções Ltda.</p>
+		    </div>
+            </section>
+      
+      
+		<!-- Vendor -->
+		<script src="~/Content/assets/vendor/jquery/jquery.js"></script>
+		<script src="~/Content/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="~/Content/assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="~/Content/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="~/Content/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="~/Content/assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="~/Content/assets/vendor/jquery-placeholder/jquery-placeholder.js"></script>
+		
+		<!-- Specific Page Vendor -->
+		<script src="~/Content/assets/vendor/jquery-ui/jquery-ui.js"></script>
+		<script src="~/Content/assets/vendor/jqueryui-touch-punch/jqueryui-touch-punch.js"></script>
+		<script src="~/Content/assets/vendor/jquery-appear/jquery-appear.js"></script>
+		<script src="~/Content/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+		<script src="~/Content/assets/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.js"></script>
+		<script src="~/Content/assets/vendor/flot.tooltip/flot.tooltip.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.pie.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.categories.js"></script>
+		<script src="~/Content/assets/vendor/flot/jquery.flot.resize.js"></script>
+		<script src="~/Content/assets/vendor/jquery-sparkline/jquery-sparkline.js"></script>
+		<script src="~/Content/assets/vendor/raphael/raphael.js"></script>
+		<script src="~/Content/assets/vendor/morris.js/morris.js"></script>
+		<script src="~/Content/assets/vendor/gauge/gauge.js"></script>
+		<script src="~/Content/assets/vendor/snap.svg/snap.svg.js"></script>
+		<script src="~/Content/assets/vendor/liquid-meter/liquid.meter.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/jquery.vmap.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/data/jquery.vmap.sampledata.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.africa.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.asia.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.australia.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
+		<script src="~/Content/assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="~/Content/assets/javascripts/theme.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="~/Content/assets/javascripts/theme.custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="~/Content/assets/javascripts/theme.init.js"></script>
+		
+	</body>
+</html>

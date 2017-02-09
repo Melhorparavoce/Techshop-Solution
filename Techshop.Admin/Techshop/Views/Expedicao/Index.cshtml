@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Techshop.Model.PedidoProtheus>
+<head>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Forms/Usuarios.js")"></script>
+</head>
+<header class="page-header">
+		<h2>Serialização de Pedidos</h2>
+</header>  
+
+
+<div class="modal fade" id="basic" tabindex="-1"  aria-hidden="true" style="display: none;">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Exclusão de Questões</h4>
+        </div>
+        <div class="modal-body">
+            Você quer deletar este item?
+        </div>
+        <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+            <button id="btnContinueDelete" type="button" class="btn btn-primary" data-dismiss="modal">Deletar</button>
+        </div>
+    </div>
+</div>
+ </div>
+<form id="form" method="post" action="@Url.Action("AdicionarPedido", "Expedicao" )">
+    <div>
+        <section class="panel">
+            <div class="panel-body">
+
+                <div class="alert alert-danger" style="display:none" id="DivMensagemErro">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+                </div>
+                <div class="alert alert-primary" style="display:none" id="DivMensagemSucesso">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                </div>
+
+                <div style="display:none" id="DivInner">
+
+                </div>
+
+                <div class="rows">
+                    <span> .</span>
+                </div>
+                <div class="rows">
+                    <div class="form-group">
+
+                        <label class="col-md-1 control-label" for="inputReadOnly">Danfe:</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="Login" name="Danfe" class="form-control" maxlength="70" autofocus>
+                        </div>
+                        <input type="submit" value="Inserir" id="btnPesquisar" autofocus name="SalvarExame" class="btn btn-primary" />
+
+                    </div>
+                </div>
+                <div class="rows">
+                    <span> .</span>
+                </div>
+                <div class="rows">
+                    <table class="table table-responsive" style="padding-top:45px">
+
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Revisar</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!-- Specific Page Vendor -->
+
+</form>
+
+

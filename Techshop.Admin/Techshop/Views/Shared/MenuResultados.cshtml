@@ -1,0 +1,52 @@
+﻿@{ var menusList = ViewBag.Menu as IEnumerable<Model.Techshop.Menu>; }
+
+@if(ViewData["Menu"]!=null) {
+    string flag = "";
+    foreach (var item in menusList.Where(p => p.CodigoNivel == 1))
+        {
+            <li>
+          
+               
+            
+                <a href="/Resultado/index?CodigoExame=@item.CodigoExame">@item.DescricaoMenu</a>
+
+        
+            @foreach (var item2 in menusList.Where(p => p.CodigoNivel == 20000000 && p.CodigoIdentificacao == item.CodigoIdentificacao))
+            {
+                                                      
+				<ul class="nav nav-children">
+					<li class="nav-parent">
+                    @if (item2.IndicadorTipo == 1)
+                    {    
+                                                                    
+						<a>@item2.DescricaoMenu</a>
+                    }
+                    else
+                    {                                                                
+                        <a href="/Resultado/Resultado/?CodigoMenu=@item2.CodigoMenu">@item2.DescricaoMenu</a>
+                                                                
+                    }
+                       
+                        @foreach (var item3 in menusList.Where(p => p.CodigoNivel == 30000000 && p.CodigoNivelSuperior == item2.CodigoMenu && p.CodigoIdentificacao == item.CodigoIdentificacao))
+                        {
+                           
+							<ul class="nav nav-children">
+								<li>
+									<a href="/Resultado/Resultado/?CodigoMenu=@item3.CodigoMenu">@item3.DescricaoMenu</a>
+								</li>															
+							</ul>
+                          
+					
+                        }
+
+					</li>                                                    												
+				</ul>
+                
+
+            }<!--Foreach 2-->
+			</li>
+        
+    }<!--Foreach 1-->
+}
+
+		

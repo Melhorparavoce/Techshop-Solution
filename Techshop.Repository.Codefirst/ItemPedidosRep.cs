@@ -9,12 +9,18 @@ namespace Techshop.Repositoy.CodeFirst
     public class ItemPedidoRep : RepositorioGenerico<ItemPedidos>
     {
 
-         private TechshopContext context;   
+        #region Propriedades
+
+        private TechshopContext context;   
 
         public ItemPedidoRep()          {
 
             context = new TechshopContext();  
         }
+
+        #endregion
+
+        #region Métodos
 
         public List<ItemPedidos> Listar(int CodigoPedido)
         {
@@ -28,6 +34,21 @@ namespace Techshop.Repositoy.CodeFirst
             context.SaveChanges();          
               
         }
+
+        public void ExcluirTodos()
+        {
+            var rows = from o in context.ItemsPedido
+                       select o;
+
+            foreach (var row in rows)
+            {
+                context.ItemsPedido.Remove(row);
+            }
+            context.SaveChanges();
+
+        }
+
+        #endregion
 
     }
 }

@@ -20,9 +20,6 @@ namespace Techshop.Repositoy.CodeFirst.Interface
         void Criar(T entity);
                        
         IQueryable<T> RecuperarTodos();
-
-      
-      /*  IEnumerable<T> Listar(Expression<Func<T, bool>> where);
-        IList<T> Listar(); */
+                                               
     }
 }

@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SkyHubAdapter.Domain.SkyHub;
-using System.Data.SqlClient;
 using Techshop.Model;
 
 namespace Techshop.Repositoy.CodeFirst
 {
     public class PedidosRep : RepositorioGenerico<Pedido>
     {
-        private TechshopContext context;
 
+        #region Propriedades
+        private TechshopContext context;   
 
         public PedidosRep()
         {     
             context = new TechshopContext();
-        }     
+        }
 
+        #endregion
 
+        #region Métodos
         public int CriarPedido(Pedido EntidadePedido)
         {
 
@@ -28,9 +29,8 @@ namespace Techshop.Repositoy.CodeFirst
             return EntidadePedido.CodigoPedido;
           //  return context.  
         }
-
-
-       public int IncluirPedidosSkyhub(Order domain)
+      
+        public int IncluirPedidosSkyhub(Order domain)
         {
                                   
                 Pedido obj = new Pedido();
@@ -63,7 +63,20 @@ namespace Techshop.Repositoy.CodeFirst
             return Listar(where => where.IndImportadoProtheus == 0).ToList();
             
         }
+
+        public void ExcluirTodos()
+        {
+            var rows = from o in context.Pedidos
+                       select o;
+            foreach (var row in rows)
+            {
+                context.Pedidos.Remove(row);
+            }
+            context.SaveChanges();          
+
+        }
         
+        #endregion
     }
     
 

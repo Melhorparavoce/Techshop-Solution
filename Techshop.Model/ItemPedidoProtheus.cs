@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 
 
+using System.Linq;
+
 namespace Techshop.Model
 {
     public  class ItemPedidoProtheus
@@ -17,6 +19,7 @@ namespace Techshop.Model
         [Column(Order = 1)]
         public int CodigoItemPedido { get; set; }
 
+        public int CodigoPedido { get; set; } 
 
         [StringLength(40)]
         [Column(TypeName = "char")]

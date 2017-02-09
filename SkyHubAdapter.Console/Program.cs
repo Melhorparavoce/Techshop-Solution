@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using SkyHubAdapter.Application;
 using SkyHubAdapter.Domain.AbsModels;
 using SkyHubAdapter.Domain.SkyHub;
-using Techshop.Repositoy.CodeFirst;
-using Techshop.Model;
 using Techshop.Aplication;
 
 namespace SkyHubAdapter.Console
@@ -12,65 +10,24 @@ namespace SkyHubAdapter.Console
     internal class Program
     {
         
+          
         private static void Main(string[] args)
         {
 
+            GravarPedidosBaseEspelhoSkyhub();
+            GravarPedidosBaseEspelhoProtheus();
+        }
+                                
+
+        private static void GravarPedidosBaseEspelhoSkyhub()
+        {
             PedidosApp objApp = new PedidosApp();
-
             objApp.IncluirPedidosBaseEspelhoSkyhub();
+        }  
+        private static void GravarPedidosBaseEspelhoProtheus()
+        {
+            PedidosApp objApp = new PedidosApp();
             objApp.IncluirPedidosBaseEspelhoProtheus();
-
-
-            /* PedidosApp objOrderApp = new PedidosApp();     
-             objOrderApp.IncluirPedidosBaseEspelhoSkyhub();
-             objOrderApp.IncluirPedidosBaseEspelhoProtheus();*/
-
-            /*Professores entidadeProfessor = new Professores();
-            Aluno entidadeAluno = new Aluno();
-            entidadeProfessor.DescricaoProfessor = "Zé Wilson";
-            entidadeAluno.DescricaoAluno = "Beto Rezende";
-            List<Aluno> list = new List<Aluno>();
-            list.Add(entidadeAluno);
-            list.Add(entidadeAluno);
-            entidadeProfessor.Alunos = list;
-            EstudanteRep obj = new EstudanteRep();
-            obj.CriarEstudante(entidadeProfessor); */
-
-
-            //Protheus.Repository.TransportadoraRep obj = new TransportadoraRep();
-            //obj.RetornaTransportadora("32265220", "MG");
-
-            // Sincronização de pedidos base techshop
-            /*     PedidosApp objOrderApp = new PedidosApp();
-                 string erro = "";
-
-                 try
-                 {
-                     objOrderApp.IncluirPedidosBaseEspelhoSkyhub();
-                     //objOrderApp.IncluirPedidosBaseEspelhoProtheus();
-                 }
-                 catch (DbUpdateException ex)
-                 {
-
-                     string teste = ex.Message;
-                     /*foreach (var entityValidationErrors in ex.EntityValidationErrors)
-                     {
-                         foreach (var validationError in entityValidationErrors.ValidationErrors)
-                         {
-                             erro = "Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage;
-                         }
-                     } */
-
-
-
-
-            //Criação de Pedidos
-            //PostOrders();
-
-            //Pedidos Exportados
-            //PutOrderExported("Americanas-1485342404271");
-
-
         }
 
         #region Orders

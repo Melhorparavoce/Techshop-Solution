@@ -1,11 +1,13 @@
-﻿
-using Techshop.Model;
+﻿using Techshop.Model;
+using System.Linq;
+using System.Data;
 namespace Techshop.Repositoy.CodeFirst
 {
     public class ItemPedidosProtheusRep : RepositorioGenerico<ItemPedidoProtheus>
     {
 
-         private TechshopContext context;   
+        #region Propriedades
+        private TechshopContext context;   
 
         public ItemPedidosProtheusRep()
         {
@@ -13,6 +15,22 @@ namespace Techshop.Repositoy.CodeFirst
             context = new TechshopContext();  
         }
 
-      
+        #endregion
+
+        #region Métodos
+        public void ExcluirTodos()
+        {
+            var rows = from o in context.ItemPedidoProtheus
+                       select o;
+
+            foreach (var row in rows)
+            {
+                context.ItemPedidoProtheus.Remove(row);
+            }  
+            context.SaveChanges();
+
+        }
+        #endregion
+
     }
 }

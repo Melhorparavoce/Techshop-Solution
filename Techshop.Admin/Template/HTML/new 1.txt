@@ -1,0 +1,204 @@
+#region Carregamento de Select                 
+        [HttpGet]
+        public JsonResult RetornaExames(int CodigoEmpresa)
+        {
+            try
+            {
+                BD.BDExame obj = new BD.BDExame();
+
+                Pergunta model = new Pergunta();
+                
+                return Json(obj.ListaEmpresa(CodigoEmpresa), JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
+
+        }
+        [HttpGet]
+        public JsonResult RetornaParametroExame(int CodigoExame = 0)
+        {
+            try
+            {
+                BD.BDParametros obj = new BD.BDParametros();
+
+                return Json(obj.ListaParametrosExames(CodigoExame), JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
+
+        }
+
+        [HttpGet]
+        public JsonResult RetornaConteudoParametro(int CodigoParametro = 0)
+        {
+            try
+            {
+                BD.BDConteudoParametros obj = new BD.BDConteudoParametros();
+
+                return Json(obj.ListarBuscaParametro(CodigoParametro), JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
+
+        }
+        //ListarBuscaParametro
+
+
+        [HttpGet]   
+
+        #endregion
+
+        #region Criação
+
+        [HttpPost]
+        public JsonResult Criar(Pergunta obj)
+        {
+            try
+            {
+
+
+                /*BD.BDConteudoParametros objBd = new BD.BDConteudoParametros();
+                objBd.Incluir(obj); */
+
+                return Json("Registro Adicionado Com Sucesso");
+
+            }
+            catch (Exception ex)
+            {
+                return Json("Erro:" + ex);
+            }
+        }
+        [HttpGet]
+        public ActionResult Create(int CodigoEmpresa = 0)
+        {
+            try
+            {
+                Pergunta Entidade = new Pergunta();
+
+               
+                ViewBag.CodigoEmpresa = CodigoEmpresa;
+                return View(Entidade);
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Erro = ex.Message;
+                return View();
+            }
+        }
+
+        #endregion
+
+        #region Busca
+
+        [HttpGet]
+        public JsonResult BuscaParametros(int CodigoExame)
+        {
+            try
+
+            {
+                BD.BDConteudoParametros obj = new BD.BDConteudoParametros();
+
+                return Json(obj.ListarBusca(CodigoExame), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json("Erro ao buscar registro" + ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region Index
+        [HttpGet]
+        public ActionResult Index(int CodigoEmpresa = 0)
+        {
+           // BD.BDConteudoParametros obj = new BD.BDConteudoParametros();
+
+            ViewBag.CodigoEmpresa = CodigoEmpresa;
+
+            return View();
+        }
+        #endregion
+
+        #region Atualização
+        public ActionResult Details(int id = 0)
+        {
+            return ViewBag.CodigoEmpresa = id;
+        }
+
+        public ActionResult Edit(int id = 0)
+        {
+            try
+            {
+                BD.BDConteudoParametros objBd = new BD.BDConteudoParametros();
+                Parametro obj = new Parametro();
+
+                List<ConteudoParametro> list = objBd.Lista(id);
+
+                return View(list[0]);
+            }
+            catch (Exception ex)
+            {
+                return Json("Erro:" + ex);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult Edit(ConteudoParametro obj)
+        {
+            try
+            {
+                BD.BDConteudoParametros objBd = new BD.BDConteudoParametros();
+
+                objBd.Atualizar(obj);
+
+                return Json("Registro Atualizado Com Sucesso");
+
+            }
+            catch (Exception ex)
+            {
+                return Json("Erro:" + ex);
+            }
+        }
+        #endregion
+
+        #region Outros Metodos
+        [HttpPost]
+        protected override void Dispose(bool disposing)
+        {
+            SimuladorEntities1 db = new SimuladorEntities1();
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+        #endregion
+
+        #region Exclusão
+
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            try
+            {
+                BD.BDConteudoParametros obj = new BD.BDConteudoParametros();
+                obj.Excluir(id);
+
+                return Json("Registros Excluídos Com Sucesso.", JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                return Json("Erro:" + ex);
+            }
+
+        }
+        #endregion

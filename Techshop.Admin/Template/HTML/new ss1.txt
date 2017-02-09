@@ -1,0 +1,54 @@
+@model IEnumerable<REF_RezendeERPFinanceiro.Models.Menu>
+
+                                   
+    @foreach (var item in (ViewData["Menu"] as IEnumerable<REF_RezendeERPFinanceiro.Models.Menu>))
+    {
+
+        if (item.CodigoNivel == 1)
+        {                                                            
+            <li class="nav-parent">
+            @if (item.IndicadorTipo == 1)
+                {         
+			<a>PMP</a>
+                }else{
+                <a href="/Prova/Index/?CodigoMenu="@item.CodigoMenu>PMP</a>
+
+                }
+            @foreach (var item2 in (ViewData["Menu"] as IEnumerable<REF_RezendeERPFinanceiro.Models.Menu>))
+            {
+                if (item2.CodigoNivel == 2)
+                {                                         
+				<ul class="nav nav-children">
+					<li class="nav-parent">
+                    @if (item.IndicadorTipo == 1)
+                    {    
+                                                                    
+						<a>PMP - Processo</a>
+                    }
+                    else
+                    {
+                                                                
+                        <a href="/Prova/Index/?CodigoMenu="@item.CodigoMenu>PMP</a>
+                                                                
+                    }
+                        @foreach (var item3 in (ViewData["Menu"] as IEnumerable<REF_RezendeERPFinanceiro.Models.Menu>))
+                        {
+                            if (item3.CodigoNivel == 3)
+                            {   
+							<ul class="nav nav-children">
+								<li>
+									<a href="/Prova/Index/?CodigoMenu="@item3.CodigoMenu>@item.CodigoMenu</a>
+								</li>															
+							</ul>
+                            }
+
+                        }<!--Foreach 3-->
+					</li>                                                    												
+				</ul>
+                }
+
+            }<!--Foreach 2-->
+			</li>
+        }
+    }<!--Foreach 1-->
+		

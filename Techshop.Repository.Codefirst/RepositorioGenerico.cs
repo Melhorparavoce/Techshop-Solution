@@ -49,9 +49,6 @@ namespace Techshop.Repositoy.CodeFirst
             return _dbset.Where(where).ToList();
         }
 
-        /*  public IList<T> Listar(Func<T, bool> where)
-          {
-              return _dbset.Where(where).ToList();
-          }   */
+    
     }
 }
