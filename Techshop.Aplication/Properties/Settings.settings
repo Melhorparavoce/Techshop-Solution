@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Techshop.Aplication.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Techshop_Aplication_WsdlJadlog_NotfisBeanService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.jadlog.com.br:8080/JadlogEdiWs/services/NotfisBean</Value>
+    </Setting>
+    <Setting Name="Techshop_Aplication_wsJadlogConsulta_TrackingBeanService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.jadlog.com.br:8080/JadlogEdiWs/services/TrackingBean</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

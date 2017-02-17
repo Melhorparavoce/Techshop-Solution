@@ -13,6 +13,11 @@ namespace SkyHubAdapter.Application
             return ClientHelper.Get<Order>(Uri + "/orders", "", false);
         }
 
+        public ResultProcessing GetQueue()
+        {
+            return ClientHelper.Get<Order.OrderListResponse>(Uri + "/orders", "", true);
+        }
+
         public ResultProcessing DeleteOrder(string code)
         {
             return ClientHelper.Delete(Uri + "/orders", code);

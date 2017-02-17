@@ -7,8 +7,9 @@ using SkyHubAdapter.Domain.AbsModels;
 
 namespace SkyHubAdapter.Application.Interfaces
 {
-    public class ClientHelper
+    public class ClientHelper 
     {
+
         private static readonly SkyHubClient Client = new SkyHubClient();
         
          /// <summary>
@@ -139,6 +140,9 @@ namespace SkyHubAdapter.Application.Interfaces
             return result;
         }
 
+
+
+        
     }
 
 }

@@ -64,6 +64,18 @@ namespace Techshop.Repositoy.CodeFirst
             
         }
 
+        public List<Pedido> Listar(string CodigoPedidoSkyhub)
+        {
+            return Listar(where => where.CodigoSkyhub.Contains(CodigoPedidoSkyhub)).ToList();
+
+        }
+
+        public Pedido Recuperar(int CodigoPedido)
+        {
+            return Listar(where => where.CodigoPedido== CodigoPedido).ToList()[0];
+
+        }
+
         public void ExcluirTodos()
         {
             var rows = from o in context.Pedidos

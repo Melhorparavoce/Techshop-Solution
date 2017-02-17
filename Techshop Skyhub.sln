@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyHubAdapter.Domain", "Sky
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.Aplication", "Techshop.Aplication\Techshop.Aplication.csproj", "{7931640D-11D5-499C-A8A9-764E8B1F09F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "SkyHubAdapter.Console\Console.csproj", "{7D3DDEF4-9076-4F72-930D-78B86CCA6123}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protheus.Repository", "Protheus.Repository\Protheus.Repository.csproj", "{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.Model", "Techshop.Model\Techshop.Model.csproj", "{2E7FB81C-B791-496E-89C8-97EF88A11509}"
@@ -23,6 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.Util", "Techshop.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techshop.FrontEnd", "Techshop.FrontEnd\Techshop.FrontEnd.csproj", "{FF7E5F07-FA4A-4F85-BE1C-B47B93BDDE0D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Skyhub", "Skyhub", "{73907228-7448-45F7-AA26-AF971030BF66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositório Protheus", "Repositório Protheus", "{12A6BCA6-07AF-4A93-94DD-83674B9291F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Techshop Útil", "Techshop Útil", "{3AE86D4E-6BF9-4999-9FD1-663AB5B47DC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Techshop Front End", "Techshop Front End", "{E50133AF-6D77-42C2-92F2-F8FE945CE267}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,23 +36,16 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{788BA59A-B599-453C-839F-454342173007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{788BA59A-B599-453C-839F-454342173007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{788BA59A-B599-453C-839F-454342173007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{788BA59A-B599-453C-839F-454342173007}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E210E3B-C709-4E29-B96F-82CA431D7250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E210E3B-C709-4E29-B96F-82CA431D7250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E210E3B-C709-4E29-B96F-82CA431D7250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E210E3B-C709-4E29-B96F-82CA431D7250}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7931640D-11D5-499C-A8A9-764E8B1F09F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7931640D-11D5-499C-A8A9-764E8B1F09F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7931640D-11D5-499C-A8A9-764E8B1F09F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7931640D-11D5-499C-A8A9-764E8B1F09F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D3DDEF4-9076-4F72-930D-78B86CCA6123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D3DDEF4-9076-4F72-930D-78B86CCA6123}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D3DDEF4-9076-4F72-930D-78B86CCA6123}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D3DDEF4-9076-4F72-930D-78B86CCA6123}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E7FB81C-B791-496E-89C8-97EF88A11509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -62,7 +61,6 @@ Global
 		{8F115126-F173-448F-B547-6AB15C2772E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F115126-F173-448F-B547-6AB15C2772E0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A41C7DE-A05A-4A7E-AFC5-2FCB14A50AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A41C7DE-A05A-4A7E-AFC5-2FCB14A50AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A41C7DE-A05A-4A7E-AFC5-2FCB14A50AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A41C7DE-A05A-4A7E-AFC5-2FCB14A50AE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF7E5F07-FA4A-4F85-BE1C-B47B93BDDE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +70,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{788BA59A-B599-453C-839F-454342173007} = {73907228-7448-45F7-AA26-AF971030BF66}
+		{0E210E3B-C709-4E29-B96F-82CA431D7250} = {73907228-7448-45F7-AA26-AF971030BF66}
+		{DDF9FFA7-0B8D-4936-B022-94DF2DBBBCE0} = {12A6BCA6-07AF-4A93-94DD-83674B9291F1}
+		{8F115126-F173-448F-B547-6AB15C2772E0} = {E50133AF-6D77-42C2-92F2-F8FE945CE267}
+		{1A41C7DE-A05A-4A7E-AFC5-2FCB14A50AE3} = {3AE86D4E-6BF9-4999-9FD1-663AB5B47DC4}
+		{FF7E5F07-FA4A-4F85-BE1C-B47B93BDDE0D} = {E50133AF-6D77-42C2-92F2-F8FE945CE267}
 	EndGlobalSection
 EndGlobal

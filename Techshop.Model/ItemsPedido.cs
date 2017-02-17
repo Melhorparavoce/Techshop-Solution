@@ -8,6 +8,13 @@ namespace Techshop.Model
     public  class ItemPedidos
     {
 
+        public ItemPedidos()
+        {
+
+           
+        }
+
+
         [Key]
         [Column(Order = 1)]
         public int CodigoItemPedido { get; set; }
@@ -18,6 +25,8 @@ namespace Techshop.Model
         public Nullable<decimal> DescricaoPrecoOriginal { get; set; }
         public Nullable<decimal> DescricaoPrecoEspecial { get; set; }
         public Nullable<int> IncadorAtivo { get; set; }
- 
+
+        public virtual Pedido Pedidos { get; set; }
+
     }
 }

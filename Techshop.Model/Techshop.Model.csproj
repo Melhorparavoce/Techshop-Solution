@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Funcionalidades.cs" />
+    <Compile Include="JadLogResultOficial.cs" />
+    <Compile Include="ResultJadlog.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Logerro.cs" />
     <Compile Include="Marketplace.cs" />

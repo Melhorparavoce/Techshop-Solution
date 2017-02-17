@@ -27,7 +27,7 @@ namespace SkyHubAdapter.Application
         public ResultProcessing Get(string code = "")
         {
             return code == string.Empty ?
-                ClientHelper.Get<Order.OrderListResponse>(Uri, "?filters[statuses]=NEW&filters[sync_status][]=NOT_SYNCED", false) :
+                ClientHelper.Get<Order.OrderListResponse>(Uri, "?filters[statuses]=Aprovado&filters[sync_status][]=NOT_SYNCED", false) :
                 ClientHelper.Get<Order>(Uri, code, false);
 
             

@@ -2,19 +2,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
-
-using System.Linq;
-
 namespace Techshop.Model
 {
     public  class ItemPedidoProtheus
     {
-        public ItemPedidoProtheus()
-        {
-                    
-        }
-
         [Key]
         [Column(Order = 1)]
         public int CodigoItemPedido { get; set; }
@@ -33,6 +24,6 @@ namespace Techshop.Model
         [Column(TypeName = "char")]
         public string Preco { get; set; }
                               
-
+       public virtual PedidoProtheus PedidoProtheus { get; set; }
     }
 }

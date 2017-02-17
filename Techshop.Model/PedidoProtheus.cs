@@ -10,7 +10,7 @@ namespace Techshop.Model
     {
         public PedidoProtheus()
         {
-                    
+            ItemPedidoProtheus = new HashSet<ItemPedidoProtheus>();        
         }
 
         [Key]
@@ -155,6 +155,9 @@ namespace Techshop.Model
         [StringLength(40)]
         public string CodigoRastreio { get; set; }
 
+        [StringLength(100)]
+        public string Transportadora { get; set; }  
+
         public string MensagemErro { get; set; }
 
         public string MensagemErroDetalhada { get; set; }
@@ -172,5 +175,7 @@ namespace Techshop.Model
         /// 6- Pedido Cancelado        
         /// </summary>
         public int StatusPedido { get; set; }
+        public virtual ICollection<ItemPedidoProtheus> ItemPedidoProtheus { get; set; }
+
     }
 }

@@ -4,13 +4,15 @@ using SkyHubAdapter.Domain.SkyHub;
 using Techshop.Repositoy.CodeFirst;
 using Techshop.Model;
 using System.Collections.Generic;
-using Protheus.Repository;
+using SkyHubAdapter.Domain.AbsModels;
 namespace Techshop.Aplication
 {
     public class PedidosApp
     {
         #region Propriedades
         private PedidosRep objPedidosRep;
+        private PedidosProtheusRep objPedidosProtheusRep = new PedidosProtheusRep();
+
         public PedidosApp()
         {
             objPedidosRep = new PedidosRep();
@@ -20,188 +22,138 @@ namespace Techshop.Aplication
         #endregion
 
         #region Métodos
-        public void IncluirPedidosBaseEspelhoSkyhub()
+        public string IncluirPedidosBaseEspelhoSkyhub()
         {
-                               
-            PedidosRep objPedidosRep = new PedidosRep();
-            ItemPedidoRep objOrderItemRep = new ItemPedidoRep();
-            OrderApp objOrderApp = new OrderApp();
-            
-
-            Order.OrderListResponse list = (Order.OrderListResponse)objOrderApp.Get().AdditionalData;
-
-         
-            for (int i = 0; i < list.Total; i++)
+            string Mensagem = "";
+            try
             {
 
-                Pedido EntidadePedido = new Pedido();
-
-                EntidadePedido.IndImportadoProtheus = 0;
-                EntidadePedido.DescricaoCanal = list.Orders[i].channel;
-                EntidadePedido.CodigoSkyhub = list.Orders[i].code;
-                EntidadePedido.DescricaoCustoEntrega = Convert.ToDecimal(list.Orders[i].shipping_cost);
-                EntidadePedido.DescricaoInteresse = Convert.ToDecimal(list.Orders[i].interest);
-                EntidadePedido.DescricaoMetodoEntrega = list.Orders[i].shipping_method;
-                EntidadePedido.DescricaoStatusSincronizacao = list.Orders[i].sync_status;
-                EntidadePedido.DescricaoTotalPedido = Convert.ToDecimal(list.Orders[i].total_ordered);
-                EntidadePedido.DataAtualizacao = Convert.ToDateTime(list.Orders[i].updated_at);
-                EntidadePedido.DataEstimadaEntrega = Convert.ToDateTime(list.Orders[i].placed_at);
-                EntidadePedido.DataLocalizadoDesde = Convert.ToDateTime(list.Orders[i].estimated_delivery);
-                EntidadePedido.DataSincronizacao = DateTime.Now;
-                EntidadePedido.DescricaoValorCompra = Convert.ToDecimal(list.Orders[i].total_ordered);
-
-                EntidadePedido.DescricaoCliente = list.Orders[i].customer.name;
-                EntidadePedido.DescricaoEmail = list.Orders[i].customer.email;
-                EntidadePedido.DescricaoGenero = list.Orders[i].customer.gender;
-                EntidadePedido.DescricaoCPF = list.Orders[i].customer.vat_number;
-                EntidadePedido.DescricaoTelefone1 = list.Orders[i].customer.phones[0];
-               // EntidadePedido.DescricaoTelefone2 = list.Orders[i].customer.phones[1];
-              //  EntidadePedido.DescricaoTelefone3 = list.Orders[i].customer.phones[2];
-               // EntidadePedido.DescricaoTelefone4 = list.Orders[i].customer.phones[3];
-                EntidadePedido.DataNascimento = Convert.ToDateTime(list.Orders[i].customer.date_of_birth);
-
-                EntidadePedido.DescricaoBairro = list.Orders[i].shipping_address.neighborhood;
-                EntidadePedido.DescricaoCep = list.Orders[i].shipping_address.postcode;
-                EntidadePedido.DescricaoCidade = list.Orders[i].shipping_address.city;
-                EntidadePedido.DescricaoDetalhes = list.Orders[i].shipping_address.detail;
-                EntidadePedido.DescricaoNome = list.Orders[i].shipping_address.full_name;
-                EntidadePedido.DescricaoPais = list.Orders[i].shipping_address.country;
-                EntidadePedido.DescricaoRegiao = list.Orders[i].shipping_address.region;
-                EntidadePedido.DescricaoRua = list.Orders[i].shipping_address.street;
-
-               int CodigoPedido = objPedidosRep.CriarPedido(EntidadePedido);
-
+                PedidosRep objPedidosRep = new PedidosRep();
+                QueueApp objQueueApp = new QueueApp();                
                 List<ItemPedidos> listItensProdutos = new List<ItemPedidos>();
+                        
 
-                for (int j = 0; j < list.Orders[i].items.Count; j++)
+                Mensagem = "Erro ao recuperar pedido na fila método: Order objPedidoImportado = (Order)objQueueApp.GetNextOrder().AdditionalData;";
+                 Order objPedidoImportado = (Order)objQueueApp.GetNextOrder().AdditionalData;
+
+                if (objPedidoImportado != null)
                 {
-                    ItemPedidos EntidadeItemProduto = new ItemPedidos();
-
-                    EntidadeItemProduto.CodigoPedido = CodigoPedido;
-                    EntidadeItemProduto.CodigoId = list.Orders[i].items[j].id;
-                    EntidadeItemProduto.DescricaoPrecoEspecial = Convert.ToDecimal(list.Orders[i].items[j].special_price);
-                    EntidadeItemProduto.DescricaoPrecoOriginal = Convert.ToDecimal(list.Orders[i].items[j].original_price);
-                    EntidadeItemProduto.DescricaoProduto = list.Orders[i].items[j].name;
-                    EntidadeItemProduto.DescricaoQuantidade = Convert.ToDecimal(list.Orders[i].items[j].qty);
-                    
-                  objOrderItemRep.CriarItemPedido(EntidadeItemProduto); 
-                                
-                }
-                
-            }                     
-
-        }                                              
-
-        public void IncluirPedidosBaseEspelhoProtheus()
-        {
-            PedidosRep obj = new PedidosRep();
-            PedidosProtheusRep objPedidosProtheusRep = new PedidosProtheusRep();
-            ItemPedidoRep objItemPedidoRep = new ItemPedidoRep();
-            ItemPedidosProtheusRep objItemPedidoProtheusRep = new ItemPedidosProtheusRep();
-            VendedorRep objVendedorRep = new VendedorRep();
-            TransportadoraRep objTransportadoraRep = new TransportadoraRep();
-            VendedorApp objVendedorApp = new VendedorApp();
-            MarketplaceApp objMarketplaceApp = new MarketplaceApp();
-            LogerroApp objLogerroApp = new LogerroApp();
-
-            string CodigoParceiro = "";
-            int CodigoPedido = 0;
-
-            foreach (Pedido item in obj.ListarPedidosImportadosSkyhub())
+                    var EntidadePedido = new Pedido()
                     {
-                        CodigoParceiro = objMarketplaceApp.RetornaParceiro(item.DescricaoCanal);
 
-                        var entidadeProtheus = new PedidoProtheus
+                        IndImportadoProtheus = 0,
+                        DescricaoCanal = objPedidoImportado.channel,
+                        CodigoSkyhub = objPedidoImportado.code,
+                        DescricaoCustoEntrega = Convert.ToDecimal(objPedidoImportado.shipping_cost),
+                        DescricaoInteresse = Convert.ToDecimal(objPedidoImportado.interest),
+                        DescricaoMetodoEntrega = objPedidoImportado.shipping_method,
+                        DescricaoStatusSincronizacao = objPedidoImportado.sync_status,
+                        DescricaoTotalPedido = Convert.ToDecimal(objPedidoImportado.total_ordered),
+                        DataAtualizacao = Convert.ToDateTime(objPedidoImportado.updated_at),
+                        DataEstimadaEntrega = Convert.ToDateTime(objPedidoImportado.placed_at),
+                        DataLocalizadoDesde = Convert.ToDateTime(objPedidoImportado.estimated_delivery),
+                        DataSincronizacao = DateTime.Now,
+                        DescricaoValorCompra = Convert.ToDecimal(objPedidoImportado.total_ordered),
+
+                        DescricaoCliente = objPedidoImportado.customer.name,
+                        DescricaoEmail = objPedidoImportado.customer.email,
+                        DescricaoGenero = objPedidoImportado.customer.gender,
+                        DescricaoCPF = objPedidoImportado.customer.vat_number,
+                        DescricaoTelefone1 = objPedidoImportado.customer.phones[0],
+                        // EntidadePedido.DescricaoTelefone2 = objPedidoImportado.customer.phones[1];
+                        //  EntidadePedido.DescricaoTelefone3 = objPedidoImportado.customer.phones[2];
+                        // EntidadePedido.DescricaoTelefone4 = objPedidoImportado.customer.phones[3];
+                        DataNascimento = Convert.ToDateTime(objPedidoImportado.customer.date_of_birth),
+
+                        DescricaoBairro = objPedidoImportado.shipping_address.neighborhood,
+                        DescricaoCep = objPedidoImportado.shipping_address.postcode,
+                        DescricaoCidade = objPedidoImportado.shipping_address.city,
+                        DescricaoDetalhes = objPedidoImportado.shipping_address.detail,
+                        DescricaoNome = objPedidoImportado.shipping_address.full_name,
+                        DescricaoPais = objPedidoImportado.shipping_address.country,
+                        DescricaoRegiao = objPedidoImportado.shipping_address.region,
+                        DescricaoRua = objPedidoImportado.shipping_address.street
+
+
+                    };
+
+                    for (int j = 0; j < objPedidoImportado.items.Count; j++)
+                    {
+                        var EntidadeItemProduto = new ItemPedidos()
                         {
 
-                            TipoPedido = "N",
-                            TipoFrete = "C",
-                            CodigoTransportadora = objTransportadoraRep.RetornaTransportadora(item.DescricaoCep, item.DescricaoRegiao),
-                            CodigoTabelaPrecos = "07",
-                            Parceiro = CodigoParceiro,
-                            DescricaoCanal = item.DescricaoCanal,
-                            NumeroEntregaSkyhub = item.CodigoSkyhub,
-                            DescricaoCliente = item.DescricaoCliente,
-                            DescricaoEmail = item.DescricaoEmail,
-                            DescricaoGenero = item.DescricaoGenero,
-                            DescricaoCPF = item.DescricaoCPF,
-                            DescricaoTelefone1 = item.DescricaoTelefone1,
-                            DescricaoTelefone2 = item.DescricaoTelefone2,
-                            DescricaoTelefone3 = item.DescricaoTelefone3,
-                            DescricaoTelefone4 = item.DescricaoTelefone4,
-                            DataNascimento = item.DataNascimento,
-                            DescricaoBairro = item.DescricaoBairro,
-                            DescricaoCep = item.DescricaoCep,
-                            DescricaoCidade = item.DescricaoCidade,
-                            DescricaoDetalhes = item.DescricaoDetalhes,
-                            DescricaoNome = item.DescricaoNome,
-                            DescricaoPais = item.DescricaoPais,
-                            DescricaoRegiao = item.DescricaoRegiao,
-                            DescricaoRua = item.DescricaoRua,
-                            CodigoPedidoSkyhub = item.CodigoPedido,
-                            Remetente = "Tech SHOP.COM.BR COMERCIO e SERVICO DE INFORMATICA LTDA",
-                            RemetenteCnpj = "08.351.293/0001-63",
-                            RemetenteIe = "0010961460393",
-                            RemetenteEndereco = "Rua Itamarandiba,401",
-                            RemetenteBairro = "Carlos Prates",
-                            RemetenteCep = "30710-360",
-                            RemetenteTelefone = "3125337777",
-                            //Informação deverá vir do Protheus
-                            PesoReal = "1",
-                            NumeroPedidoProtheus = "",
-                            Danfe = "31170108351293000830550010000385021002111085",
-                            NumeroNotaFiscal = "000038502",
-                            SerieNotaFiscal = "1",
-                            ValorDeclaradoNota = "793,50",
-                            Volumes = "1",
-                                          
-                            //Validar com Ricardo
-                            Especie = "N Inform.",
-                            Conteudo = "N Inform.",
-                            ModalidadeTransporte = "5",
-
-                            //Informações Preenchidas no retorno da emissão de pedidos
-                            CodigoColeta = "",
-                            CodigoRastreio = "",
-
-                            
-
-                            MensagemErro = "",
-                            MensagemErroDetalhada = "",
-                            StatusImportacao = "1",
-
+                            CodigoId = objPedidoImportado.items[j].id,
+                            DescricaoPrecoEspecial = Convert.ToDecimal(objPedidoImportado.items[j].special_price),
+                            DescricaoPrecoOriginal = Convert.ToDecimal(objPedidoImportado.items[j].original_price),
+                            DescricaoProduto = objPedidoImportado.items[j].name,
+                            DescricaoQuantidade = Convert.ToDecimal(objPedidoImportado.items[j].qty),
                         };
-                    try
-                    {
 
-                    CodigoPedido = objPedidosProtheusRep.CriarPedido(entidadeProtheus); 
-
-                    foreach (ItemPedidos itemPedido in objItemPedidoRep.Listar(item.CodigoPedido))
-                        {                                           
-                            entidadeProtheus.CodigoVendendor = objVendedorApp.RetornaVendedor(itemPedido.CodigoId, CodigoParceiro);
-
-                            var EntidadePedidosProtheus = new ItemPedidoProtheus
-                            {
-                                SkuProduto = itemPedido.CodigoId,
-                                Quantidade = itemPedido.DescricaoQuantidade.ToString(),
-                                Preco = itemPedido.DescricaoPrecoOriginal.ToString(),
-                                CodigoPedido = CodigoPedido
-                            };
-
-                            objItemPedidoProtheusRep.Criar(EntidadePedidosProtheus); 
-                        }             
-
-                    }catch(Exception ex)
-                     {
-                    
-                        objLogerroApp.GravarLogErro("Exportação Dados Espelho Protheus","Erro inserção pedido"+item.CodigoPedido, ex.Message);
-                       continue;
+                        listItensProdutos.Add(EntidadeItemProduto);
                     }
-        
-                }                                     
 
-        }
+                    EntidadePedido.ItensPedidos = listItensProdutos;
 
+                    if (objPedidosRep.Listar(objPedidoImportado.code).Count == 0 && objPedidoImportado.status.type == "APPROVED")
+                    {
+                        Mensagem = "Erro ao criar pedido na base espelho Skyhub Método: objPedidosRep.Criar(EntidadePedido),Pedido:" + objPedidoImportado.code;
+                        objPedidosRep.Criar(EntidadePedido);
+
+                    }
+
+                    Mensagem = "Erro ao retirar pedido da fila, método objQueueApp.DeleteOrder(objPedidoImportado.code) ,Pedido:" + objPedidoImportado.code;
+                    objQueueApp.DeleteOrder(objPedidoImportado.code);
+                 
+
+                    return "";
+                }
+
+                
+            } 
+                //Fim do Loop
+            catch(Exception ex)
+            {
+                LogerroRep objLogerroRep = new LogerroRep();
+
+                var Erro = new Logerro
+                {
+                    DescricaoErro = Mensagem,
+                    DescricaoExcecao = ex.InnerException.Message,
+                    DataGeracao = DateTime.Now,
+                    DescricaoOperacao="Importação de Pedidos Skyhub" 
+                };
+
+                objLogerroRep.Criar(Erro);
+
+                return Mensagem;
+          
+            }
+
+            return "";
+        }    
+        public void AlteraStatusPedidosAprovado(string pedido)
+        {  
+              OrderApp objOrderApp = new OrderApp();
+              ResultProcessing retorno = objOrderApp.PostApproval(pedido);
+             
+             
+        }             
+        public bool AtualizaPedido(string CodigoPedido)
+        {
+            OrderApp objOrderApp = new OrderApp();
+            ResultProcessing objResultProcessing = objOrderApp.PutExported(CodigoPedido);
+     
+            return false;
+        }         
+        public void IndicaPedidoImportadoBaseEspelhoProtheus(int CodigoPedido)
+        {
+            Pedido entidade = objPedidosRep.Recuperar(CodigoPedido);
+            entidade.IndImportadoProtheus = 1;
+            objPedidosRep.Atualizar(entidade);
+
+
+        }      
+                                                        
         #endregion
        
     }

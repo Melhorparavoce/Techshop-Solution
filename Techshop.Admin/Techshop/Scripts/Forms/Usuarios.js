@@ -15,7 +15,7 @@
         }
 
         
-        $("#DataExpiracao").datepicker();
+       // $("#DataExpiracao").datepicker();
 
     }
 

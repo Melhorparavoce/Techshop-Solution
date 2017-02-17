@@ -14,6 +14,9 @@ namespace Techshop.FrontEnd
 
         #region Proriedades
 
+        private JadlogApp objJadlogApp = new JadlogApp();
+        private PedidoProtheusApp objPedidoProtheusApp = new PedidoProtheusApp();
+
         public Principal()
         {
             InitializeComponent();
@@ -319,12 +322,123 @@ namespace Techshop.FrontEnd
         #endregion
 
         #region Eventos
+
+        private void btnCriacaoPedidoSkyhub_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                frmCadastroPedidosSkyhub frm = new frmCadastroPedidosSkyhub();
+                frm.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+
+            }
+        }
+
+        private void btnAlteraStatusPedidoSkyhub_Click(object sender, EventArgs e)
+        {
+            frmAlteracaoStatusPedidoSkyhub frmAlteracaoPedidos = new frmAlteracaoStatusPedidoSkyhub();
+            frmAlteracaoPedidos.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                MessageBox.Show("Solução não Implementada");
+
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var newInvoice = new Invoice { key = "31161108351293000163550010002091271001645457" };
+            var newShipment = new Shipment
+            {
+                code = DateTime.Now.ToString("yyyyMMddHHmmss"),
+                track = new ShipmentTrack { carrier = "JADLOG", method = "Expresso", code = "JAD12345678" }
+            };
+
+            ResultProcessing obj = new OrderApp().PostShipment("Americanas-1487187821428", newShipment, newInvoice);
+
+            string teste = "";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            frmRetiraPedidoFila frm = new frmRetiraPedidoFila();
+            frm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+              //  objJadlogApp.ConsultaStatusPedido(0);
+
+            }
+            catch (Exception ex)
+            {
+
+
+
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmCancelaPedidoJadLog obj = new frmCancelaPedidoJadLog();
+            obj.ShowDialog();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            objJadlogApp.EnviarInformacoesTransportadora(1);
+
+        }
         private void btnImportPedidosSkyhub_Click(object sender, EventArgs e)
         {
             try { 
-            PedidosApp objApp = new PedidosApp();
-            objApp.IncluirPedidosBaseEspelhoSkyhub();
-                MessageBox.Show("Pedidos Importados Com Sucesso!");
+                  PedidosApp objApp = new PedidosApp();
+              
+
+                string mensagem = objApp.IncluirPedidosBaseEspelhoSkyhub();
+
+                if (mensagem == "")
+                {
+                    MessageBox.Show("Processamento realizado, gentileza  conferir tabela de pedidos e log de erro!");
+
+                }
+                else{
+
+                    MessageBox.Show(mensagem);
+
+              
+                }
+
+                
             }
             catch (Exception ex)
             {
@@ -338,7 +452,7 @@ namespace Techshop.FrontEnd
             try
             {
 
-                PedidosApp objApp = new PedidosApp();
+                PedidoProtheusApp objApp = new PedidoProtheusApp();
                 objApp.IncluirPedidosBaseEspelhoProtheus();
 
                 MessageBox.Show("Pedidos Importados Para a Base do Protheus Com Sucesso!");
@@ -390,8 +504,56 @@ namespace Techshop.FrontEnd
             }
         }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                PedidoProtheusApp objApp = new PedidoProtheusApp();
+                objApp.IncluirPedidosBaseEspelhoProtheus();
+
+                MessageBox.Show("Pedidos Importados Para a Base do Protheus Com Sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro:" + ex.Message);
+
+            }
+        }
+
+
         #endregion
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objPedidoProtheusApp.AlteraStatusPedido(1, 2);
+
+                MessageBox.Show("Pedidos Importados para o Protheus com Sucesso.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+              
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objPedidoProtheusApp.AlteraStatusPedido(2, 3);
+                MessageBox.Show("Pedidos Faturados com Sucesso.");
+
+            }
+            catch(Exception ex)
+            {
+                   MessageBox.Show(ex.Message);
+                
+            }
+        }
     }
         
 }
+                                               

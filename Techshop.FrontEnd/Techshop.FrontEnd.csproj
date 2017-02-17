@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +51,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAlteracaoStatusPedidoSkyhub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlteracaoStatusPedidoSkyhub.Designer.cs">
+      <DependentUpon>frmAlteracaoStatusPedidoSkyhub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastroPedidosSkyhub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroPedidosSkyhub.Designer.cs">
+      <DependentUpon>frmCadastroPedidosSkyhub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCancelaPedidoJadLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCancelaPedidoJadLog.Designer.cs">
+      <DependentUpon>frmCancelaPedidoJadLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRetiraPedidoFila.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRetiraPedidoFila.Designer.cs">
+      <DependentUpon>frmRetiraPedidoFila.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +83,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAlteracaoStatusPedidoSkyhub.resx">
+      <DependentUpon>frmAlteracaoStatusPedidoSkyhub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroPedidosSkyhub.resx">
+      <DependentUpon>frmCadastroPedidosSkyhub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCancelaPedidoJadLog.resx">
+      <DependentUpon>frmCancelaPedidoJadLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRetiraPedidoFila.resx">
+      <DependentUpon>frmRetiraPedidoFila.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -68,6 +108,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,7 +120,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\Plano de Fundo.jpg" />

@@ -1,15 +1,24 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace Techshop.Model
 {
     public  class Pedido
     {
+                     
+        #region Construtor
         public Pedido()
         {
-                    
+
+            ItensPedidos = new HashSet<ItemPedidos>();  
+
         }
+
+        #endregion
+                       
+        #region Proriedades
         [Key]
         [Column(Order = 1)]
         public int CodigoPedido { get; set; }
@@ -75,10 +84,9 @@ namespace Techshop.Model
         public Nullable<int> IndImportadoProtheus { get; set; }  
              
         public Nullable<System.DateTime> DataSincronizacao { get; set; }
+                             
+        public virtual ICollection<ItemPedidos> ItensPedidos { get; set; }
 
-        
-
-        // public IEnumerable<ItemPedido> PedidoDetalhes { get; set; }
-
+        #endregion
     }
 }

@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Techshop.Model.PedidoProtheus>
+<head>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Forms/Usuarios.js")"></script>
+</head>
+<header class="page-header">
+		<h2>Envio de Pedidos Jadlog</h2>
+
+
+    <script src="~/Scripts/Techshop/Jadlog.js"></script>
+
+
+</header>  
+
+
+@if (ViewData["Mensagem"] != null)
+{
+
+   <div class="alert alert-default" id="DivMensagemSucesso">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      
+       @foreach(var item in ViewData["Mensagem"] as IEnumerable<String>)
+       {
+           if (item.Contains("Erro"))
+           {
+               <span style="color:red;font-weight:bold">->@item</span><br>
+           }
+           else
+           {
+            <span style="color:green;font-weight:bold">->@item</span><br>
+           }
+       }
+    </div>
+
+}
+<div class="modal fade" id="basic" tabindex="-1"  aria-hidden="true" style="display: none;">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Exclusão de Questões</h4>
+        </div>
+        <div class="modal-body">
+            Você quer deletar este item?
+        </div>
+        <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+            <button id="btnContinueDelete" type="button" class="btn btn-primary" data-dismiss="modal">Deletar</button>
+        </div>
+    </div>
+</div>
+ </div>
+<form id="form" method="post" action="@Url.Action("Jadlog", "Expedicao" )">
+    <div>
+        <section class="panel">
+            <div class="panel-body">
+
+                <div class="alert alert-danger" style="display:none" id="DivMensagemErro">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+                </div>
+                <div class="alert alert-primary" style="display:none" id="DivMensagemSucesso">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                </div>
+
+                <div style="display:none" id="DivInner">
+
+                </div>
+
+                <div class="rows">
+                    <span> .</span>
+                </div>
+                <div class="rows">
+                    <div class="form-group">
+                        <input type="submit" value="Enviar Transportadora" id="btnPesquisar" autofocus name="SalvarExame" class="btn btn-primary" />
+
+                    </div>
+                </div>
+                <div class="rows">
+                    <span> .</span>
+                </div>
+                <div class="rows">
+                    <table class="table table-responsive" style="padding-top:45px">
+
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="CheckTodos"></th>
+                                <th>Código Pedido</th>
+                                <th>Valor Nota</th>
+                                <th>Número Nota</th>
+                                <th>Descrição Cliente</th>
+                                <th>Transportadora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <th><input id="CodigoPedido" type="checkbox" name="CodigoPedido" value="@item.CodigoPedido"/></th>
+                                <th>@item.CodigoPedido</th>
+                                <th>@item.ValorDeclaradoNota</th>
+                                <th>@item.NumeroNotaFiscal</th>
+                                <th>@item.DescricaoCliente</th>
+                                <th>@item.Transportadora</th>
+                            </tr>
+                            }
+
+                        </tbody>
+                        
+                    </table>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!-- Specific Page Vendor -->
+
+</form>
+
+

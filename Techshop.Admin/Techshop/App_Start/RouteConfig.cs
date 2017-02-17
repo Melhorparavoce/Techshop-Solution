@@ -16,7 +16,7 @@ namespace TechshopAdmin
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Expedicao", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Expedicao", action = "Jadlog", id = UrlParameter.Optional }
          
             );
         }

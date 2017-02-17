@@ -9,7 +9,7 @@ namespace Techshop.Repositoy.CodeFirst
         static TechshopContext()
         {
             Database.SetInitializer<TechshopContext>(null);
-            //var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+          
         }
 
         public TechshopContext()
@@ -22,12 +22,30 @@ namespace Techshop.Repositoy.CodeFirst
         public DbSet<ApoioProtheus> ApoioProtheus { get; set; } 
         public DbSet<ItemPedidoProtheus> ItemPedidoProtheus { get; set; }
         public DbSet<ItemPedidos> ItemsPedido { get; set; } 
-        public DbSet<Marketplace> Marketplace { get; set; } 
-  
+        public DbSet<Marketplace> Marketplace { get; set; }   
         public DbSet<Logerro> Logerro { get; set; }  
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
+            #region Relacionamento Pedidos Protheus
+
+            modelBuilder.Entity<ItemPedidoProtheus>()
+                       .HasRequired<PedidoProtheus>(s => s.PedidoProtheus) 
+                       .WithMany(s => s.ItemPedidoProtheus)
+                       .HasForeignKey(s => s.CodigoPedido);   
+
+
+            #endregion
+
+            #region Relacionamento Pedidos Skyhub
+
+            modelBuilder.Entity<ItemPedidos>()
+                       .HasRequired<Pedido>(s => s.Pedidos)  
+                       .WithMany(s => s.ItensPedidos)  
+                       .HasForeignKey(s => s.CodigoPedido);
+
+
+            #endregion
 
             #region Configurações        
             modelBuilder.Entity<Pedido>().ToTable("Pedidos");

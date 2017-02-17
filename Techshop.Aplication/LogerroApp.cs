@@ -20,7 +20,7 @@ namespace Techshop.Aplication
 
         #region Métodos
       
-        public void GravarLogErro(string DescricaoOperacao,string DescricaoErro,String DescricaoExcecao)
+        public void GravarLogErro(string DescricaoOperacao,string DescricaoErro,string DescricaoExcecao)
         {                                          
             var entidade = new Logerro
             {

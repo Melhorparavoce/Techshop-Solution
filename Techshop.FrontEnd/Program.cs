@@ -18,5 +18,5 @@ namespace Techshop.FrontEnd
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Principal());
         }
-    }
+    }                                                   
 }
