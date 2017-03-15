@@ -1,0 +1,189 @@
+﻿@model IEnumerable<Techshop.Model.PedidoProtheus>
+<head>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Forms/Usuarios.js")"></script>
+</head>
+<header class="page-header">
+		<h2>Fechamento de Lotes</h2>
+
+
+    <script src="~/Scripts/Techshop/Expedicao.js"></script>
+
+
+</header>  
+
+
+@if (ViewData["Mensagem"] != null)
+{
+
+ <div class="alert alert-default" id="DivMensagemSucesso">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+       <span id="MensagemErro"></span>
+       @foreach(var item in ViewData["Mensagem"] as IEnumerable<String>)
+       {
+           if (item.Contains("Erro"))
+           {
+               <span style="color:red;font-weight:bold">->@item</span><br>
+           }
+           else
+           {
+            <span style="color:green;font-weight:bold">->@item</span><br>
+           }
+       }
+    </div>
+
+}
+<div class="modal fade" id="basic" tabindex="-1"  aria-hidden="true" style="display: none;">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Exclusão de Questões</h4>
+        </div>
+        <div class="modal-body">
+            Você quer deletar este item?
+        </div>
+        <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+            <button id="btnContinueDelete" type="button" class="btn btn-primary" data-dismiss="modal">Deletar</button>
+        </div>
+    </div>
+</div>
+ </div>
+
+<form id="form" method="post" action="@Url.Action("FechamentoLote", "Expedicao" )">
+    <input type="hidden" id="Empresa" value="@ViewBag.Empresa">
+    <input type="hidden" id="Status" value="@ViewBag.Status">
+    <input type="hidden" id="Data" value="@ViewBag.DataInicio">
+        <section class="panel">
+            <div class="panel-body">
+
+                <div class="alert alert-danger" style="display:none" id="DivMensagemErro">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+                </div>
+
+                <div class="alert alert-default" style="display:none" id="DivMensagemSucesso">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                </div>
+
+                <div style="display:none" id="DivInner">
+
+                </div>
+               
+                <div class="rows">
+                    <div class="form-group">
+
+                        <label class="col-md-1 control-label" for="inputReadOnly" >Nome:</label>
+                        <span class="col-md-2">
+                            <input type="text" id="Usuario" class="form-control" value="@ViewBag.Nome" name="Cliente" maxlength="70">
+                        </span>
+                        <label class="col-md-1 control-label" for="inputReadOnly">Empresa:</label>
+                        <span class="col-md-2">
+                            <select class="form-control mb-md" id="SelectEmpresa" name="Empresa">
+
+                                <option value=""></option>
+                                <option value="Jadlog">Jadlog</option>
+                                <option value="Fedex">Fedex</option>
+
+                            </select>
+                            </span>
+
+                        <label class="col-md-1 control-label" for="inputReadOnly">Status:</label>
+                        <span class="col-md-2">
+                            <select class="form-control mb-md" id="SelectStatus" name="Status">
+                                <option value="Aberto">Aberto</option>
+                                <option value="Fechado">Fechado</option>
+                            </select>
+                        </span>
+                        </div>
+                 </div>
+                
+                <div class="rows">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label" for="inputReadOnly">Periodo:</label>
+                        <span class="col-md-2">
+                            <input type="text" id="DataInicio" value="@ViewBag.DataInicio" name="DataInicio" value="" class="form-control" maxlength="70">
+                        </span>
+
+                        <span class="col-md-2">
+                            <input type="text" id="DataFim" value="@ViewBag.DataFim"  name="DataFim" value="" class="form-control" maxlength="70">
+                        </span>
+
+                    </div>
+                 </div>
+
+                <div class="form-group" >
+                        <span class="col-md-7">
+
+                            </span>
+                        <span>
+                        <input type="submit" style="border-color:coral;color:black;background-color:coral"  value="Pesquisar" id="btnPesquisar" name="Pesquisar" class="btn btn-primary" />
+                        <input type="submit" style="border-color:grey;color:black;background-color:grey"  value="Exportar" id="btnNovo" name="Exportar" class="btn btn-primary"  />
+                        <input type="submit" style="border-color:ButtonFace;color:black;background-color:ButtonFace" value="Fechar" id="Fechar" name="Fechar" class="btn btn-primary" />
+                        
+
+                       </span>
+
+                    </div>
+           
+                <div class="rows">
+                            <table class="table table-responsive" style="padding-top:45px">
+
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox" id="CheckTodos"></th>
+                                        <th>Nº Protheus</th>
+                                        <th>Transp.</th>
+                                        <th>Status</th>
+                                        <th>Comprador</th>
+                                        <th>Dta Nota Físcal</th>
+                                        <th>Nº Nota</th>
+                                        <th>Volume</th>
+                                        <th>Valor</th>
+                                        <th>Documento</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <th><input id="CodigoPedido" type="checkbox" name="CodigoPedido" value="@item.CodigoPedidoProtheus" /></th>
+                                        <th>@item.NumeroPedidoProtheus</th>
+                                        <th>@item.Transportadora</th>
+                                        <th>@item.Romaneios.DescricaoStatus</th>
+                                        <th>@item.DescricaoCliente</th>
+                                        <th>@item.DataNotaFiscal.ToString("dd/MM/yy")</th>
+                                        <th>@item.NumeroNotaFiscal</th>
+                                        <th>@item.Volumes</th>
+                                        <th>@item.ValorDeclaradoNota</th>
+                                        <th>
+                                         @if (item.Romaneios.CodigoGrupo != 0)
+                                         {
+                                             @item.Romaneios.CodigoGrupo;
+
+                                         }
+                                         else
+                                         {
+                                             <span>S/ Código</span>
+
+                                         }
+
+                                        </th>
+
+                                        <th></th>
+                                    </tr>
+                                      }
+                                </tbody>
+
+                            </table>
+                        </div>
+
+               </div>
+            
+        </section>
+
+ </form>
+
+
+

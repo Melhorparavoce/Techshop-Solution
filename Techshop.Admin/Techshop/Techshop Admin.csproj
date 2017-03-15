@@ -52,11 +52,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
@@ -184,6 +189,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\AcessoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -1508,9 +1514,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\tables-advanced.html" />
+    <Content Include="Css\Techshop.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\btnAdicionarSku.png" />
+    <Content Include="Images\btnMenos.png" />
+    <Content Include="Images\carregando.gif" />
     <Content Include="Images\Icone Techshop.ico" />
     <Content Include="Images\LogoAlterada.png" />
     <Content Include="Images\Rezende_Solucoes.ico" />
@@ -1881,6 +1891,19 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\Cazary\demo-legacy.html" />
+    <Content Include="Scripts\Cazary\demo.html" />
+    <Content Include="Scripts\Cazary\dist\cazary-legacy.min.js" />
+    <Content Include="Scripts\Cazary\dist\cazary.min.js" />
+    <Content Include="Scripts\Cazary\dist\themes\flat\arrow-down.png" />
+    <Content Include="Scripts\Cazary\dist\themes\flat\arrow-down.svg" />
+    <Content Include="Scripts\Cazary\dist\themes\flat\sprite.png" />
+    <Content Include="Scripts\Cazary\dist\themes\flat\sprite.svg" />
+    <Content Include="Scripts\Cazary\dist\themes\flat\style.css" />
+    <Content Include="Scripts\Cazary\gulpfile.js" />
+    <Content Include="Scripts\Cazary\src\themes\flat\arrow-down.svg" />
+    <Content Include="Scripts\Cazary\src\themes\flat\sprite.orig.svg" />
+    <Content Include="Scripts\Cazary\src\themes\flat\sprite.svg" />
     <Content Include="Scripts\Chart\basic-area-chart.html" />
     <Content Include="Scripts\canvasjs.min.js" />
     <Content Include="Scripts\Chart\Chart.bundle.js" />
@@ -1890,6 +1913,23 @@
     <Content Include="Scripts\Forms\Vazio.js" />
     <Content Include="Scripts\Forms\Usuarios.js" />
     <None Include="Properties\PublishProfiles\Publicacao.pubxml" />
+    <Content Include="Scripts\Cazary\.gitattributes" />
+    <Content Include="Scripts\Cazary\.gitignore" />
+    <Content Include="Scripts\Cazary\doc\HOW_TO_BUILD.md" />
+    <Content Include="Scripts\Cazary\doc\HOW_TO_RELEASE.md" />
+    <Content Include="Scripts\Cazary\doc\HOW_TO_TRANSLATE.md" />
+    <Content Include="Scripts\Cazary\LICENSE" />
+    <Content Include="Scripts\Cazary\package.json" />
+    <Content Include="Scripts\Cazary\patch\cazary-legacy.es6.patch" />
+    <Content Include="Scripts\Cazary\patch\demo-legacy.html.patch" />
+    <Content Include="Scripts\Cazary\README.md" />
+    <Content Include="Scripts\Cazary\src\cazary.es6" />
+    <Content Include="Scripts\Cazary\src\i18n\ja.yaml" />
+    <Content Include="Scripts\Cazary\src\i18n\pl.yaml" />
+    <Content Include="Scripts\Cazary\src\i18n\pt-br.yaml" />
+    <Content Include="Scripts\Cazary\src\i18n\pt.yaml" />
+    <Content Include="Scripts\Cazary\src\themes\flat\style.scss" />
+    <Content Include="Scripts\Cazary\src\themes\_mixins.scss" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -1933,6 +1973,8 @@
     <Content Include="Scripts\jquery-ui.theme.min.css" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.maskMoney.js" />
+    <Content Include="Scripts\jquery.maskMoney.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -1943,6 +1985,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Techshop\Produtos.js" />
+    <Content Include="Scripts\Techshop\Expedicao.js" />
     <Content Include="Scripts\Techshop\Jadlog.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="TabelResponsiva\jquery.min.js" />
@@ -1950,6 +1994,8 @@
     <Content Include="Views\Acesso\Rezende_Solucoes.ico" />
     <Content Include="Scripts\jquery.countdown.js" />
     <Content Include="Scripts\jquery.countdown.min.js" />
+    <Content Include="Views\Produto\btnAdicionarSku.png" />
+    <Content Include="Views\Produto\btnMenos.png" />
     <Content Include="Views\Shared\Rezende_Solucoes.ico" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1993,6 +2039,10 @@
     <Content Include="Views\Shared\MenuResultadosDetalhado.cshtml" />
     <Content Include="Views\Expedicao\Index.cshtml" />
     <Content Include="Views\Expedicao\Jadlog.cshtml" />
+    <Content Include="Views\Expedicao\FechamentoLote.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Produto\Create.cshtml" />
+    <Content Include="Views\Produto\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2006,6 +2056,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SkyHubAdapter.Domain\SkyHubAdapter.Domain.csproj">
+      <Project>{0e210e3b-c709-4e29-b96f-82ca431d7250}</Project>
+      <Name>SkyHubAdapter.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Techshop.Aplication\Techshop.Aplication.csproj">
       <Project>{7931640d-11d5-499c-a8a9-764e8b1f09f0}</Project>
       <Name>Techshop.Aplication</Name>

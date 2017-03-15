@@ -17,7 +17,7 @@
 
    <div class="alert alert-default" id="DivMensagemSucesso">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      
+       <span id="MensagemErro"></span>
        @foreach(var item in ViewData["Mensagem"] as IEnumerable<String>)
        {
            if (item.Contains("Erro"))
@@ -95,8 +95,8 @@
                             @foreach (var item in Model)
                             {
                             <tr>
-                                <th><input id="CodigoPedido" type="checkbox" name="CodigoPedido" value="@item.CodigoPedido"/></th>
-                                <th>@item.CodigoPedido</th>
+                                <th><input id="CodigoPedido" type="checkbox" name="CodigoPedido" value="@item.CodigoPedidoProtheus"/></th>
+                                <th>@item.CodigoPedidoProtheus</th>
                                 <th>@item.ValorDeclaradoNota</th>
                                 <th>@item.NumeroNotaFiscal</th>
                                 <th>@item.DescricaoCliente</th>

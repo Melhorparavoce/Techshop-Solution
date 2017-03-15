@@ -36,6 +36,9 @@ namespace Techshop.Aplication
                 Mensagem = "Erro ao recuperar pedido na fila método: Order objPedidoImportado = (Order)objQueueApp.GetNextOrder().AdditionalData;";
                  Order objPedidoImportado = (Order)objQueueApp.GetNextOrder().AdditionalData;
 
+                if (objPedidoImportado == null)
+                    return "Sem Pedidos na Fila de Integração";
+
                 if (objPedidoImportado != null)
                 {
                     var EntidadePedido = new Pedido()
@@ -54,7 +57,7 @@ namespace Techshop.Aplication
                         DataLocalizadoDesde = Convert.ToDateTime(objPedidoImportado.estimated_delivery),
                         DataSincronizacao = DateTime.Now,
                         DescricaoValorCompra = Convert.ToDecimal(objPedidoImportado.total_ordered),
-
+                        // DescricaoInscricaoEstadual = objPedidoImportado.
                         DescricaoCliente = objPedidoImportado.customer.name,
                         DescricaoEmail = objPedidoImportado.customer.email,
                         DescricaoGenero = objPedidoImportado.customer.gender,
@@ -72,7 +75,8 @@ namespace Techshop.Aplication
                         DescricaoNome = objPedidoImportado.shipping_address.full_name,
                         DescricaoPais = objPedidoImportado.shipping_address.country,
                         DescricaoRegiao = objPedidoImportado.shipping_address.region,
-                        DescricaoRua = objPedidoImportado.shipping_address.street
+                        DescricaoRua = objPedidoImportado.shipping_address.street, 
+                        DescricaoNumero = objPedidoImportado.shipping_address.number,
 
 
                     };
@@ -131,6 +135,7 @@ namespace Techshop.Aplication
 
             return "";
         }    
+
         public void AlteraStatusPedidosAprovado(string pedido)
         {  
               OrderApp objOrderApp = new OrderApp();
@@ -138,6 +143,7 @@ namespace Techshop.Aplication
              
              
         }             
+
         public bool AtualizaPedido(string CodigoPedido)
         {
             OrderApp objOrderApp = new OrderApp();
@@ -145,6 +151,7 @@ namespace Techshop.Aplication
      
             return false;
         }         
+
         public void IndicaPedidoImportadoBaseEspelhoProtheus(int CodigoPedido)
         {
             Pedido entidade = objPedidosRep.Recuperar(CodigoPedido);
@@ -152,10 +159,24 @@ namespace Techshop.Aplication
             objPedidosRep.Atualizar(entidade);
 
 
-        }      
-                                                        
+        }
+
+        public void AlteraStatusPedidoAprovado()
+        {
+                PedidosRep objPedidosRep = new PedidosRep();
+                QueueApp objQueueApp = new QueueApp();
+                OrderApp objOrderApp = new OrderApp();
+
+                Order objPedidoImportado = (Order)objQueueApp.GetNextOrder().AdditionalData;
+           
+                objOrderApp.PostApproval(objPedidoImportado.code);
+                objQueueApp.DeleteOrder(objPedidoImportado.code);             
+      
+        }
+
+
         #endregion
-       
+
     }
 
 }

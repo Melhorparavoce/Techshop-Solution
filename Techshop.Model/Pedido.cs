@@ -51,7 +51,10 @@ namespace Techshop.Model
         [StringLength(50)]
         public string DescricaoTelefone3 { get; set; }
         [StringLength(50)]
-        public string DescricaoTelefone4 { get; set; } 
+        public string DescricaoTelefone4 { get; set; }
+        [StringLength(50)]
+        public string DescricaoInscricaoEstadual { get; set; }
+
         public DateTime DataNascimento { get; set; }
 
          /// <summary>
@@ -79,7 +82,10 @@ namespace Techshop.Model
         public string DescricaoRegiao { get; set; }
 
         [StringLength(450)]
-        public string DescricaoRua { get; set; }      
+        public string DescricaoRua { get; set; }
+
+        [StringLength(200)]
+        public string DescricaoNumero { get; set; }
 
         public Nullable<int> IndImportadoProtheus { get; set; }  
              

@@ -5,7 +5,7 @@ using System.Text;
 using SkyHubAdapter.Domain.SkyHub;
 using System.Data.SqlClient;
 using Techshop.Model;
-
+using System.Globalization;
 namespace Techshop.Repositoy.CodeFirst
 {
     public class PedidosProtheusRep : RepositorioGenerico<PedidoProtheus>
@@ -22,10 +22,10 @@ namespace Techshop.Repositoy.CodeFirst
         #region Métodos
         public int CriarPedido(PedidoProtheus entidade)
         {
-            context.PedidoProtheus.Add(entidade);  
-            context.SaveChanges();
-            return entidade.CodigoPedido;
-
+              context.PedidoProtheus.Add(entidade);  
+               context.SaveChanges();
+               return entidade.CodigoPedidoProtheus;
+            
         }
 
         public void ExcluirTodos()
@@ -37,13 +37,13 @@ namespace Techshop.Repositoy.CodeFirst
             {
                 context.PedidoProtheus.Remove(row);
             }
-            context.SaveChanges();
+            context.SaveChanges();   
 
         }
 
         public List<PedidoProtheus> ListarCodigo(int CodigoPedido)         {
 
-            return Listar(where => (where.CodigoPedido == CodigoPedido)).ToList();
+            return Listar(where => (where.CodigoPedidoProtheus == CodigoPedido)).ToList();
         }      
 
         public List<PedidoProtheus> Listar(int StatusPedido,string Transportadora)
@@ -52,27 +52,28 @@ namespace Techshop.Repositoy.CodeFirst
             return Listar(where => (where.StatusPedido == StatusPedido)&& (where.Transportadora.Contains(Transportadora))).ToList();
         }
 
-        public  List<PedidoProtheus> Listar(int StatusPedido)
+        public List<PedidoProtheus> Listar(int StatusPedido)
         {
               
             return Listar(where=>(where.StatusPedido == StatusPedido)).ToList();
-        }    
+        }        
 
         public void AtualizaStatus(string Danfe, int StatusPedido)
         {
-            PedidoProtheus entidade = (from p in context.PedidoProtheus.Where(p => p.Danfe.Contains(Danfe)) select p).FirstOrDefault();
+            PedidoProtheus entidade = (PedidoProtheus)Listar(where => where.Danfe.Contains(Danfe) && where.StatusPedido == 3).FirstOrDefault();  //(from p in context.PedidoProtheus.Where(p => p.Danfe.Contains(Danfe)) select p).FirstOrDefault();
             entidade.StatusPedido = StatusPedido;
-            context.SaveChanges();
-
+            //entidade.DataAlteracao = DateTime.Now;
+            Atualizar(entidade); 
+        
         }
 
         public void AtualizaStatus(int CodigoPedido, int StatusPedido)
         {
-            TechshopContext context = new TechshopContext();
-            PedidoProtheus entidade = (from p in context.PedidoProtheus.Where(p => p.CodigoPedido== CodigoPedido) select p).FirstOrDefault();
+            PedidoProtheus entidade = (PedidoProtheus)Listar(where => where.CodigoPedidoProtheus== CodigoPedido).FirstOrDefault(); 
             entidade.StatusPedido = StatusPedido;
-            context.SaveChanges();
-        }
+            //entidade.DataAlteracao = DateTime.Now;
+            Atualizar(entidade);
+        } 
 
         #endregion       
 

@@ -62,8 +62,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SkyhubApp.cs" />
+    <Compile Include="ProdutoApp.cs" />
     <Compile Include="UsuarioApp.cs" />
     <Compile Include="PedidoProtheusApp.cs" />
+    <Compile Include="RomaneioApp.cs" />
+    <Compile Include="CategoriasApp.cs" />
     <Compile Include="VendedorApp.cs" />
     <Compile Include="PedidosApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

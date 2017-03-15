@@ -1,6 +1,7 @@
 ﻿
 <!doctype html>
-<html class="fixed header-dark">
+<html class="sidebar-left-collapsed fixed header-dark">
+
 	<head>
 		<title>Techshop</title> 
          <link rel="shortcut icon" href="~/Images/Icone%20Techshop.ico" >
@@ -40,7 +41,8 @@
         @Scripts.Render("~/bundles/jquery")
         <script src="~/Scripts/jquery.mask.js"></script>
         <script src="~/Scripts/jquery.maskedinput.js"></script>
-        
+
+        <link href="~/Css/Techshop.css" rel="stylesheet" />
 	</head>
 	<body>
 		<section class="body">
@@ -48,7 +50,7 @@
 			<!-- start: header -->
 			<header class="header">
 				<div class="logo-container">
-					<a href="~/Resultado/index" class="logo">
+					<a href="~/home/index" class="logo">
 						<img src="~/Content/assets/images/logo.png" height="35" alt="Porto Admin" />
 					</a>
 					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -79,7 +81,7 @@
 							<nav id="menu" class="nav-main" role="navigation">
 								<ul class="nav nav-main">
 									<li class="nav-active">
-										<a href="index.html">
+										<a href="/home/index/">
 											<i class="fa fa-home" aria-hidden="true"></i>
 											<span>Principal</span>
 										</a>
@@ -99,13 +101,13 @@
                                                 </a>
                                                 <ul class="nav nav-children">
                                                     <li>
-                                                        <a href="/Usuarios/Index/">
+                                                        <a href="/Produto/Index/">
                                                             Consulta
                                                         </a>
 
                                                     </li>
                                                     <li>
-                                                        <a href="/Usuarios/Index/">
+                                                        <a href="/Produto/Create/">
                                                             Cadastro
                                                         </a>
 
@@ -123,32 +125,17 @@
                                             <span>Expedição Pedidos</span>
                                         </a>
                                         <ul class="nav nav-children" id="MenuDinamico2">
-
-                                            <li >
+                                             <li>
                                                 <a href="/expedicao/index">
-                                                    <i class="fa fa-barcode" aria-hidden="true"></i>
-                                                    <span>Serilialização de Pedidos</span>
-                                                </a>
-                                                
-                                            </li>
-                                            <li >
-                                                <a href="/expedicao/jadlog">
-                                                    <i class="fa fa-truck" aria-hidden="true"></i>
-                                                    <span>Envio de Pedidos Jadlog</span>
+                                                    <i class="fa fa-tablet" aria-hidden="true"></i>
+                                                    <span>Relatório de Romaneios</span>
                                                 </a>
 
                                             </li>
-                                            <li >
-                                                <a href="/expedicao/index">
-                                                    <i class="fa fa-truck" aria-hidden="true"></i>
-                                                    <span>Envio de Pedidos Fedex</span>
-                                                </a>
-
-                                            </li>
-                                            <li >
-                                                <a href="/expedicao/index">
+                                            <li>
+                                                <a href="/expedicao/FechamentoLote">
                                                     <i class="fa fa-file-text" aria-hidden="true"></i>
-                                                    <span>Relatório de Romaneio</span>
+                                                    <span>Fechamento Lote</span>
                                                 </a>
 
                                             </li>
@@ -202,17 +189,14 @@
                    <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>
-				</section>
-
-                  
+				</section>                 
 		
 			</div>
-
 	
 		</section>
         <section>
             <div>
-        	    <p class="text-center text-muted mt-md mb-md">&copy;2016 Simple Test, todos os direitos reservados. Desenvolvido por Rezende Soluções Ltda.</p>
+        	    <p class="text-center text-muted mt-md mb-md">&copy;2017 Techshop, todos os direitos reservados.</p>
 		    </div>
             </section>
       

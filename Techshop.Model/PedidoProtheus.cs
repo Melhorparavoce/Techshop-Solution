@@ -10,37 +10,12 @@ namespace Techshop.Model
     {
         public PedidoProtheus()
         {
-            ItemPedidoProtheus = new HashSet<ItemPedidoProtheus>();        
+            ItemPedidoProtheus = new HashSet<ItemPedidoProtheus>();
+             Romaneios = new Romaneio();
         }
 
-        [Key]
-        [Column(Order = 1)]
-        public int CodigoPedido { get; set; }    
-
-        [StringLength(20)]
-        [Column(TypeName = "char")]
-        public string TipoPedido { get; set; }
-
-        [StringLength(20)]
-        [Column(TypeName = "char")]
-        public string TipoFrete { get; set; }
-
-        [StringLength(20)]
-        [Column(TypeName = "char")]
-        public string CodigoTransportadora { get; set; }
-
-        [StringLength(50)]
-        [Column(TypeName = "char")]
-        public string CodigoTabelaPrecos { get; set; }  
-                            
-        [StringLength(100)]
-        [Column(TypeName = "char")]
-        public string CodigoVendendor { get; set; }
-
-        [StringLength(150)]
-        [Column(TypeName = "char")]
-        public string NumeroEntregaSkyhub { get; set; } 
-          
+      
+        #region Dados Cliente 
         public string DescricaoCliente { get; set; }
         [StringLength(250)]
 
@@ -63,9 +38,7 @@ namespace Techshop.Model
         [StringLength(50)]
 
         public string DescricaoTelefone4 { get; set; }
-         
-        public DateTime DataNascimento { get; set; }  
- 
+
         [StringLength(250)]
         public string DescricaoBairro { get; set; }
 
@@ -90,7 +63,19 @@ namespace Techshop.Model
         [StringLength(450)]
         public string DescricaoRua { get; set; }
 
-      
+        [StringLength(450)]
+        public string DescricaoNumeroDestinatario { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public System.DateTime DataNascimento { get; set; }
+
+        #endregion
+
+        #region Informacoes Skyhub
+        [StringLength(150)]
+        [Column(TypeName = "char")]
+        public string NumeroEntregaSkyhub { get; set; }
+
         [StringLength(200)]
         public string DescricaoCanal { get; set; }
 
@@ -98,6 +83,11 @@ namespace Techshop.Model
 
         public int CodigoPedidoSkyhub { get; set; }
 
+        #endregion
+
+        #region Dados Remetente
+
+        
         [StringLength(400)]
         public string Remetente { get; set; }
 
@@ -110,14 +100,46 @@ namespace Techshop.Model
         [StringLength(400)]
         public string RemetenteEndereco { get; set; }
 
+        [StringLength(400)]
+        public string RemetenteEnderecoNumero { get; set; }
+
         [StringLength(200)]
         public string RemetenteBairro { get; set; }
-
+        
+        [StringLength(10)]
+        public string RemetenteEstado { get; set; }
+             
         [StringLength(20)]
         public string RemetenteCep { get; set; }
-     
+
+        [StringLength(40)]
+        public string RemetenteCidade { get; set; }
+
         [StringLength(20)]
         public string RemetenteTelefone { get; set; }
+
+        [StringLength(30)]
+        public string InscricaoEstadualRemetente { get; set; }
+
+        #endregion
+
+        #region Dados Nota Físcal Demais Informações Protheus
+
+        [Key]
+        [Column(Order = 1)]
+        public int CodigoPedidoProtheus { get; set; }
+
+        [StringLength(20)]
+        [Column(TypeName = "char")]
+        public string TipoPedido { get; set; }
+
+        [StringLength(50)]
+        [Column(TypeName = "char")]
+        public string CodigoTabelaPrecos { get; set; }
+
+        [StringLength(100)]
+        [Column(TypeName = "char")]
+        public string CodigoVendendor { get; set; }
 
         [StringLength(20)]
         public string Volumes { get; set; }
@@ -146,6 +168,24 @@ namespace Techshop.Model
         [StringLength(20)]
         public string ValorDeclaradoNota { get; set; }
 
+        [Column(TypeName = "datetime2")]
+        public System.DateTime DataNotaFiscal { get; set; }
+        #endregion
+
+        #region Transporte
+
+        [StringLength(30)]
+
+        public string CodigoColetaJadlog { get; set; }
+
+        [StringLength(20)]
+        [Column(TypeName = "char")]
+        public string TipoFrete { get; set; }
+
+        [StringLength(20)]
+        [Column(TypeName = "char")]
+        public string CodigoTransportadora { get; set; }
+
         [StringLength(20)]
         public string ModalidadeTransporte { get; set; }
 
@@ -156,8 +196,10 @@ namespace Techshop.Model
         public string CodigoRastreio { get; set; }
 
         [StringLength(100)]
-        public string Transportadora { get; set; }  
+        public string Transportadora { get; set; }
+        #endregion
 
+        #region Controle de Erros e Status Pedido
         public string MensagemErro { get; set; }
 
         public string MensagemErroDetalhada { get; set; }
@@ -165,17 +207,19 @@ namespace Techshop.Model
         [StringLength(10)]
         public string StatusImportacao { get; set; }
 
-        /// <summary>
-        /// 0- Pedido Novo - Skyhub
-        /// 1- Importado Protheus
-        /// 2- Erro Importação Protheus
-        /// 3- Pedido Faturado
-        /// 4- Pedido Enviado Transportadora
-        /// 5- Pedido Entregue
-        /// 6- Pedido Cancelado        
-        /// </summary>
         public int StatusPedido { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public Nullable<System.DateTime> DataCadastro { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public System.DateTime DataAlteracao { get; set; }
+
+        #endregion
+              
         public virtual ICollection<ItemPedidoProtheus> ItemPedidoProtheus { get; set; }
+        
+        public virtual Romaneio Romaneios { get; set; }
 
     }
 }

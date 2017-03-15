@@ -53,6 +53,14 @@ namespace SkyHubAdapter.Application
                 ClientHelper.Get<Product>(Uri, sku, false);
         }
 
+        public ResultProcessing Get(int Pagina,int QuantidadeRegistros, string Sku, string Nome, int QuantidadeInicial, int QuantidadeFinal,string Status)
+        {
+
+            return ClientHelper.Get<Product.ProductListResponse>(Uri, "?page="+ Pagina + "&per_page="+ QuantidadeRegistros + "&filters[sku]=" + Sku + "&filters[name]=" + Nome + "&filters[qty_from]=" + QuantidadeInicial + "&filters[qty_to]=" + QuantidadeFinal+ "&filters[status]="+ Status, false);
+          
+        }
+
+
         /// <summary>
         /// Exclui um produto
         /// </summary>

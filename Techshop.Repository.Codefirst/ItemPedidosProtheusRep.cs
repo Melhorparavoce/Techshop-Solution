@@ -20,14 +20,14 @@ namespace Techshop.Repositoy.CodeFirst
         #region Métodos
         public void ExcluirTodos()
         {
-            var rows = from o in context.ItemPedidoProtheus
+           /* var rows = from o in context.ItemPedidoProtheus
                        select o;
 
             foreach (var row in rows)
             {
                 context.ItemPedidoProtheus.Remove(row);
             }  
-            context.SaveChanges();
+            context.SaveChanges();       */
 
         }
         #endregion

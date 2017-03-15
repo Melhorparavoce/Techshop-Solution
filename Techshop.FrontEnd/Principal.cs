@@ -6,6 +6,9 @@ using SkyHubAdapter.Domain.AbsModels;
 using SkyHubAdapter.Domain.SkyHub;
 using Techshop.Aplication;
 using Techshop.Repositoy.CodeFirst;
+using Techshop.Model;
+using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Techshop.FrontEnd
 {
@@ -16,6 +19,7 @@ namespace Techshop.FrontEnd
 
         private JadlogApp objJadlogApp = new JadlogApp();
         private PedidoProtheusApp objPedidoProtheusApp = new PedidoProtheusApp();
+        private SkyhubApp objSkyhubApp = new SkyhubApp();
 
         public Principal()
         {
@@ -323,6 +327,206 @@ namespace Techshop.FrontEnd
 
         #region Eventos
 
+        
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            frmProdutoConsulta frm = new frmProdutoConsulta();
+            frm.ShowDialog();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //frmProdutoCadastro frm = new frmProdutoCadastro();
+            //frm.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            List<PedidoProtheus> list = objPedidoProtheusApp.ListarPedidoPorDanfe(4);
+
+            ///IMPORTANTE VERIFICAR TODAS AS CONSIDERAÇÕES EM OBSERVAÇÃO
+            ///Importante campos de valores não podem conter vírgulas
+            StreamWriter writer = new StreamWriter(@"C:\Users\administrador.TECHSHOP\Desktop\ArquivoPronto.txt");
+
+            string CodigoArquivo = "000";
+            string Remetente = list[0].RemetenteCnpj.PadRight(35);
+            string Destinatario = list[0].DescricaoCliente.PadRight(35);
+            string Dia = DateTime.Now.Day.ToString().PadLeft(2, '0');
+            string Mes = DateTime.Now.Month.ToString().ToString().PadLeft(2, '0'); ;
+            string Ano = DateTime.Now.Year.ToString().Substring(2);
+            string hora = DateTime.Now.Hour.ToString().PadLeft(2, '0');
+            string minuto = DateTime.Now.Minute.ToString().PadLeft(2, '0');
+            string Segundo = DateTime.Now.Second.ToString();
+            string Filler = "";
+            Filler = Filler.PadLeft(145);
+
+            writer.WriteLine(CodigoArquivo + Remetente + Destinatario + Dia + Mes + Ano + hora + minuto + "NOT" + Dia + Mes + hora + minuto + Segundo.PadLeft(2, '0').Substring(1, 1) + Filler);
+
+            CodigoArquivo = "310";
+            string Filler310 = "";
+            Filler310 = Filler310.PadRight(223);
+            writer.WriteLine(CodigoArquivo + "NOTFI" + Dia + Mes + hora + minuto + Segundo.PadLeft(2, '0').Substring(1, 1) + Filler310);
+
+            CodigoArquivo = "311";
+            string CgcEmbarcadora = list[0].RemetenteCnpj.PadRight(14);
+            string InscricaoEstadual = list[0].RemetenteIe.PadRight(15);
+            string EnderecoLogradoura = list[0].RemetenteEndereco.PadRight(40);
+            string CidadeLogradoura = list[0].RemetenteCidade.PadRight(35);
+            string CepLogradoura = list[0].RemetenteCep.Replace("-", "").PadRight(9);
+            string EstadoLogradoura = list[0].RemetenteEstado.PadRight(9);
+            string NomeEmpresa = "Techshop.com.br";
+            NomeEmpresa = NomeEmpresa.PadRight(40);
+            string FillerEmbarcadora = "";
+            FillerEmbarcadora = FillerEmbarcadora.PadRight(67);
+            writer.WriteLine(CodigoArquivo + CgcEmbarcadora + InscricaoEstadual + EnderecoLogradoura + CidadeLogradoura + CepLogradoura + EstadoLogradoura + Dia + Mes + DateTime.Now.Year + NomeEmpresa);
+
+            CodigoArquivo = "312";
+            string NomeDestinatario = list[0].DescricaoCliente.PadRight(40);
+            string CnpjCpfDestinatario = list[0].DescricaoCPF.PadLeft(14,'0');
+            string InscricaoEstadualDestinatario = "";
+            InscricaoEstadualDestinatario = InscricaoEstadualDestinatario.PadRight(15);
+            string Endereco = (list[0].DescricaoRua + "-" + list[0].DescricaoNumeroDestinatario).PadRight(40);
+            string Bairro = list[0].DescricaoBairro.PadRight(20);
+            string Cidade = list[0].DescricaoCidade.PadRight(35);
+            string Cep = list[0].DescricaoCep.PadRight(9);
+            string CodigoMunicipio = "";
+            CodigoMunicipio = CodigoMunicipio.PadRight(9);
+            string Estado = list[0].DescricaoRegiao.PadRight(9);
+            string AreaFrete = "".PadRight(4);
+            string Telefone = list[0].DescricaoTelefone1.Trim().PadRight(35);
+
+            writer.WriteLine(CodigoArquivo + NomeDestinatario + CnpjCpfDestinatario + InscricaoEstadualDestinatario + Endereco + Bairro + Cidade + Cep + CodigoMunicipio + Estado + AreaFrete + Telefone);
+
+            CodigoArquivo = "313";
+
+            string CodigoRomaneio = "00001";
+            CodigoRomaneio = CodigoRomaneio.PadRight(15);
+            string CodigoRota = "";
+            CodigoRota = CodigoRota.PadRight(7);
+            string MeioTransporte = "0";
+            string TipoTransporteCarga = "0";
+            string TipoDeCarga = "0";
+            string CondicaoFrete = "C";
+            string SerieNotaFiscal = list[0].SerieNotaFiscal.PadRight(3);
+            string NumeroNotaFiscal = list[0].NumeroNotaFiscal.PadLeft(9, '0');
+            string DataEmissao = list[0].DataNotaFiscal.Day.ToString().PadLeft(2, '0') + list[0].DataNotaFiscal.Month.ToString().PadLeft(2, '0') + list[0].DataNotaFiscal.Year;
+            string NaturezaMercadoria = "Eletrônicos";
+            NaturezaMercadoria = NaturezaMercadoria.PadRight(15);
+            string EspecieAcondicionamento = "Caixas";
+            EspecieAcondicionamento = EspecieAcondicionamento.PadRight(15);
+
+            /*~IMPORTANTE VERIFICAR COMO O PROTHEUS IRÁ ENVIAR ESTA INFORMAÇÃO
+            CORRETO 0000100 = 1 VOLUME
+            */
+            string QtdeVolumes = "0000100";
+            //string QtdeVolumes = list[0].Volumes.Replace(",","").Replace(".","").PadLeft(7, '0');
+            string ValorNotaFiscal = list[0].ValorDeclaradoNota.Replace(",", "").Replace(".", "").PadLeft(15, '0');
+            /*~IMPORTANTE VERIFICAR COMO O PROTHEUS IRÁ ENVIAR ESTA INFORMAÇÃO
+             CORRETO 0000100 = 1 KG
+             */
+            string PesoTotalMercadoria = "0000100";
+            //string PesoTotalMercadoria = list[0].PesoReal.Replace(",", "").Replace(".", "").PadLeft(7, '0');
+            string Cubagem = "00000";
+            string TipoIcms = "S";
+            string SeguroEfetuado = "N";
+            string ValorSeguro = "000000000000000";
+            string ValorSerCobrado = "000000000000000";
+            string NumeroPlaca = "       ";
+            string PlanoCargaRapida = " ";
+            string ValorFrete ="000000000000000";
+            string ValorAdValorem = "000000000000000";
+            string ValorTotalTaxas = "000000000000000";
+            string ValorTotalFrete = "000000000000000";
+            string AcaoDocumento = "I";
+            string ValorIcms = "000000000000";
+            string ValorIcmsRetido = "000000000000";
+            string IndicacaoBonificacao = "N";
+            string Filler313 = "  ";
+            string Danfe = list[0].Danfe;
+
+            writer.WriteLine(CodigoArquivo + CodigoRomaneio + CodigoRota + MeioTransporte + TipoTransporteCarga + TipoDeCarga + CondicaoFrete + SerieNotaFiscal + NumeroNotaFiscal + DataEmissao + NaturezaMercadoria + EspecieAcondicionamento + QtdeVolumes + ValorNotaFiscal + PesoTotalMercadoria+ Cubagem+TipoIcms+ SeguroEfetuado+ ValorSeguro+ ValorSerCobrado+ NumeroPlaca+ PlanoCargaRapida+ ValorFrete+ ValorAdValorem+ ValorTotalTaxas+ ValorTotalFrete+ AcaoDocumento+ ValorIcms+ ValorIcmsRetido+ IndicacaoBonificacao+ Filler313+ Danfe);
+
+            CodigoArquivo = "318";
+
+            string ValorTotalDasNotas = "000000000000000";
+            string PesoTotalNotas = "000000000000000";
+            string PesoTotalDensidadeCubagem = "000000000000000";
+            string QuantidadeTotalVolumes = "000000000000000";
+            string ValoraSerCobrado = "000000000000000";
+            string ValorTotalSeguro = "000000000000000";
+
+            writer.WriteLine(CodigoArquivo+ ValorTotalDasNotas+ PesoTotalNotas+ PesoTotalDensidadeCubagem+QuantidadeTotalVolumes+ ValoraSerCobrado+ ValorTotalSeguro);
+
+            writer.Close();
+            writer.Dispose();
+
+            MessageBox.Show("Arquivo Gerado com Sucesso!");
+
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // objPedidoProtheusApp.AlteraStatusPedido(6, 7);
+
+                objJadlogApp.AtualizarInformacaoPedidoTransportadora();
+
+                MessageBox.Show("Pedidos Importados para o Protheus com Sucesso.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objPedidoProtheusApp.AlteraStatusPedido(1, 2);
+
+                MessageBox.Show("Pedidos Importados para o Protheus com Sucesso.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objPedidoProtheusApp.AlteraStatusPedido(2, 3);
+                MessageBox.Show("Pedidos Faturados com Sucesso.");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objSkyhubApp.InformarPedidoEnviadoSkyhub();
+
+                MessageBox.Show("Informações enviadas skyhub com sucesso!");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
         private void btnCriacaoPedidoSkyhub_Click(object sender, EventArgs e)
         {
 
@@ -380,21 +584,7 @@ namespace Techshop.FrontEnd
             frm.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            try
-            {
-              //  objJadlogApp.ConsultaStatusPedido(0);
-
-            }
-            catch (Exception ex)
-            {
-
-
-
-            }
-        }
-
+       
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -510,9 +700,9 @@ namespace Techshop.FrontEnd
             {
 
                 PedidoProtheusApp objApp = new PedidoProtheusApp();
-                objApp.IncluirPedidosBaseEspelhoProtheus();
+                
 
-                MessageBox.Show("Pedidos Importados Para a Base do Protheus Com Sucesso!");
+                MessageBox.Show(objApp.IncluirPedidosBaseEspelhoProtheus());
             }
             catch (Exception ex)
             {
@@ -522,37 +712,96 @@ namespace Techshop.FrontEnd
         }
 
 
-        #endregion
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button13_Click(object sender, EventArgs e)
         {
+
             try
             {
-                objPedidoProtheusApp.AlteraStatusPedido(1, 2);
+                objSkyhubApp.InformarPedidosEntregueSkyhub();
 
-                MessageBox.Show("Pedidos Importados para o Protheus com Sucesso.");
+                MessageBox.Show("Informações enviadas skyhub com sucesso!");
+
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
-              
+
             }
+
+            
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             try
             {
-                objPedidoProtheusApp.AlteraStatusPedido(2, 3);
-                MessageBox.Show("Pedidos Faturados com Sucesso.");
+
+                SaveFileDialog salvar = new SaveFileDialog();// novo
+                
+                Excel.Application App; // Aplicação Excel
+                Excel.Workbook WorkBook; // Pasta
+                Excel.Worksheet WorkSheet; // Planilha
+                object misValue = System.Reflection.Missing.Value;
+
+                App = new Excel.Application();
+                WorkBook = App.Workbooks.Add(misValue);
+                WorkSheet = (Excel.Worksheet)WorkBook.Worksheets.get_Item(1);
+                int i = 0;
+                int j = 0;
+
+                // passa as celulas do DataGridView para a Pasta do Excel
+                for (i = 0; i <= 20 - 1; i++)
+                {
+                    for (j = 0; j <= 10 - 1; j++)
+                    {
+                        
+                        WorkSheet.Cells[i + 1, j + 1] = "10";
+                    }
+                }
+
+                // define algumas propriedades da caixa salvar
+                salvar.Title = "Exportar para Excel";
+                salvar.Filter = "Arquivo do Excel *.xls | *.xls";
+                salvar.ShowDialog(); // mostra
+
+                // salva o arquivo
+                WorkBook.SaveAs(salvar.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+
+                Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                WorkBook.Close(true, misValue, misValue);
+                App.Quit(); // encerra o excel
+
+                MessageBox.Show("Exportado com sucesso!");
+
+
+
+
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                   MessageBox.Show(ex.Message);
-                
+                MessageBox.Show("Erro : " + ex.Message);
             }
+
         }
+
+        #endregion
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            try { 
+
+                objPedidoProtheusApp.AlteraStatusPedido(1, 4);
+                MessageBox.Show("Pedidos Faturados com Sucesso.");
+
+              }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro : " + ex.Message);
+            }
+         }
     }
         
 }

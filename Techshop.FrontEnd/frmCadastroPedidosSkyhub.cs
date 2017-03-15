@@ -35,10 +35,11 @@ namespace Techshop.FrontEnd
                 {
                     new OrderItem
                     {
-                        id = txtIdProduto.Text,
+                        id = "PROEPS00021",
                         qty = Convert.ToDouble(txtIdQuantidade.Text),
                         special_price = Convert.ToDouble(txtPreco.Text)
-                    }
+                    },
+
                 },
                     customer = new Customer
                     {
@@ -55,7 +56,7 @@ namespace Techshop.FrontEnd
                         street = txtRua.Text,
                         number = txtNumero.Text,
                         detail = "Sem detalhes",
-                        neighborhood =txtBairro.Text,
+                        neighborhood = txtBairro.Text,
                         city = txtCidade.Text,
                         region = txtEstado.Text,
                         country = txtPais.Text,
@@ -77,15 +78,29 @@ namespace Techshop.FrontEnd
                     estimated_delivery = DateTime.Now.AddDays(5).Date,
                     shipping_cost = 25,
                     interest = 0,
-                    status = new Status()
+                    status = new Status
+                    {
+                        label= "Aprovado",
+                        code="A",
+                        type= "APPROVED"
+
+                    },
+                    sync_status= "NOT_SYNCED"
+
 
                 };
 
                 DateTime data = DateTime.Now.AddDays(14).Date;
 
-                OrderApp objOrderApp = new OrderApp();
+                OrderApp objOrderApp = new OrderApp();                
 
                 ResultProcessing retorno = objOrderApp.Post(order);
+
+
+                PedidosApp objPedidosApp = new PedidosApp();
+
+
+                //objPedidosApp.AlteraStatusPedidoAprovado();
 
                 if (retorno.Success == true)
                 {
@@ -98,7 +113,10 @@ namespace Techshop.FrontEnd
 
                 }
 
-                
+                QueueApp objQueueApp = new QueueApp();
+                Order objPedidoImportado = (Order)objQueueApp.GetNextOrder().AdditionalData;
+                PostOrderApproval(objPedidoImportado.code);
+
             }
             catch (Exception ex)
             {
@@ -110,6 +128,12 @@ namespace Techshop.FrontEnd
         #endregion
 
         #region Métodos
+
+        private static ResultProcessing PostOrderApproval(string code)
+        {
+            return new OrderApp().PostApproval(code);
+        }
+
 
         private static ResultProcessing PostOrders()
         {

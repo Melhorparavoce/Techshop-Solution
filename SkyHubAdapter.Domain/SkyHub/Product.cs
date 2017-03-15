@@ -9,6 +9,7 @@ namespace SkyHubAdapter.Domain.SkyHub
         public string description { get; set; }
         public string status { get; set; }
         public int qty { get; set; }
+        
         public double price { get; set; }
         public double? promotional_price { get; set; }
         public double cost { get; set; }
@@ -19,6 +20,10 @@ namespace SkyHubAdapter.Domain.SkyHub
         public string brand { get; set; }
         public string ean { get; set; }
         public string nbm { get; set; }
+        public int CodigoCategoria { get; set; }
+        public string Cor { get; set; }
+        public string Tamanho { get; set; }
+        public string Voltagem { get; set; }
         public List<Category> categories { get; set; }
         public List<string> images { get; set; }
         public List<Specification> specifications { get; set; }
@@ -26,7 +31,8 @@ namespace SkyHubAdapter.Domain.SkyHub
         public List<string> variation_attributes { get; set; }
         public List<Marketplaces> marketplaces { get; set; }
         public List<Freight> freights { get; set; }
-
+        public int TotalBusca { get; set; }
+        public int TotalItensPagina { get; set; }
         public class ProductListResponse
         {
             public List<Product> Products { get; set; }

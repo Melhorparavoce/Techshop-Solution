@@ -10,7 +10,7 @@ namespace Techshop.Model
         [Column(Order = 1)]
         public int CodigoItemPedido { get; set; }
 
-        public int CodigoPedido { get; set; } 
+        public int CodigoPedidoProtheus { get; set; } 
 
         [StringLength(40)]
         [Column(TypeName = "char")]

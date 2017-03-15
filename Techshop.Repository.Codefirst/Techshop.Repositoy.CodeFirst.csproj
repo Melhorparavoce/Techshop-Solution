@@ -54,14 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SubCategoriasRep.cs" />
     <Compile Include="Interface\IRepositorio.cs" />
     <Compile Include="ItemPedidosProtheusRep.cs" />
+    <Compile Include="CategoriasRep.cs" />
+    <Compile Include="RomaneioRep.cs" />
     <Compile Include="MarketplaceRep.cs" />
     <Compile Include="ItemPedidosRep.cs" />
-    <Compile Include="Migrations\201702061543378_Initial.cs" />
-    <Compile Include="Migrations\201702061543378_Initial.Designer.cs">
-      <DependentUpon>201702061543378_Initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PedidosProtheusRep.cs" />
     <Compile Include="LogerroRep.cs" />
@@ -92,11 +91,6 @@
       <Project>{2e7fb81c-b791-496e-89c8-97ef88a11509}</Project>
       <Name>Techshop.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702061543378_Initial.resx">
-      <DependentUpon>201702061543378_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

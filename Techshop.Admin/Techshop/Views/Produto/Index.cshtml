@@ -1,0 +1,154 @@
+﻿@model IEnumerable<SkyHubAdapter.Domain.SkyHub.Product>
+<head>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Techshop/Produtos.js")"></script>
+</head>
+
+<header class="page-header">
+		<h2>Consulta Produtos</h2>
+</header>  
+
+<div class="modal fade" id="basic" tabindex="-1"  aria-hidden="true" style="display: none;">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Exclusão de Questões</h4>
+        </div>
+        <div class="modal-body">
+            Você quer deletar este item?
+        </div>
+        <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancelar</button>
+            <button id="btnContinueDelete" type="button" class="btn btn-primary" data-dismiss="modal">Deletar</button>
+        </div>
+    </div>
+</div>
+ </div>
+
+
+<div id="hider" style="display: none;"></div>
+<div id="popup_box"  style="display: none;">
+    <img src="~/Images/Carregando4.gif" />
+</div>  
+    <div id="container">
+        <section class="panel">
+            <div class="panel-body">
+
+                <div class="alert alert-danger" style="display:none" id="DivMensagemErro">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+                </div>
+
+                <div class="alert alert-primary" style="display:none" id="DivMensagemSucesso">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                </div>
+
+                <div class="rows">
+                    <span> .</span>
+                </div>
+
+                <div class="rows">
+                    <div class="form-group">
+                        
+                        <label class="col-md-1 control-label" for="inputReadOnly">Nome:</label>
+                        <span class="col-md-3">
+                            <input type="text" id="Nome" class="form-control" value="@ViewBag.Nome" name="Nome" maxlength="70">
+                        </span>
+
+                        <label class="col-md-1 control-label" for="inputReadOnly">Sku:</label>
+                        <span class="col-md-3">
+                            <input type="text" id="Sku" class="form-control" value="@ViewBag.Sku" name="Sku" maxlength="70">
+                        </span>
+                        <span class="col-md-3">
+                            <input type="submit" style="border-color:coral;color:black;background-color:coral" value="Pesquisar" id="btnPesquisar" name="Pesquisar" class="btn btn-primary" />
+                       </span>
+
+                </div>
+                
+                <div class="rows">
+                        <div class="form-group">
+
+                            <label class="col-md-1 control-label" for="inputReadOnly">Estoque:</label>
+                            <span class="col-md-1">
+                                 <input type="text" id="EstoqueDe" class="form-control" value="1" name="EstoqueDe" maxlength="70">
+                            </span>
+                            <span class="col-md-2">
+                                <input type="text" id="EstoqueAte" class="form-control" value="100" name="EstoqueAte" maxlength="70">
+                            </span>
+                            <label class="col-md-1 control-label" for="inputReadOnly">Status:</label>
+                            <span class="col-md-3">
+                                <select id="SelectStatus" name="Status">
+                                    <option value="enabled">Habiitado</option>
+                                    <option value="disabled">Desabilitado</option>
+                                    </select>
+                            </span>
+                            
+
+                        </div>
+
+
+                    </div>
+
+                <div class="rows">
+                    <span> .</span>
+                </div>
+
+                <div class="rows">
+                    <table id="TblEmpDet" class="table table-responsive" style="padding-top:45px">
+                        <thead>
+                            <tr>
+                                <th style='text-align:center'>Sku</th>
+                                <th>Nome</th>
+                                <th>Situação</th>
+                                <th>Estoque</th>
+                                <th>Preço</th>
+                                <th>.</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                      
+                        </table>
+                </div>
+
+            </div>
+                
+                <div class="row" ng-show="items.length > 0">
+                    <div class="col-sm-12">
+                        Total de itens: <strong class="ng-binding">
+                        <label id="TotalPaginas"></label>                      
+                        </strong>
+                        <div class="pull-right ngPagerContainer">
+                            Itens por página:
+                            <select id="SelectTotalPaginas">                              
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="50">50</option>
+                                <option value="100" >100</option>    
+                            </select>
+                            <button class="btn btn-default" id="PrimeiraPagina" style="margin-bottom: 4px">
+                                |<<
+                            </button>
+                            <button class="btn btn-default" id="PaginaAnterior" style="margin-bottom: 4px" >
+                                <<
+                            </button>
+                            <select id="SelectNumeroPagina">
+                            <option value="1"  label="1">1</option>                           
+                         
+                            </select>
+                            <button style="align-content:" id="ProximaPagina" class="btn btn-default" style="margin-bottom: 4px" >
+                                >>
+                            </button>
+                            <button class="btn btn-default" id="UltimaPagina" style="margin-bottom: 4px">
+                                >>|
+                            </button >
+                        </div>
+                    </div>
+                </div>
+               
+               </div>
+        </section>
+    </div>
+
+
+
+

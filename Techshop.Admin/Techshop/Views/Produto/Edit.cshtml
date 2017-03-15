@@ -1,0 +1,393 @@
+﻿@model SkyHubAdapter.Domain.SkyHub.Product
+
+<header class="page-header">
+    <h2>Edição de Produtos</h2>
+
+    <style type="text/css">
+        textarea {
+            width: 800px;
+            height: 400px;
+        }
+    </style>
+</header>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Techshop/Produtos.js")"></script>
+<link rel="stylesheet" href="~/Content/assets/vendor/select2/css/select2.css" />
+<link rel="stylesheet" href="~/Content/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+<link href="~/Scripts/Cazary/dist/themes/flat/style.css" rel="stylesheet" />
+<script src="~/Scripts/Cazary/dist/cazary.min.js"></script>
+
+<div class="panel-body">
+    <form action="/Produto/Edit/" method="post">
+        @if (ViewBag.Mensagem != "")
+        {
+
+            <div class="alert alert-default" id="DivMensagemSucesso">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <span id="MensagemErro"></span>
+                @if (ViewBag.Mensagem.ToString().Contains("Erro"))
+                {
+                    <span style="color:red;font-weight:bold">@ViewBag.Mensagem</span><br>
+                }
+                @if(ViewBag.Mensagem.ToString()!="" && (!ViewBag.Mensagem.Contains("Erro")))
+                {
+                    <span style="color:green;font-weight:bold">@ViewBag.Mensagem</span><br>
+                }
+
+            </div>
+
+        }
+        @if (!ViewBag.Mensagem.Contains("Erro"))
+        {
+
+        <input type="hidden" id="StatusProduto" value="@Model.status">
+        <input type="hidden" id="CodigoCategoria" value="@Model.CodigoCategoria">
+        <input type="hidden" id="DescricaoSubCategoria" value="@Model.categories[0].name">
+        <!--Categorias-->
+        <div class="rows">
+            <label class="col-sm-2 control-label"><span class="required">*</span><strong>Categoria:</strong> </label>
+            <div class="col-md-3">
+                <select class="form-control mb-md" value="@ViewBag.NomeCategoria" name="SelectCategoria" id="SelectCategoria">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="required">*</span><strong>Sub Categoria:</strong> </label>
+            <div class="col-md-3">
+                <select class="form-control mb-md" value="@Model.categories[0].name" name="SelectSubCategoria" id="SelectSubCategoria">
+                    <option value=""></option>
+
+                </select>
+            </div>
+        </div>
+
+
+        <!--Nome-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="required">*</span><strong>Nome:</strong></label>
+            <div class="col-sm-5">
+                <input type="text" value="@Model.name" id="Nome" name="name" class="form-control" maxlength="70">
+            </div>
+        </div>
+
+        <!--Sku-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="required">*</span><strong>Sku Techshop:</strong> </label>
+            <div class="col-sm-5">
+                <input type="text" id="Sku" value="@Model.sku" name="Sku" class="form-control" maxlength="70">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="required">*</span><strong>Status:</strong> </label>
+            <div class="col-md-3">
+                <select class="form-control mb-md"  name="status" id="SelectStatus">
+                    <option value="enabled">Ativo</option>
+                    <option value="disabled">Inativo</option>
+                </select>
+            </div>
+        </div>
+
+        <!--Descrição-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="required">*</span><strong>Descrição:</strong> </label>
+            <div class="col-sm-8">                                        
+                <textarea rows="5" cols="40" id="id_cazary_minimal" name="description">
+                    @Model.description
+                </textarea>
+            </div>
+        </div>
+
+        <!--Fotos-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="required">*</span><strong>Fotos:</strong> </label>
+
+        </div>
+
+        <div class="row">
+
+            <div class="field col-sm-6 ng-scope">
+                <label class="control-label text-right col-sm-4 ng-binding">Foto 01</label>
+                <div class="col-sm-8">
+                    <input id="Foto1" name="Foto1" value="@Model.images[0]" class="form-control ng-pristine ng-invalid ng-invalid-required" placeholder="http://www.site.com.br/imagem.jpg" required="required">
+                </div>
+            </div>
+            <div class="field col-sm-6 ng-scope">
+                <label class="control-label text-right col-sm-4 ng-binding">Foto 02</label>
+                <div class="col-sm-8">
+                    <input id="Foto2" name="Foto2" value="@Model.images[1]"  class="form-control ng-pristine ng-invalid ng-invalid-required" placeholder="http://www.site.com.br/imagem.jpg">
+                </div>
+            </div>
+            <div class="field col-sm-6 ng-scope">
+                <label class="control-label text-right col-sm-4 ng-binding">Foto 03</label>
+                <div class="col-sm-8">
+                    <input id="Foto3" name="Foto3" value="@Model.images[2]"    class="form-control ng-pristine ng-invalid ng-invalid-required" placeholder="http://www.site.com.br/imagem.jpg">
+                </div>
+            </div>
+            <div class="field col-sm-6 ng-scope">
+                <label class="control-label text-right col-sm-4 ng-binding">Foto 04</label>
+                <div class="col-sm-8">
+                    <input id="Foto4" name="Foto4" value="@Model.images[3]"  class="form-control ng-pristine ng-invalid ng-invalid-required" placeholder="http://www.site.com.br/imagem.jpg">
+                </div>
+            </div>
+            <div class="field col-sm-6 ng-scope">
+                <label class="control-label text-right col-sm-4 ng-binding">Foto 05</label>
+                <div class="col-sm-8">
+                    <input id="Foto5" name="Foto5" value="@Model.images[4]"   class="form-control ng-pristine ng-invalid ng-invalid-required" placeholder="http://www.site.com.br/imagem.jpg">
+                </div>
+            </div>
+            <div class="field col-sm-6 ng-scope">
+                <label class="control-label text-right col-sm-4 ng-binding">Foto 06</label>
+                <div class="col-sm-8">
+                    <input id="Foto6" name="Foto6" value="@Model.images[5]"  class="form-control ng-pristine ng-invalid ng-invalid-required" placeholder="http://www.site.com.br/imagem.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="row">.
+            </div>
+
+            <!--Dimensões-->
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <strong>Dimensões:</strong>
+                </div>
+
+                <div class="col-sm-2">
+                    Altura (m)*:
+                </div>
+                <div class="col-sm-2">
+                    Largura (m)*:
+                </div>
+                <div class="col-sm-2">
+                    Comprimento (m)*:
+                </div>
+                <div class="col-sm-2">
+                    Peso (kg)*:
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                </div>
+
+                <div class="col-sm-2">
+                    <input id="Altura" name="height" value="@Model.height" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" jmask="{'format': '000.000.000,00','recursive': 'true'}" ng-model="NewItemModel.geral.altura" ng-required="true" ng-disabled="NewItemModel.skus.length === 0" maxlength="14" autocomplete="off" required="required">
+                </div>
+                <div class="col-sm-2">
+                    <input id="Largura" name="width" value="@Model.width" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" jmask="{'format': '000.000.000,00','recursive': 'true'}" ng-model="NewItemModel.geral.largura" ng-required="true" ng-disabled="NewItemModel.skus.length === 0" maxlength="14" autocomplete="off" required="required">
+                </div>
+                <div class="col-sm-2">
+                    <input id="Comprimento" name="length" value="@Model.length" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" jmask="{'format': '000.000.000,00','recursive': 'true'}" ng-model="NewItemModel.geral.comprimento" ng-required="true" ng-disabled="NewItemModel.skus.length === 0" maxlength="14" autocomplete="off" required="required">
+                </div>
+                <div class="col-sm-2">
+                    <input id="Peso" name="weight" value="@Model.weight" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" jmask="{'format': '000.000.000,00','recursive': 'true'}" ng-model="NewItemModel.geral.peso" ng-required="true" ng-disabled="NewItemModel.skus.length === 0" maxlength="14" autocomplete="off" required="required">
+                </div>
+            </div>
+
+            <div class="row">
+                .
+            </div>
+
+            <!--Informações Anúncio-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><span class="required">*</span><strong>Preço:</strong> </label>
+
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <label class="control-label text-right col-sm-6">Preço De (R$)<sup>*</sup>:</label>
+                        <div class="col-sm-6">
+                            <input id="Comprimento" value="@Model.promotional_price" name="promotional_price" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" jmask="{'format': '000.000.000,00','recursive': 'true'}" ng-model="NewItemModel.preco.precoDe" ng-required="!precoPorMarca" ng-disabled="NewItemModel.skus.length === 0" maxlength="14" autocomplete="off" required="required">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="row">
+                        <label class="control-label text-right col-sm-6">Preço Por (R$)<sup>*</sup>:</label>
+                        <div class="col-sm-6">
+                            <input name="price" value="@Model.price" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" jmask="{'format': '000.000.000,00','recursive': 'true'}" ng-model="NewItemModel.preco.precoPor" ng-required="!precoPorMarca" ng-disabled="NewItemModel.skus.length === 0" maxlength="14" autocomplete="off" required="required">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 text-right">
+                   <!-- <a ng-click="trocaPreco()"><i class="glyphicon glyphicon-usd"></i> Utilizar preço diferente por marca</a>
+                       -->
+                </div>
+            </div>
+
+            <!--Variações do produto-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><span class="required">*</span><strong>Detalhes Produto:</strong></label>
+
+            </div>
+
+            <div class="row">
+                <div class="field col-sm-12">
+                    <table class="table table-striped" id="sku-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">EAN*</th>
+                                <th>COR</th>
+                                <th>TAMANHO</th>
+                                <th>VOLTAGEM</th>
+                                <th class="text-center">Estoque*</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="Linha1">
+                                <td><input id="Ean" name="Ean" value="@Model.ean" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" required="required"></td>
+                                <td><input id="Cor" name="Cor" value="@Model.Cor" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" maxlength="14"></td>
+                                <td><input id="Tamanho" name="Tamanho" value="@Model.Tamanho" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" maxlength="14"></td>
+                                <td><input id="Voltagem" name="Voltagem" value="@Model.Voltagem" class="form-control text-right ng-pristine ng-invalid ng-invalid-required" maxlength="14"></td>
+                                <td><input id="Estoque" name="qty" value="@Model.qty" type="number" class="text-right form-control ng-pristine ng-valid ng-valid-number ng-valid-min ng-valid-required" min="0"></td>
+                                <td class="text-center"><img onclick='remove(this)' src="~/Images/btnMenos.png" /></td>
+                            </tr>
+                           
+
+                        </tbody>
+                    </table>
+
+                  </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><span class="required"></span><strong>Variações</strong></label>
+
+            </div>
+            <div class="field col-sm-12">
+                <div id="DemaisVariacoes">
+                    @{int i = 1;
+                        if (Model.variations != null)
+                        {
+                            foreach (var item in Model.variations)
+                            {     <div class="rows">&nbsp;</div>
+                                    <div class='form-group'><label class='col-sm-2 control-label'>Variação @i</label></div>
+                                    <div class='rows' id='Variacoes" + TotalSku + "'>
+                                        <div class='col-md-2'>
+                                            <input id='Sku' placeholder='Sku' name=@("Sku" + i)  value='@item.sku' class='form-control text-right ng-pristine ng-invalid ng-invalid-required' maxlength='14'>
+                                        </div>
+                                        <div class='col-md-2'>
+                                            <input id='Ean' placeholder='Ean' name=@("Ean" + i) value='@item.ean' class='form-control text-right ng-pristine ng-invalid ng-invalid-required' required='required'>
+                                        </div>
+                                        <div class='col-md-1'>
+                                            <input id='Cor' placeholder='Cor' name=@("Cor" + i) value="@item.specifications[0].value" class='form-control text-right ng-pristine ng-invalid ng-invalid-required' maxlength='14'>
+                                        </div>
+                                        <div class='col-md-2'>
+                                            <input id='Tamanho' placeholder='Tamanho' name=@("Tamanho" + i) value="@item.specifications[1].value" class='form-control text-right ng-pristine ng-invalid ng-invalid-required' maxlength='14'>
+                                        </div>
+                                        <div class='col-md-2'>
+                                            <input id='Voltagem' placeholder='Voltagem' name=@("Voltagem" + i) value="@item.specifications[2].value" class='form-control text-right ng-pristine ng-invalid ng-invalid-required' maxlength='14'>
+                                        </div>
+                                        <div class='col-md-2'>
+                                            <input id='Estoque' placeholder='Estoque' name=@("qty" + i) value="@item.qty" type='number' class='text-right form-control ng-pristine ng-valid ng-valid-number ng-valid-min ng-valid-required' min='0'>
+                                        </div>
+                                        <div class='col-md-1'>
+                                               <button type='button' class='removeButton'>--</button>  
+                                         </div>
+                                    </div>
+                                    <div id='DivImagem" + TotalSku + "'>
+                                        <div class='rows'>
+                                            <div class='col-md-4'>
+                                                *Foto 1
+                                            </div>
+                                            <div class='col-md-4'>
+                                                Foto 2
+                                            </div>
+                                            <div class='col-md-4'>
+                                                Foto 3
+                                            </div>
+                                        </div>
+                                        <div class='rows'>
+                                            <div class='col-md-4'>
+                                                <input type='text' name='ImagemVariacaoFoto1" + TotalSku + "' class='form-control' required placeholder='http://www.site.com.br/imagem.jpg'>
+                                            </div>
+                                            <div class='col-md-4'>
+                                                <input type='text' name='ImagemVariacaoFoto2" + TotalSku + "' class='form-control' placeholder='http://www.site.com.br/imagem.jpg'>
+                                            </div>
+                                            <div class='col-md-4'>
+                                                <input type='text' name='ImagemVariacaoFoto3" + TotalSku + "' class='form-control' placeholder='http://www.site.com.br/imagem.jpg'>
+                                            </div>
+                                        </div>
+                                        <div class='rows'>
+                                            <div class='col-md-4'>
+                                                Foto 4
+                                            </div>
+                                            <div class='col-md-4'>
+                                                Foto 5
+                                            </div>
+                                            <div class='col-md-4'>
+                                                Foto 6
+                                            </div>
+                                        </div>
+                                        <div class='rows'>
+                                            <div class='col-md-4'>
+                                                <input type='text' name='ImagemVariacaoFoto4" + TotalSku + "' class='form-control' placeholder='http://www.site.com.br/imagem.jpg'>
+                                            </div>
+                                            <div class='col-md-4'>
+                                                <input type='text' name='ImagemVariacaoFoto5" + TotalSku + "' class='form-control' placeholder='http://www.site.com.br/imagem.jpg'>
+                                            </div>
+                                            <div class='col-md-4'>
+                                                <input type='text' name='ImagemVariacaoFoto6" + TotalSku + "' class='form-control' placeholder='http://www.site.com.br/imagem.jpg'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                i++;
+                            }
+                        }
+                    }
+                </div>
+                    <div id="ImagensVariacao">
+
+                    
+
+
+
+                    </div>
+                <div class="rows">&nbsp;</div>
+                <div class="rows">&nbsp;</div>
+                <div class="rows">&nbsp;</div>
+                        <div>
+                            <img id="AdicionarSku" class="pull-right ng-scope" src="http://myfeeds.com.br/btnAdicionarSku.png" />
+                        </div>
+                    </div>
+
+                    <div class="rows">&nbsp;</div>
+                    <div class="rows">&nbsp;</div>
+                         <!--Rodapé Botão Salvar-->
+                                <div class="modal-footer ng-scope">
+                                    <input type="submit" name="SaveData" id="btnsave" value="Salvar Produto" class="btn btn-primary" />
+                                </div>
+                                 }
+</form>
+</div>
+<script type="text/javascript">
+(function($, window)
+{
+	$(function($)
+	{
+		// that's it!
+		$("textarea#id_cazary").cazary();
+
+		// customized editor
+		$("textarea#id_cazary_minimal").cazary({
+			commands: "MINIMAL"
+		});
+		$("textarea#id_cazary_full").cazary({
+			commands: "FULL"
+		});
+	});
+})(jQuery, window);
+</script>

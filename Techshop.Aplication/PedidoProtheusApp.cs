@@ -40,7 +40,7 @@ namespace Techshop.Aplication
 
         }       
 
-        public void IncluirPedidosBaseEspelhoProtheus()
+        public string IncluirPedidosBaseEspelhoProtheus()
         {
 
             try
@@ -59,7 +59,7 @@ namespace Techshop.Aplication
                 LogerroApp objLogerroApp = new LogerroApp();
                 string CodigoParceiro = "";
                 PedidosApp objPedidosApp = new PedidosApp();
-
+                RomaneioRep objRomaneioRep = new RomaneioRep();
 
                 #endregion
 
@@ -73,7 +73,7 @@ namespace Techshop.Aplication
 
                         TipoPedido = "N",
                         TipoFrete = "C",
-                        CodigoTransportadora = objTransportadoraRep.RetornaTransportadora(item.DescricaoCep, item.DescricaoRegiao),
+                        CodigoTransportadora = "Coment",//objTransportadoraRep.RetornaTransportadora(item.DescricaoCep, item.DescricaoRegiao),
                         CodigoTabelaPrecos = "07",
                         Parceiro = CodigoParceiro,
                         DescricaoCanal = item.DescricaoCanal,
@@ -86,7 +86,7 @@ namespace Techshop.Aplication
                         DescricaoTelefone2 = item.DescricaoTelefone2,
                         DescricaoTelefone3 = item.DescricaoTelefone3,
                         DescricaoTelefone4 = item.DescricaoTelefone4,
-                        DataNascimento = item.DataNascimento,
+                        //DataNascimento = Convert.ToDateTime("01/01/77"),
                         DescricaoBairro = item.DescricaoBairro,
                         DescricaoCep = item.DescricaoCep,
                         DescricaoCidade = item.DescricaoCidade,
@@ -95,6 +95,7 @@ namespace Techshop.Aplication
                         DescricaoPais = item.DescricaoPais,
                         DescricaoRegiao = item.DescricaoRegiao,
                         DescricaoRua = item.DescricaoRua,
+                        DescricaoNumeroDestinatario = item.DescricaoNumero,
                         CodigoPedidoSkyhub = item.CodigoPedido,
                         Remetente = "Tech SHOP.COM.BR COMERCIO e SERVICO DE INFORMATICA LTDA",
                         RemetenteCnpj = "08351293000830",
@@ -103,16 +104,23 @@ namespace Techshop.Aplication
                         RemetenteBairro = "Carlos Prates",
                         RemetenteCep = "30710-360",
                         RemetenteTelefone = "3125337777",
+                        RemetenteCidade = "Belo Horizonte",
+                        RemetenteEstado="MG",
                         //Informação deverá vir do Protheus
                         PesoReal = "1",
-                        NumeroPedidoProtheus = "",
+                        NumeroPedidoProtheus = "4444444",
                         Danfe = "31170108351293000830550010000385021002111085",
                         NumeroNotaFiscal = "000038502",
+                        //DataNotaFiscal = Convert.ToDateTime("01/01/17"),
                         SerieNotaFiscal = "1",
                         ValorDeclaradoNota = "793,50",
                         Volumes = "1",
                         Transportadora = "Jadlog",
 
+                        DataCadastro = DateTime.Now,
+                        DataAlteracao = DateTime.Now,
+                        DataNascimento = DateTime.Now,
+                        DataNotaFiscal = DateTime.Now,
                         //Validar com Ricardo
                         Especie = "N Inform.",
                         Conteudo = "N Inform.",
@@ -134,7 +142,7 @@ namespace Techshop.Aplication
 
                     foreach (ItemPedidos itemPedido in objItemPedidoRep.Listar(item.CodigoPedido))
                     {
-                        entidadeProtheus.CodigoVendendor = objVendedorApp.RetornaVendedor(itemPedido.CodigoId, CodigoParceiro);
+                        entidadeProtheus.CodigoVendendor = "Coment";//objVendedorApp.RetornaVendedor(itemPedido.CodigoId, CodigoParceiro);
 
                         var EntidadeItensPedidosProtheus = new ItemPedidoProtheus
                         {
@@ -146,20 +154,40 @@ namespace Techshop.Aplication
                         listItens.Add(EntidadeItensPedidosProtheus);
                     }
 
-                    entidadeProtheus.ItemPedidoProtheus = listItens;     
 
-                    objPedidosProtheusRep.Criar(entidadeProtheus);
+                    entidadeProtheus.ItemPedidoProtheus = listItens;
+                    //EntidadeRomaneio.StatusRomaneio
 
+                    Romaneio objRomaneio = new Romaneio();
+
+
+                    entidadeProtheus.Romaneios = objRomaneio;
+
+                   int CodigoPedidoProtheus = objPedidosProtheusRep.CriarPedido(entidadeProtheus);
+
+                    var EntidadeRomaneio = new Romaneio
+                    {
+                        CodigoGrupo = 0,
+                        StatusRomaneio = 0,
+                        CodigoPedidoProtheus = CodigoPedidoProtheus,
+                        DescricaoStatus="Romaneio Aberto"
+                        
+                    };
+                                                      
+                    objRomaneioRep.Criar(EntidadeRomaneio);
+                  
                     //Indica que o produto foi importado Protheus
                     objPedidosApp.IndicaPedidoImportadoBaseEspelhoProtheus(item.CodigoPedido);
 
                 }
+
+                return "Pedidos Inseridos com Sucesso";
             }
             catch (Exception ex)
             {
                 LogerroApp LogerroApp = new LogerroApp();
-                LogerroApp.GravarLogErro("Exportação Dados Espelho Protheus", "Erro inserção pedido", ex.InnerException.Message);
-          
+                LogerroApp.GravarLogErro("Exportação Dados Espelho Protheus", "Erro inserção pedido", ex.InnerException.InnerException.Message);
+                return ex.InnerException.InnerException.Message;
             }
 
         }

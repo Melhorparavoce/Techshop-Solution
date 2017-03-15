@@ -23,19 +23,26 @@ namespace Techshop.Repositoy.CodeFirst
         public DbSet<ItemPedidoProtheus> ItemPedidoProtheus { get; set; }
         public DbSet<ItemPedidos> ItemsPedido { get; set; } 
         public DbSet<Marketplace> Marketplace { get; set; }   
-        public DbSet<Logerro> Logerro { get; set; }  
+        public DbSet<Logerro> Logerro { get; set; } 
+        public DbSet<Romaneio> Romaneio { get; set; }
+
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<SubCategoria> SubCategorias { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            #region Relacionamento Pedidos Protheus
 
-            modelBuilder.Entity<ItemPedidoProtheus>()
-                       .HasRequired<PedidoProtheus>(s => s.PedidoProtheus) 
-                       .WithMany(s => s.ItemPedidoProtheus)
-                       .HasForeignKey(s => s.CodigoPedido);   
+       
 
+            #region Configuração de Datas
+
+            modelBuilder.Properties<System.DateTime>()
+            .Configure(c => c.HasColumnType("datetime2"));
 
             #endregion
+
+           
 
             #region Relacionamento Pedidos Skyhub
 

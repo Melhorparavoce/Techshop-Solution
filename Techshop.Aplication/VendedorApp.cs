@@ -2,7 +2,7 @@
 using SkyHubAdapter.Application;
 using SkyHubAdapter.Domain.SkyHub;
 using Techshop.Repositoy.CodeFirst;
-using Techshop.Model;  
+using Techshop.Model;
 using System.Collections.Generic;
 using Protheus.Repository;
 
@@ -21,13 +21,13 @@ namespace Techshop.Aplication
         #endregion
 
         #region Métodos
-      
 
-        public string RetornaVendedor(string Produto,string Parceiro)
+
+        public string RetornaVendedor(string Produto, string Parceiro)
         {
             List<Vendedor> list = objVendedorRep.Consulta(Produto);
 
-            if(Parceiro=="B2W")
+            if (Parceiro == "B2W")
             {
                 return list[0].VendedorB2W;
             }
@@ -41,13 +41,15 @@ namespace Techshop.Aplication
                 return "N Encont";
 
             }
-               
+
             return "";
-                      
+
         }
 
         #endregion
-       
+
     }
 
 }
+
+

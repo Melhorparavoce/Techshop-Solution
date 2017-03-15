@@ -19,6 +19,7 @@ namespace Techshop.Aplication
         private string CnpjTechshop;
         private WsdlJadlog.NotfisBeanService wsNotifisbean;
         private wsJadlogConsulta.TrackingBeanService wsConsultajadLog;
+        private LogerroApp objLogerroApp;
         public JadlogApp()
         {
             objPedidosProtheusRep = new PedidosProtheusRep();
@@ -27,7 +28,7 @@ namespace Techshop.Aplication
             CodigoCliente = ConfigurationSettings.AppSettings["CodigoClienteJadlog"];
             SenhaCliente = ConfigurationSettings.AppSettings["SenhaWebserviceJadlog"];
             CnpjTechshop = ConfigurationSettings.AppSettings["CnpjTechshop"];
-            
+            objLogerroApp = new LogerroApp();
         }
         #endregion
 
@@ -39,6 +40,39 @@ namespace Techshop.Aplication
 
             return null;
         }
+
+
+        public void AtualizarInformacaoPedidoTransportadora()
+        {
+           try
+            {
+
+                foreach (PedidoProtheus item in objPedidosProtheusRep.Listar(4))
+                {
+
+                    wsJadlogConsulta.TrackingBeanService obj = new wsJadlogConsulta.TrackingBeanService();
+                    string MensagemRetorno = obj.consultarPedido(CnpjTechshop, SenhaCliente, "264068697201");
+                    stringRetorno Resultado = XmlHelper.Deserializacao<stringRetorno>(TratarXmlJadLog(MensagemRetorno, "stringRetorno"));
+
+                    objPedidosProtheusRep.AtualizaStatus(item.CodigoPedidoProtheus, 5);
+
+                    /*if (Resultado.Jadlog_Tracking_Consultar.ND.Status == "ENTREGUE")
+                    {
+                        objPedidosProtheusRep.AtualizaStatus(5, 6);   
+
+                    }     */
+
+
+                }
+
+            }catch(Exception ex)
+            {
+                objLogerroApp.GravarLogErro("Consulta Situação de Pedido Jadlog", "Erro ao consulta pedido Jadlog", ex.Message);
+
+            }
+
+        }
+
 
         public string EnviarInformacoesTransportadora(int CodigoPedido)
         {
@@ -84,46 +118,49 @@ namespace Techshop.Aplication
 
                 stringRetorno obj = XmlHelper.Deserializacao<stringRetorno>(TratarXmlJadLog(MensagemRetorno, "stringRetorno"));
 
-                
-                switch (obj.Jadlog_Pedido_eletronico_Inserir.Retorno)
-                {
-                    case "-1":
-                        {
 
-                            return  "Pedido " + entidade.CodigoPedido + ", NF:" + entidade.NumeroNotaFiscal + ", erro ao registrar o pedido na Jadlog, mensagem: "+ obj.Jadlog_Pedido_eletronico_Inserir.Mensagem;
-                        }
-                    case "-2":
-                        {
-                            return "Pedido " + entidade.CodigoPedido + ", NF:" + entidade.NumeroNotaFiscal + ", erro ao registrar o pedido na Jadlog, mensagem: " + obj.Jadlog_Pedido_eletronico_Inserir.Mensagem;
-                        }
-                    case "-3":
-                        {
-                            return "Pedido " + entidade.CodigoPedido + ", NF:" + entidade.NumeroNotaFiscal + ", erro ao registrar o pedido na Jadlog, mensagem: " + obj.Jadlog_Pedido_eletronico_Inserir.Mensagem;
+                 switch (obj.Jadlog_Pedido_eletronico_Inserir.Retorno)
+                 {
+                     case "-1":
+                         {
 
-                        }
-                    default:
+                             return  "Pedido " + entidade.CodigoPedidoProtheus + ", NF:" + entidade.NumeroNotaFiscal + ", erro ao registrar o pedido na Jadlog, mensagem: "+ obj.Jadlog_Pedido_eletronico_Inserir.Mensagem;
+                         }
+                     case "-2":
+                         {
+                             return "Pedido " + entidade.CodigoPedidoProtheus + ", NF:" + entidade.NumeroNotaFiscal + ", erro ao registrar o pedido na Jadlog, mensagem: " + obj.Jadlog_Pedido_eletronico_Inserir.Mensagem;
+                         }
+                     case "-3":
+                         {
+                             return "Pedido " + entidade.CodigoPedidoProtheus + ", NF:" + entidade.NumeroNotaFiscal + ", erro ao registrar o pedido na Jadlog, mensagem: " + obj.Jadlog_Pedido_eletronico_Inserir.Mensagem;
 
-                        var MensagemSkyhub = EnviarSkyhubPedidoEnviadoSeguradora(obj.Jadlog_Pedido_eletronico_Inserir.Retorno, entidade.Danfe, entidade.NumeroEntregaSkyhub);
+                         }
+                     default:
 
-                        if (MensagemSkyhub.Success == false)
-                            return "Pedido "+entidade.CodigoPedido + ", NF:"+entidade.NumeroNotaFiscal+" Erro ao alterar o status do pedido Skyhub " + entidade.NumeroEntregaSkyhub + ",Descricao:"+ MensagemSkyhub.Message;
+                        entidade.CodigoColetaJadlog = obj.Jadlog_Pedido_eletronico_Inserir.Retorno;
+                        entidade.StatusPedido = 4;
+                        objPedidosProtheusRep.Atualizar(entidade);                        
 
-                        objPedidosProtheusRep.AtualizaStatus(entidade.CodigoPedido, 6);
-                        
-                        return "Pedido " + entidade.CodigoPedido + ", NF:" + entidade.NumeroNotaFiscal + ", enviado com sucesso, código coleta nº"+obj.Jadlog_Pedido_eletronico_Inserir.Retorno;
-                }
-                              
+                         return "Pedido " + entidade.CodigoPedidoProtheus + ", NF:" + entidade.NumeroNotaFiscal + ", enviado com sucesso, código coleta nº"+obj.Jadlog_Pedido_eletronico_Inserir.Retorno;
+                 }   
+
             }
             catch (Exception ex)
             {
                 Mensagem = "Erro ao enviar o pedido nº:" + CodigoPedido +"-"+ ex.Message;
                 return Mensagem;
             }
-        }        
-
+        }
+                       
         public ResultProcessing EnviarSkyhubPedidoEnviadoSeguradora(string CodigoParaRastreio,string ChaveNotaFiscal,string CodigoPedidoSkyhub)
         {
-           
+
+            //var MensagemSkyhub = EnviarSkyhubPedidoEnviadoSeguradora(obj.Jadlog_Pedido_eletronico_Inserir.Retorno, entidade.Danfe, entidade.NumeroEntregaSkyhub);
+
+          //  if (MensagemSkyhub.Success == false)
+               // return "Pedido " + entidade.CodigoPedido + ", NF:" + entidade.NumeroNotaFiscal + " Erro ao alterar o status do pedido Skyhub " + entidade.NumeroEntregaSkyhub + ",Descricao:" + MensagemSkyhub.Message;
+
+
             var newInvoice = new Invoice { key = ChaveNotaFiscal };
             var newShipment = new Shipment
             {

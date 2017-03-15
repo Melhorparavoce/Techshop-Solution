@@ -11,6 +11,8 @@ namespace SkyHubAdapter.Application.Interfaces
 
         ResultProcessing Get(string code = "");
 
+     //   ResultProcessing Get(string sku = "", string nome, int quantInicial, int quantFinal);
+            
         ResultProcessing Delete(string code);
     }
 }
